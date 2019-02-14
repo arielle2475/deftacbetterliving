@@ -35,6 +35,6 @@ mysqli_query($conn, $sql);
 $message2 = "Successfully Sent Registration. Please pay at the gym to start enjoying your service";
 echo "<script type='text/javascript'>alert('$message2');</script>"; 
 */
-header("Location: newmember.php?signup=success");
+header("Location: submit.php");
 
 

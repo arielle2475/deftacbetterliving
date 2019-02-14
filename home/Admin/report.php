@@ -62,8 +62,11 @@ body{
 						</ul>
 				<li class="active"><a href="report.php">Reports
 				</a></li>
-										  <li ><a href="editadmin.php">Admins</a></li>
-
+        <li ><a class="drop" href="#">Admin</a>
+                <ul>
+										  <li class="active" ><a href="editadmin.php">Admins</a></li>
+                                          <li class="active" ><a href="adminsubmit.php">Add New Admin</a></li>
+</ul>
 						  <li><a href="../signin/loginadmin.php">Logout</a></li>
 
 				

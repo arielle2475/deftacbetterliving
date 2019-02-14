@@ -143,8 +143,11 @@ body{
 						</ul>
 				<li><a href="report.php">Reports
 				</a></li>
+                <li ><a class="drop" href="#">Admin</a>
+                <ul>
 										  <li class="active" ><a href="editadmin.php">Admins</a></li>
-
+                                          <li class="active" ><a href="adminsubmit.php">Add New Admin</a></li>
+</ul>
 						  <li><a href="../signin/loginadmin.php">Logout</a></li>
 
 				
@@ -162,137 +165,107 @@ body{
 <div id="box1" class="wrapper row3" style="background-image:url('../images/demo/bgall.jpg');">
 
 <div id=form >
-<h1> Current Admins </h1>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "thesis";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT * FROM admins";
-$result = mysqli_query($conn, $sql);
-echo " <a href='../Signin/login.php'></a> 
-<table><tr>
-	<th>Avatar</ th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Status</th>
-  </tr>";
-echo "<tr>";
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-
-	
-
-	
-	
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td><img src='".$row['adminavatar']."'></td><td>" . $row["adminname"]. "</td> <td>" . $row["adminemail"]. "</td>"	;
-$active=$row['isactive'];
-	 	if($active==1){
-		echo "<td><a href='deactivateadmin.php/?update=$row[id]'><button class='success'>Active</button></a></td></tr>";    
-	    }
-	    if($active==0){
-		echo "<td><a href='activateadmin.php/?update=$row[id]'><button class='danger'>Blocked</button></a></td></tr>";    
-	    }
-
-	  
-}}
-
-echo "
-</table>";
-mysqli_close($conn);
-?>
-</div>
-
 <?php  
 
-    $_SESSION['message'] = '';
+$_SESSION['message'] = '';
 $mysqli = new mysqli("localhost", "root", "", "thesis");
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if ($_POST['password'] == $_POST['confirmpassword']) {
+if ($_POST['password'] == $_POST['confirmpassword']) {
 
-      
-        //define other variables with submitted values from $_POST
-        $username = $mysqli->real_escape_string($_POST['adminname']);
-        $email = $mysqli->real_escape_string($_POST['adminemail']);
+  
+    //define other variables with submitted values from $_POST
+    $username = $mysqli->real_escape_string($_POST['adminname']);
+    $email = $mysqli->real_escape_string($_POST['adminemail']);
 
-        //md5 hash password for security
-        $password = md5($_POST['password']);
+    //md5 hash password for security
+    $password = md5($_POST['password']);
 
-        //path were our avatar image will be stored
-        $avatar_path = $mysqli->real_escape_string('../Signin/images/'.$_FILES['adminavatar']['name']);
-        
-        // if (preg_match("!images!",$_FILES['avatar']['type']))   {         
-         //copy image to images/ folder 
-         if (copy($_FILES['adminavatar']['tmp_name'], $avatar_path)) {
-              //set session variables to display on welcome page
-    $_SESSION['adminname'] = $username;
-    $_SESSION['adminavatar'] = $avatar_path;
+    //path were our avatar image will be stored
+    $avatar_path = $mysqli->real_escape_string('../Signin/images/'.$_FILES['adminavatar']['name']);
+    
+    // if (preg_match("!images!",$_FILES['avatar']['type']))   {         
+     //copy image to images/ folder 
+     if (copy($_FILES['adminavatar']['tmp_name'], $avatar_path)) {
+          //set session variables to display on welcome page
+$_SESSION['adminname'] = $username;
+$_SESSION['adminavatar'] = $avatar_path;
 
-    //create SQL query string for inserting data into the database
-    $sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
-    . "VALUES ('$username', '$email', '$password', '$avatar_path')";
-             
-             
-                if ($mysqli->query($sql) === true){
-                    $_SESSION['message'] = "Registration successful!"
-                    . "Added $username to the database!";
-                    header("location: editadmin.php");
-                }
-                else {
-                    $_SESSION['message'] = 'User could not be added to the database!';
-                }
-                $mysqli->close();          
+//create SQL query string for inserting data into the database
+$sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
+. "VALUES ('$username', '$email', '$password', '$avatar_path')";
+         
+         
+            if ($mysqli->query($sql) === true){
+                $_SESSION['message'] = "Registration successful!"
+                . "Added $username to the database!";
+                header("location: ../admin/adminsubmit.php");
             }
-            //else {
-              //  $_SESSION['message'] = 'File upload failed!';
-            //}
+            else {
+                $_SESSION['message'] = 'User could not be added to the database!';
+            }
+            $mysqli->close();          
         }
-        else {
-            $_SESSION['message'] = 'Please only upload GIF, JPG or PNG images!';
-        }
+        //else {
+          //  $_SESSION['message'] = 'File upload failed!';
+        //}
     }
-  //  else {
- //       $_SESSION['message'] = 'Two passwords do not match!';
+    else {
+        $_SESSION['message'] = 'Please only upload GIF, JPG or PNG images!';
+    }
+}
+//  else {
+//       $_SESSION['message'] = 'Two passwords do not match!';
 //    }
 //} //if ($_SERVER["REQUEST_METHOD"] == "POST")
 
- ?>
+?>
 
- 
-  
- 
- 
+
+
+
+
 <link href="//db.onlinewebfonts.com/c/a4e256ed67403c6ad5d43937ed48a77b?family=Core+Sans+N+W01+35+Light" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="formstyle.css" type="text/css">
 <div class="body-content">
-  <div id="form">
+<div id="form">
 
-  <div class="module">
-    <h1>Create an Admin account</h1>
-    <form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
-    <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
-      <input type="text" placeholder="User Name" name="adminname" required />
-      <input type="email" placeholder="Email" name="adminemail" required />
-      <input type="password" placeholder="Password" name="password" autocomplete="new-password" required />
-      <input type="password" placeholder="Confirm Password" name="confirmpassword" autocomplete="new-password" required />
-      <div class="avatar"><label>Select your avatar: </label><input type="file" name="adminavatar" accept="image/*" required /></div>
-      <input type="submit" value="Register Admin" name="register" class="btn btn-block btn-primary" />
-	 
-    </form>
-  </div></div>
+<div class="module">
+<h1>Create an Admin account</h1>
+<form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
+<div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
+  <input type="text" placeholder="User Name" name="adminname" required />
+  <input type="email" placeholder="Email" name="adminemail" required />
+  <input type="password" placeholder="Password" name="password" autocomplete="new-password" required />
+  <input type="password" placeholder="Confirm Password" name="confirmpassword" autocomplete="new-password" required />
+  <div class="avatar"><label>Select your avatar: </label><input type="file" name="adminavatar" accept="image/*" required /></div>
+  <input type="submit" value="Register Admin" name="register" class="btn btn-block btn-primary" />
+ 
+</form>
+</div></div>
 </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
 
 <!--- FOOTER -->
 

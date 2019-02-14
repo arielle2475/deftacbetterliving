@@ -119,13 +119,13 @@ body{
 <div id=form >
 
 
-  <center> <h1>  <?php if (count($_POST)>0) echo "Form Submitted!"; ?></h1></center>
+  <!-- <center> <h1>  <?php //if (count($_POST)>0) echo "Form Submitted!"; ?></h1></center> -->
   <br>
 
 <h2>Membership Registration</h2>
 
 <center><i><p>The membership costs one thousand five hundred pesos (P1,500.00) and it is good for only one month. If expired, member may renew their membership by paying again.</p></i></center>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+   
 
 <form method="POST" action="filldb.php">  
    Firstname: <input type="text" name="fname">

@@ -1,27 +1,98 @@
-<title>Deftac Betterliving Admin | Userlist</title>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Admin Registered</p>
+</body>
+</html> -->
+
+
 <?php 
 session_start();
 ?>
-<head>
+<html>
+<title>Deftac Betterliving Admin | Edit Admins </title>
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link href="../layout/styles/fullcalendar.css" rel="stylesheet" type="text/css" media="all">
-
 <style>
 
+ #box1{
+    height: 100vh;
+    width: 100%;
+    background-image: url(i1.jpg);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+        }
+   
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
 
 #form{
 	    border-radius: 10px;
     background-color: #f2f2f2;
     padding: 20px;
-	    width: 100%;
-		    margin: auto;
+	    width: 80%;
+		margin:10px;
+			  margin-left: auto;
+    margin-right: auto;;
+
 
 }
 
-
-#margin {
-    padding: 100px;
+body{
+	background: #FFF;
+    margin: 0;
+	padding: 0;
+	text-align:justify;
 }
+
 
 
 .success {background-color: #4CAF50;
@@ -59,10 +130,7 @@ session_start();
 .danger:hover {background: #da190b;}
 
 
-
 </style>
-
-</head>
 
 <body id="top">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -78,32 +146,28 @@ session_start();
       <div id="logo" class="fl_left">
         <h1><a href="../index.html">Deftac Betterliving | Admin</a></h1>
       </div>
-        <nav id="mainav" class="fl_right">
+    <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="index.php">Home</a></li>
-		  	  <li class="active"><a class="drop" href="#">Membership</a>
+		  	  <li ><a class="drop" href="#">Membership</a>
 						<ul>
 						   <li ><a href="memberlist.php">Membership Information</a></li>
-						  <li class="active"><a href="userlist.php">Membership Status</a></li>
+						  <li><a href="userlist.php">Membership Status</a></li>
 
 						</ul>
 				<li><a href="report.php">Reports
 				</a></li>
-
-           <li ><a class="drop" href="#">Admin</a>
+                <li ><a class="drop" href="#">Membership</a>
                 <ul>
 										  <li class="active" ><a href="editadmin.php">Admins</a></li>
                                           <li class="active" ><a href="adminsubmit.php">Add New Admin</a></li>
 </ul>
-										 
-
 						  <li><a href="../signin/loginadmin.php">Logout</a></li>
 
 				
           </li>
         </ul>
       </nav>
-      <!-- ########
       <!-- ################################################################################################ --> 
     </header>
   </div>
@@ -114,15 +178,8 @@ session_start();
 </div></div>
 <div id="box1" class="wrapper row3" style="background-image:url('../images/demo/bgall.jpg');">
 
-
-<div id=margin>
-
-
-
-<div id=form>
-
-
-<h1> Members List </h1>
+<div id=form >
+<h1> Current Admins </h1>
 <?php
 $servername = "localhost";
 $username = "root";
@@ -136,43 +193,43 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
-$sql = "SELECT * FROM users, mfillup WHERE users.username = mfillup.username";
-
+$sql = "SELECT * FROM admins";
 $result = mysqli_query($conn, $sql);
 echo " <a href='../Signin/login.php'></a> 
 <table><tr>
-    <th>Username</th>
-    <th>Email Address</th>
-  
-  <th>Registered Date</th>
-  <th>Status</th>
-
-
+	<th>Avatar</ th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
   </tr>";
 echo "<tr>";
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
 
+	
+
+	
+	
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["username"]. "</td> <td>" . $row["email"]. "</td><td>" . $row["reg_date"]. "</td>"	;
-$active=$row['isActive'];
+        echo "<tr><td><img src='".$row['adminavatar']."'></td><td>" . $row["adminname"]. "</td> <td>" . $row["adminemail"]. "</td>"	;
+$active=$row['isactive'];
 	 	if($active==1){
-		echo "<td><a href='deactivate.php/?update=$row[id]'><button class='success'>Active</button></a></td></tr>";    
+		echo "<td><a href='deactivateadmin.php/?update=$row[id]'><button class='success'>Active</button></a></td></tr>";    
 	    }
 	    if($active==0){
-		echo "<td><a href='activate.php/?update=$row[id]'><button class='danger'>Blocked</button></a></td></tr>";    
+		echo "<td><a href='activateadmin.php/?update=$row[id]'><button class='danger'>Blocked</button></a></td></tr>";    
 	    }
-  
 
+	  
 }}
 
 echo "
 </table>";
 mysqli_close($conn);
 ?>
+</div>
 
-</div></div>
+
 
 <!--- FOOTER -->
 
@@ -221,6 +278,7 @@ mysqli_close($conn);
 
     </footer>
     
+
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
