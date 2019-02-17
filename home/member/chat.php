@@ -9,9 +9,9 @@ include('config.php');
 session_start();
 if(isset($_SESSION['username'])) {}
 else{
-	header('location:http://localhost/YouTube-Tutorials/Chat');
-	}
-?>
+      header("location:http://localhost/deftacbetterliving/home/signin/login.php");
+      }
+    ?>
 <style>
 *{margin:0px; padding:0px;font-family: Helvetica, Arial, sans-serif;}
 #logout{width:60px; height:20px; position:absolute; top:6px; right:20px; margin-bottom:40px; text-align:center; color:#fff}
@@ -49,7 +49,7 @@ $(document).ready(function()
 function post()
 {
   var comment = document.getElementById("comment").value;
-  var name = document.getElementById("names").value;
+  var username = document.getElementById("username").value;
   if(comment && username)
   {
     $.ajax
@@ -59,7 +59,7 @@ function post()
       data: 
       {
          comment:comment,
-	     names:name
+	     names:username
       },
       success: function (response) 
       {

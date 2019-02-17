@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('server.php');?>
 <!DOCTYPE html>
 <html>
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">

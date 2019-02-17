@@ -100,7 +100,8 @@ display: block;float: left;margin-right: 5px;
 				  <li><a class="drop" href="welcome.php">Account</a>
             <ul>
 
-              <li><a href="../signin/login.php">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
+              
             </ul>
           </li>
         </ul>

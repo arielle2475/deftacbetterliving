@@ -11,7 +11,7 @@ if(isset($_POST['comment']) && isset($_POST['names']))
 {
   $username = $mysqli->real_escape_string($_POST['names']);
   $comment = $mysqli->real_escape_string($_POST['comment']);
-  $insert="INSERT INTO comments (names,comment,post_time) VALUES('$name','$comment',CURRENT_TIMESTAMP)";
+  $insert="INSERT INTO comments (names,comment,post_time) VALUES('$username','$comment',CURRENT_TIMESTAMP)";
 }
 
 ?>
