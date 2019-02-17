@@ -6,8 +6,8 @@ include("config.php");
         session_start(); 
     } 
 
-$sql = "SELECT * FROM comments";
-$comm = mysqli_query($conn,$sql);
+
+$comm = mysqli_query($conn,"SELECT * FROM comments");
 while($row=mysqli_fetch_array($comm)){
 	$name=$row['names'];
 	$comment=$row['comment'];
