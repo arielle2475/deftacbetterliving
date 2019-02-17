@@ -3,7 +3,7 @@ include "config.php";
 $id = $_GET['id'];
 
 $query = "SELECT * from users WHERE  id = '$id' ";
-$run = mysqli_query($con, $query);
+$run = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 	$name = $row['username'];
 	$email = $row['email'];
