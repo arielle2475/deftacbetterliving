@@ -1,6 +1,13 @@
-<?php   
-session_start(); //to ensure you are using same session
-session_destroy(); //destroy the session
-header("location:http://localhost/YouTube-Tutorials/Chat"); //to redirect back to "http://localhost/Shop" after logging out
-exit();
+<?php
+include 'config.php';
+
+session_start();
+
+mysqli_query($con, "UPDATE users SET isActive = '0' WHERE email = '$_SESSION[email]' ");
+
+unset($_SESSION['email']);
+session_destroy();
+header( "refresh:0;url=login.php?logout=You Are Successfully Logged out!" ); 
+
+
 ?>
