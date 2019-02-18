@@ -77,6 +77,7 @@ if (isset($_POST['login_user'])) {
   	if (mysqli_num_rows($results) == 1) {
 		$dbResults = $results->fetch_assoc();
 		if ($dbResults['isActive'] == 1) {
+      
 		  $_SESSION['username'] = $username;
 		  $_SESSION['message'] = "You are now logged in";
 		  header('location: ../member/welcome.php');
