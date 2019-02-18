@@ -5,7 +5,7 @@ if(isset($_POST['submit']))
 {
 	$name = $_POST['userName'];
 	$msg = $_POST['userMsg'];
-	$query = "INSERT INTO chat SET username= '$name', msg='$msg'";
+	$query = "INSERT INTO chat SET name= '$name', msg='$msg'";
 	
 	$run = mysqli_query($con, $query);
 	// if($run)

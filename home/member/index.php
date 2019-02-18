@@ -16,7 +16,7 @@ session_start();
 	    <link rel="stylesheet" type="text/css" href="css/ScrollBar.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main2.js"></script>
 	
 	<style type="text/css">
 		hr{
@@ -43,7 +43,7 @@ session_start();
 				<div class="panel-heading" align="center">Online Members</div>
 				<div class="panel-body">
 					<div id="Userlog"> 
-						<!-- <a href="logout.php" style="float: right;" class="btn btn-danger btn-sm">Logout</a> --></div>
+						<a href="logout.php" style="float: right;" class="btn btn-danger btn-sm">Logout</a></div>
 				</div>
 			</div>
 		</div>

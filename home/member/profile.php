@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 						</div>
 						<div class="panel-body">
 								<label>User name</label>
-								<input type="text" name="name" value="<?php echo $name ?>" class="form-control" readonly>
+								<input type="text" name="username" value="<?php echo $name ?>" class="form-control" readonly>
 								<label>Email</label>
 								<input type="text" name="email" value="<?php echo $email ?>" class="form-control" readonly>
 								<div class="panel-footer" align="center">
