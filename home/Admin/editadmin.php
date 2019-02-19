@@ -1,6 +1,18 @@
 <?php 
 session_start();
 ?>
+        <div id="wrapper">
+
+<!-- Navigation -->
+<?php include"includes/admin_navigation.php"; ?>
+ 
+<!-- Content of the admin page --->
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+
 <html>
 <title>Deftac Betterliving Admin | Edit Admins </title>
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -314,7 +326,15 @@ $sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
       </div>
 
     </footer>
-    
+    </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
 
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 <!-- JAVASCRIPTS --> 
