@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+  session_destroy();
+  header('location: ../Signin/login.php?error=Login to access chat.');
+  }
 ?>
 <html>
 <head>
@@ -100,7 +104,8 @@ display: block;float: left;margin-right: 5px;
 				  <li><a class="drop" href="welcome.php">Account</a>
             <ul>
 
-              <li><a href="../signin/login.php">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
+              
             </ul>
           </li>
         </ul>
@@ -196,5 +201,13 @@ while($row = $result->fetch_assoc()){
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
+<script>
+    THREEWEEKS = 1000 * 3600 * 24 * 7 * 3; // milliseconds in 3 weeks
+
+    $message = $username
+if (expirationDate.getTime() - Date.now() < THREEWEEKS) {
+    alert("'Expires in less than 3 weeks.");
+}
+</script>
 </body>
 </html>
