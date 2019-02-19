@@ -185,8 +185,11 @@ if ($_POST['password'] == $_POST['confirmpassword']) {
     //path were our avatar image will be stored
     $avatar_path = $mysqli->real_escape_string('../Signin/images/'.$_FILES['adminavatar']['name']);
     
+
+    //make sure filetype is image
     // if (preg_match("!images!",$_FILES['avatar']['type']))   {         
-     //copy image to images/ folder 
+   
+      //copy image to images/ folder 
      if (copy($_FILES['adminavatar']['tmp_name'], $avatar_path)) {
           //set session variables to display on welcome page
 $_SESSION['adminname'] = $username;
@@ -205,20 +208,21 @@ $sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
             else {
                 $_SESSION['message'] = 'User could not be added to the database!';
             }
-            $mysqli->close();          
+            // $mysqli->close();          
         }
-        //else {
-          //  $_SESSION['message'] = 'File upload failed!';
-        //}
-    }
-    else {
-        $_SESSION['message'] = 'Please only upload GIF, JPG or PNG images!';
-    }
-}
-//  else {
-//       $_SESSION['message'] = 'Two passwords do not match!';
-//    }
-//} //if ($_SERVER["REQUEST_METHOD"] == "POST")
+       else {
+            $_SESSION['message'] = 'File upload failed!';
+        }
+      }
+  //  else {
+  //      $_SESSION['message'] = 'Please only upload GIF, JPG or PNG images!';
+  //  }
+//}
+ else {
+      $_SESSION['message'] = 'Two passwords do not match!';
+   }
+  }
+
 
 ?>
 
