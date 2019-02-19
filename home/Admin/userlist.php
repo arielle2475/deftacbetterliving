@@ -90,10 +90,11 @@ session_start();
 				<li><a href="report.php">Reports
 				</a></li>
 
-           <li ><a class="drop" href="#">Admin</a>
+         <li ><a class="drop" href="#">Admin</a>
                 <ul>
-										  <li class="active" ><a href="editadmin.php">Admins</a></li>
-                                          <li class="active" ><a href="adminsubmit.php">Add New Admin</a></li>
+										  <li class="active" ><a href="adminsubmit.php">Admins</a></li>
+                                          <li class="active" ><a href="editadmin.php">Add New Admin</a></li>
+     
 </ul>
 										 
 
@@ -144,8 +145,9 @@ echo " <a href='../Signin/login.php'></a>
 <table><tr>
     <th>Username</th>
     <th>Email Address</th>
-  
-  <th>Registered Date</th>
+    <th>Registered Date</th>
+  <th>Approved Date</th>
+  <th>End Date</th>
   <th>Status</th>
 
 
@@ -155,7 +157,7 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
 
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["username"]. "</td> <td>" . $row["email"]. "</td><td>" . $row["reg_date"]. "</td>"	;
+        echo "<tr><td>" . $row["username"]. "</td> <td>" . $row["email"]. "</td><td>" . $row["reg_date"]. "</td><td>" . $row["approvedDate"]. "</td><td>" . $row["expirationDate"]. "</td>"	;
 $active=$row['isActive'];
 	 	if($active==1){
 		echo "<td><a href='deactivate.php/?update=$row[id]'><button class='success'>Active</button></a></td></tr>";    

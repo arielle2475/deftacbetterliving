@@ -201,5 +201,13 @@ while($row = $result->fetch_assoc()){
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
 <!-- JAVASCRIPTS --> 
 <script src="layout/scripts/jquery.min.js"></script> 
+<script>
+    THREEWEEKS = 1000 * 3600 * 24 * 7 * 3; // milliseconds in 3 weeks
+
+    $message = $username
+if (expirationDate.getTime() - Date.now() < THREEWEEKS) {
+    alert("'Expires in less than 3 weeks.");
+}
+</script>
 </body>
 </html>
