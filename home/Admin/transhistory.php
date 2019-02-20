@@ -48,7 +48,8 @@ session_start();
 						<ul>
 						   <li class="active"><a href="memberlist.php">Membership Information</a></li>
 						  <li><a href="userlist.php">Membership Status</a></li>
-              <li><a href="transhistory.php">Membership Transaction History</a></li>
+                          <li><a href="transhistory.php">Membership Transaction History</a></li>
+
 						</ul>
 				<li><a href="report.php">Reports
 				</a></li>
@@ -78,7 +79,7 @@ session_start();
 
 
 <div id=form>
-<h1> Members Information </h1>
+<h1> Transaction History </h1>
 <?php
 $servername = "localhost";
 $username = "root";
@@ -92,17 +93,16 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM mfillup";
+$sql = "SELECT * FROM users,mfillup, transhistory WHERE users.id = transhistory.usersid AND mfillup.username=users.username";
 
 $result = mysqli_query($conn, $sql);
 echo " <a href='../Signin/login.php'></a> 
 <table><tr>
     <th>Username</th>
-	<th>Name</th>
-	<th>Gender</th>
-	<th>Contact Number</th>
-	<th>Address</th>
-	<th>Reasons for Joining</th>
+    <th>Name</th>
+	<th>Membership Approved Date</th>
+    <th>Membership Expiration Date</th>
+    <th>Payment</th>
   
   </tr>";
 echo "<tr>";
@@ -110,8 +110,8 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
 
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["username"]. "</td> <td>" . $row["u_fname"]." ".$row["u_lname"].  "</td><td>" . $row["u_gender"]. "</td>
-		<td>" . $row["u_contact"]. "</td><td>" . $row["u_address"]. "</td><td>" . $row["u_joindesc"]. "</td>"	;
+        echo "<tr><td>" . $row["username"]. "</td> <td>" . $row["u_fname"]." ".$row["u_lname"].  "</td><td>" . $row["appDate"]. "</td>
+		<td>" . $row["expDate"]. "</td><td>" . $row["payment"]. "</td>"	;
 
   
 

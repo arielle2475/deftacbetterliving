@@ -139,6 +139,7 @@ body{
 						<ul>
 						   <li ><a href="memberlist.php">Membership Information</a></li>
 						  <li><a href="userlist.php">Membership Status</a></li>
+              <li><a href="transhistory.php">Membership Transaction History</a></li>
 
 						</ul>
 				<li><a href="report.php">Reports
@@ -183,7 +184,7 @@ if ($_POST['password'] == $_POST['confirmpassword']) {
     $password = md5($_POST['password']);
 
     //path were our avatar image will be stored
-    $avatar_path = $mysqli->real_escape_string('../Signin/images/'.$_FILES['adminavatar']['name']);
+    $avatar_path = $mysqli->real_escape_string('../Admin/images/'.$_FILES['adminavatar']['name']);
     
 
     //make sure filetype is image

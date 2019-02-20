@@ -161,6 +161,7 @@ body{
 						<ul>
 						   <li ><a href="memberlist.php">Membership Information</a></li>
 						  <li><a href="userlist.php">Membership Status</a></li>
+                          <li><a href="transhistory.php">Membership Transaction History</a></li>
 
 						</ul>
 				<li><a href="report.php">Reports
