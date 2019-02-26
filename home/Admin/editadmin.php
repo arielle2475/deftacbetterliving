@@ -184,7 +184,7 @@ if ($_POST['password'] == $_POST['confirmpassword']) {
     $password = md5($_POST['password']);
 
     //path were our avatar image will be stored
-    $avatar_path = $mysqli->real_escape_string('../Admin/images/'.$_FILES['adminavatar']['name']);
+    $avatar_path = $mysqli->real_escape_string('..//images/'.$_FILES['adminavatar']['name']);
     
 
     //make sure filetype is image
