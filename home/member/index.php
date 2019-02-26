@@ -15,7 +15,7 @@ session_start();
 	<!-- <script type="text/javascript" src="jquery-3.1.1.min.js"></script> -->
 	    <link rel="stylesheet" type="text/css" href="css/ScrollBar.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/main2.js"></script>
 	
 	<style type="text/css">

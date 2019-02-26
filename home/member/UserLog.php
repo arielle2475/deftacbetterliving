@@ -16,8 +16,16 @@ $name = $_SESSION['username'];
 
 	$con = mysqli_connect("localhost", "root", "", "thesis");
 
-	$query = "SELECT * FROM users WHERE isActive = '1' ";
+	
+	$query="SELECT*
+	FROM users
+	INNER JOIN admins ON users.id = admins.id WHERE users.isActive = '1' and admins.isActive = '1' ";
 	$run = mysqli_query($con, $query);
+	if (!$run) {
+		printf("Error: %s\n", mysqli_error($con));
+		exit();
+	}
+	
 	while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
 		if ($name == $row['username']) {

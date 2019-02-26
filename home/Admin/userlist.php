@@ -2,6 +2,103 @@
 <?php 
 session_start();
 ?>
+
+<?php
+// ADMIN NOTIFIER FUNCTION
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "thesis";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+$query = "SELECT * FROM mfillup";
+$run = mysqli_query($conn, $query);
+while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+    $appDate = $row['approvedDate'];
+    $expDate = $row['expirationDate'];
+    $name = $row['u_fname'];
+    $datediff = strtotime($expDate) - strtotime($appDate);
+    $sum = round($datediff / (60 * 60 * 24));
+    //  echo $sum;
+     switch(true)
+     {
+         case ($sum == 3):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expire in 3 days!")';
+         echo '</script>';
+         break;
+        
+         case ($sum == 2):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expire in 2 days!")';
+         echo '</script>';
+        
+         break;
+        
+
+         case ($sum == 1):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expire in 2 days!")';
+         echo '</script>';
+         break;
+     
+         case ($sum == 0):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'\'s membership has been expired!")';
+         echo '</script>';
+         break;
+         default;
+     
+     
+  }
+
+// $datediff = strtotime($expDate) - strtotime($appDate);
+// $sum = round($datediff / (60 * 60 * 24));
+//  echo $sum;
+
+// switch(true)
+// {
+//     case ($sum <= 3):
+//     echo '<script language="javascript">';
+//     echo 'alert("' . $name .' will get his membership expiration soon!" )';
+//     echo '</script>';
+//     break;
+    
+
+
+    // case ($sum == 0):
+    // echo '<script language="javascript">';
+    // echo 'alert("Your membership has been expire!")';
+    // echo '</script>';
+    // header( "Location: renewal.php" );die;
+    // break;
+    // default;
+
+
+}
+// if($sum <= 3){
+//     echo '<script language="javascript">';
+//     echo 'alert("Your membership will expire in 3 days!")';
+//     echo '</script>';
+//    } 
+// else if($sum <= 2){
+//     echo '<script language="javascript">';
+//     echo 'alert("Your membership will expire in 2 days!")';
+//     echo '</script>';
+//   } 
+// else if($sum <= 1){
+//     echo '<script language="javascript">';
+//     echo 'alert("Your membership will expire in 1 day!")';
+//     echo '</script>';
+//    } 
+// else if ($sum == 0){
+//     header( "Location: ../Signin/login.php" );
+// }
+ 
+?>
 <head>
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link href="../layout/styles/fullcalendar.css" rel="stylesheet" type="text/css" media="all">

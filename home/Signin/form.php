@@ -80,7 +80,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
   else {
   $_SESSION['message'] = "Username already exists!";
   }
-  }
+  } 
   else {
   $_SESSION['message'] = "file upload failed!";
   }
