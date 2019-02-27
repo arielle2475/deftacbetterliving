@@ -23,7 +23,7 @@ session_start();
      center:'title',
      right:'month,agendaWeek,agendaDay'
     },
-    events: 'load.php',
+    events: '../admin/includes/load.php',
     selectable:true,
     selectHelper:true,
     select: function(start, end, allDay)
@@ -111,22 +111,22 @@ session_start();
                             data-target="#navbarResponsive" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="nav navbar-nav ml-auto text-uppercase" style="margin-top:10px;">
-                              <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="welcome.php">Home</a></li>
+							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="welcome.php">Home</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
-                              <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">CHAt</a></li>
-                              <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
-                              <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);margin-right: 60px;opacity: 1;padding-top: -5px;margin-top: -15px;">
-                                        <a class="dropdown-item" role="presentation" href="userprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">My profile</a>
-                                           <a class="dropdown-item" role="presentation" href="editprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">EDIT PROFILE</a>
-                                        <a class="dropdown-item" role="presentation" href="../index.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
+							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="chat.php">CHAt</a></li>                             
+							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
+                              <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="editprofile.php">Edit Profile</a></>        
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </nav>
+                </nav>   
 
     <section style="padding-bottom: -10px;padding-top: 30px;height: 422px;font-family: Montserrat, sans-serif;"><!-- Paradise Slider -->
 	<div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">

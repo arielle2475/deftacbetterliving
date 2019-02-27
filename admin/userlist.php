@@ -154,7 +154,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                            <h1>Welcome,  <span class="user"><?= $_SESSION['adminname'] ?></span></h1>
                             </li>
 
                         </ul>
@@ -162,7 +162,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Admin Status</h1>
+                    <h1>Member Status</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                         <table id="myTable" class="table">
                             <thead>
