@@ -25,18 +25,16 @@ session_start();
             </div>
         </div>
     </nav>
+    <body>
 <?php $_SESSION['message'] = '';
 $mysqli = new mysqli("localhost", "root", "", "thesis");
-
  if($_SERVER['REQUEST_METHOD'] == 'POST') {
 //two passwords are equal to each other
 if ($_POST['password'] == $_POST['confirmpassword']){
-
       $username = $mysqli->real_escape_string($_POST['username']);
       $email = $mysqli->real_escape_string($_POST['email']);
       $password = md5($_POST['password']); //md5 hash password security
       $avatar_path = $mysqli->real_escape_string('images/'.$_FILES['avatar']['name']);
-
     //make sure file type is image
   if (preg_match("!image!", $_FILES['avatar']['type'])){
     //copy image to images/ folder
@@ -50,13 +48,13 @@ if ($_POST['password'] == $_POST['confirmpassword']){
   
   //if the query is successful, redirect to welcome.php page, done!
   if ($mysqli->query($sql) === true) {
-    $_SESSION['message'] = "Registration succesful! Added $username to the database!";header("location: ../nonmember/newmember.php");
+    $_SESSION['message'] = "Registration succesful! Added $username to the database!";header("location: ../member/newmember.php");
   }
   
   else {
   $_SESSION['message'] = "Username already exists!";
   }
-  }
+  } 
   else {
   $_SESSION['message'] = "file upload failed!";
   }
@@ -69,9 +67,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
     $_SESSION['message'] = "Two password do not match!!";
 }
  }
-
 ?>
-
 <div data-aos="fade" data-aos-duration="700" data-aos-delay="200" data-aos-once="true" class="login-dark" style="background-image: url(&quot;../assets/img/bg.gif&quot;);">
         <form class="form" action="form.php"method="post"  enctype="multipart/form-data" style="opacity: 0.85;" autocomplete="off">
             <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    

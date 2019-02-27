@@ -228,7 +228,7 @@ if(isset($_POST['update'])){
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);margin-right: 60px;opacity: 1;padding-top: -5px;margin-top: -15px;">
                                         <a class="dropdown-item" role="presentation" href="userprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">My profile</a>
                                            <a class="dropdown-item" role="presentation" href="editprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">EDIT PROFILE</a>
-                                        <a class="dropdown-item" role="presentation" href="../index.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
+                                        <a class="dropdown-item" role="presentation" href="logout.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
                                     </div>
                                 </li>
                             </ul>

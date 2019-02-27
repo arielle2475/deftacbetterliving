@@ -1,3 +1,12 @@
+<?php 
+include 'config.php';
+include 'action.php';
+session_start();
+	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/login.php?error=Login to access.');
+		}
+ ?>
 <?php include "includes/database.php"; ?>
 <?php 
 session_start();
@@ -33,7 +42,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="editprofile.php">Edit Profile</a></>        
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></>        
                                     </div>
                                 </li>
                             </ul>
