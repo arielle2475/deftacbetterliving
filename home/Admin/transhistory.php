@@ -131,7 +131,7 @@ echo "total sales: " . $payment;
 
 mysqli_close($conn);
 ?>
-
+   <button><a href="overallpdf.php">Print PDF</a></button>
         </div>
       </div>
 
@@ -188,6 +188,7 @@ echo "
 echo "total annual sales: " . $payment;
 mysqli_close($conn);
 ?>
+ <button><a href="yearlypdf.php">Print PDF</a></button>
           </div>
         </div>
 
@@ -246,6 +247,7 @@ echo "
 echo "total monthly sales: " . $payment;
 mysqli_close($conn);
 ?>
+ <button><a href="monthlypdf.php">Print PDF</a></button>
             </div>
           </div>
 
