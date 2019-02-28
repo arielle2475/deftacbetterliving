@@ -1,3 +1,8 @@
+<?php ob_start(); ?>
+<?php session_start(); ?>
+<?php include "../includes/database.php" ?>
+<?php include "functions.php"; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -218,7 +223,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
                             </li>
 
                         </ul>

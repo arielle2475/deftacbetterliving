@@ -3,7 +3,7 @@
 
 
 <!-- Modal  -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal" role="dialog">
 <div class="modal-dialog">
 <!-- Modal Content -->
    
@@ -12,7 +12,7 @@
        <div class="modal-container">
           <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">Delete Confirm Box</h4>
+           <h4 class="modal-title" style="float:right;">Delete Confirm Box</h4>
             </div>
        <div class="modal-body">
            <p> Are you sure you want to delete?</p>

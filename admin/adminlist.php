@@ -1,4 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
+<?php include "includes/confirm_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -121,7 +122,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
                             </li>
 
                         </ul>
@@ -168,11 +169,11 @@
                                             <td class='border rounded-0'>" . $row["adminemail"]. "</td>"	;
                                     $active=$row['isactive'];
                                             if($active==1){
-                                            echo "<td class='text-center border rounded-0'><a href='includes/deactivateadmin.php/?update=$row[id]'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button></a></td></tr>";    
-                                            }
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(40,167,69);' href='javascript:void(0)'>Active</button><a href='includes/deactivateadmin.php/?update=$row[id]'></a></td></tr>";    
+                                        }
                                             if($active==0){
-                                            echo "<td class='text-center border rounded-0'><a href='includes/activateadmin.php/?update=$row[id]'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button></a></td></tr>";    
-                                            }
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' href='javascript:void(0)'>Blocked</button><a href='includes/activateadmin.php/?update=$row[id]'></a></td></tr>";    
+                                        }
                                     
                                     }}
 

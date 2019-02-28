@@ -1,4 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -121,7 +122,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
                             </li>
 
                         </ul>

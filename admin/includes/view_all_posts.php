@@ -18,8 +18,8 @@ if(isset($_SESSION['user_role'])){
               }
             
             </style>
-		   <?php include "delete_modal.php"; ?>
-           <div class="row">
+           <div >
+           <form action="" method="post" class="row">
             <div id="BulkOptionContainer" class="col-md-4">
                     <select class="form-control" name="bulk_options" id="">
                         <option value="">Select Option</option>

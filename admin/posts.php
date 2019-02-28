@@ -1,4 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -120,14 +121,14 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                                <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
                             </li>
 
                         </ul>
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Author Admin" class="search form-control"></div>
                     <h1>All Posts</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff; padding-right70px;">
               
@@ -187,7 +188,7 @@
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[3];
+                td = tr[i].getElementsByTagName("td")[2];
                 if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -206,6 +207,4 @@
 
 
                 
-    <!-- /#wrapper -->
-
-    <?php include"includes/admin_footer.php"; ?>
+  
