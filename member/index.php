@@ -11,7 +11,7 @@ session_start();
 <html>
 	<head>
 		<title>CHATBOX</title>
-	<!-- <script type="text/javascript" src="jquery-3.1.1.min.js"></script> -->
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 	    <link rel="stylesheet" type="text/css" href="css/ScrollBar.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -66,7 +66,7 @@ session_start();
                                 <div
                                     class="col-4" style="padding-right: 200px;padding-left: 0px;width: 220px;">
 									<h1 style="font-size: 16px;width: 150px;margin-top: 8px;margin-left: 11px;">					
-									<div id="Userlog"> <a href="index.php" style="float: right;" class="btn btn-danger btn-sm">Logout</a>
+									<div id="Userlog"> <a href="index.php" style="float: right;"></a>
 								</div>
 							</h1>
                             </div>

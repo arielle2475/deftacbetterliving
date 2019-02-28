@@ -57,7 +57,7 @@ if (isset($_POST['reg_user'])) {
 
 
 // LOGIN USER
-if (isset($_POST['login_user'])) {
+if (isset($_POST['login_Admin'])) {
 	//print_r ($_POST); exit;
   $username = mysqli_real_escape_string($db, $_POST['adminname']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -81,15 +81,14 @@ if (isset($_POST['login_user'])) {
   	  $_SESSION['adminname'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: ../Admin/index.php');
-	  exit;
-	  }else{		  	  header('location: ../member/gallery.html');
-
-	}
-  	}else {
+    
+    }
+    else {
 		echo "Login Failed!";
-  		array_push($errors, "Wrong username/password combination");
+      array_push($errors, "Wrong username/password combination");
+      header('location: ../signin/loginadmin.php');
   	}
   }
 }
-
+}
 ?>

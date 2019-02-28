@@ -1,5 +1,10 @@
 <?php include "includes/admin_header.php"; ?>
-
+<?php 
+	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/loginadmin.php?error=Login to access.');
+		}
+ ?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +102,7 @@
                     <a href="profile.php" class="download">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a href="logout.php" class="article">Logout</a>
                 </li>
             </ul>
         </nav>

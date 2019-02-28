@@ -1,5 +1,11 @@
 <?php include "includes/admin_header.php"; ?>
 <?php include "includes/confirm_modal.php"; ?>
+<?php 
+	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/loginadmin.php?error=Login to access.');
+		}
+ ?>
 
 
     <meta charset="utf-8">

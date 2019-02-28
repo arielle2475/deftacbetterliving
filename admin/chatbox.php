@@ -1,16 +1,19 @@
 <?php include "includes/admin_header.php"; ?>
+
 <?php 
 	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 		session_destroy();
 		header('location: ../Signin/loginadmin.php?error=Login to access.');
 		}
  ?>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"> -->
+    <link rel="stylesheet" type="text/css" href="css/ScrollBar.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../assets/js/main2.js"></script>
     <title>Deftac Betterliving</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -86,13 +89,16 @@
                         <li>
                             <a href="categories.php">View Categories</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="comment.php">View Comments</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li >
                     <a href="calendar.php">Calendar</a>
+                </li>
+                <li class="active">
+                    <a href="chatbox.php">Chatbox</a>
                 </li>
 
             </ul>
@@ -102,74 +108,91 @@
                     <a href="profile.php" class="download">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a href="logout.php" class="article">Logout</a>
                 </li>
             </ul>
         </nav>
 
+       <!-- Page Content Holder -->
+       <div id="content">
 
-        <!-- Page Content Holder -->
-        <div id="content">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+    </button>
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <h1>Welcome,  <span class="user"><?= $_SESSION['adminname'] ?></span></h1>
+                </li>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Comments</h1>
-                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
-                    <div class="col-md-12">
-                        
-                        <?php
-                          include "includes/view_all_comments.php";
-                          ?>
-                    
-              </div>
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
+</nav>
+         <!-- CHAT BOX -->
+        <div class="container-fluid text-center border rounded shadow-lg" style="padding-top: 24px;padding-right: 20px;padding-left: 20px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 44px;background-color: #ffffff;">
+            <div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" style="margin-right: 0px;background-color: #ffffff;padding: 0px;margin-left: 0px;padding-top: 0px;">
+                <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
+                    <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Users</h1>
+                    
+                    <form style="padding-right: -1px;">
+                        <div class="border rounded border-light shadow d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-xl-center" style="padding-top: 12px;padding-bottom: 16px;padding-left: 19px;padding-right: 12px;">
+                            <div class="form-row">
+                                <div class="col-2 text-center" style="padding-right: 0px;padding-left: 0px;width: 92px;"><span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['adminavatar']?>' </span></div>
+                                <div class="col-4" style="padding-right: 200px;padding-left: 0px;width: 220px;">
+									<h1 style="font-size: 16px;width: 150px;margin-top: 8px;margin-left: 11px;">					
+									<div id="Userlog"> <a href="index.php" style="float: right;" class="btn btn-danger btn-sm">Logout</a>
+								</div>
+							</h1>
 
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-        <?php include "includes/footer.php"; ?>
+                            </div>
+                        </div>
 
+                </div>
+                </form>
+            </div>
+			<div class="col-md-8" style="padding-right: 0px;padding-left: 10px;">
+                <form>
+                    <div class="form-row">
+                        <div class="col float-right flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-content-center flex-wrap m-auto">
+                            <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>
+                             <div class="border rounded shadow-sm scrollbar" style="height: 500px;background-color: #ededed;overflow-y: scroll;margin-bottom: 15px; padding:20px;" id="show"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+						<input type="hidden" name="name" id="name" value="<?php echo $_SESSION['adminname'] ?>"  class="form-control" >
+                        <div class="col"><input class="form-control"  name="msg" id="msg" type="text"></div>
+                        <div class="col-auto"><input type="reset" name="send" id="send" value="Send" class="btn btn-primary"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    
+</div>
+
+
+    </div>
+            
+    <?php include "includes/footer.php"; ?>
 </body>
+
 </html>
 
+<script type="text/javascript">
+		$(document).ready(function() {
+			setInterval(function () {
+				$('#Userlog').load('UserLog.php')
+			}, 1000);
+		});
+
+	</script>

@@ -1,6 +1,12 @@
 <?php include "includes/database.php"; ?>
     <?php include "admin/functions.php" ?>
-<?php session_start(); ?>
+    <?php 
+    session_start();
+	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/loginadmin.php?error=Login to access.');
+		}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 

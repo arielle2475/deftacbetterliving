@@ -1,4 +1,10 @@
-
+<?php 
+session_start();
+	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/loginadmin.php?error=Login to access.');
+		}
+ ?>
 <?php
 
 $servername = "localhost";

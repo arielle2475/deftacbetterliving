@@ -1,12 +1,4 @@
-<?php 
-include 'config.php';
-include 'action.php';
-session_start();
-	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/login.php?error=Login to access.');
-		}
- ?>
+
 <?php include "includes/database.php"; ?>
 <?php 
 session_start();

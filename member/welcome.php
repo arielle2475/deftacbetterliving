@@ -121,21 +121,12 @@ session_start();
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
-<<<<<<< HEAD
-                              <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">CHAt</a></li>
-                              <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
-                              <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);margin-right: 60px;opacity: 1;padding-top: -5px;margin-top: -15px;">
-                                        <a class="dropdown-item" role="presentation" href="userprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">My profile</a>
-                                           <a class="dropdown-item" role="presentation" href="editprofile.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">EDIT PROFILE</a>
-                                        <a class="dropdown-item" role="presentation" href="logout.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
-=======
-							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="chat.php">CHAt</a></li>                             
+							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="index.php">CHAt</a></li>                             
 							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="editprofile.php">Edit Profile</a></>        
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
->>>>>>> 50caf4311f01b2984d36d46dcf0e425fe6d150bc
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></>        
                                     </div>
                                 </li>
                             </ul>

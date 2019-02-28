@@ -168,9 +168,9 @@ if(isset($_POST['update'])){
         <br>
         <br>
         <div class="form-group"><label><strong>Username: </strong><?echo $_SESSION['Firstname'] = $name ?></label></div>
-            <div class="form-group"><label><strong>Lastname:</strong></label> <?php echo $fname ?></div>
-            <div class="form-group"><label><strong>Email:</strong></label> <?php echo $fname ?></div>
-            <div class="form-group"><label><strong>Gender:</strong></label> <?php echo $lname ?></div>
+            <div class="form-group"><label><strong>Lastname:</strong></label> <?php echo $lname ?></div>
+            <div class="form-group"><label><strong>Email:</strong></label> <?php echo $email ?></div>
+            <div class="form-group"><label><strong>Gender:</strong></label> <?php echo $gender ?></div>
             <div class="form-group"><label><strong>Age:</strong></label> <?php echo $age ?></div>
             <div class="form-group"><label><strong>Address:</strong></label> <?php echo $address ?></div>
             <div class="form-group"><label><strong>Contact:</strong></label> <?php echo $contact ?></div>
