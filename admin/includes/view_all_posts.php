@@ -1,7 +1,4 @@
-<?php 
-if(isset($_SESSION['user_role'])){
-    if($_SESSION['user_role'] == "Admin"){
-?>
+
         <?php
         if(isset($_POST['checkBoxArray'])){
 
@@ -38,7 +35,7 @@ if(isset($_SESSION['user_role'])){
             <table id="myTable" class="table">
             <thead>
                                 <tr class="text-center" style="font-size:12px;color: rgb(255,255,255);background-color: #333332;">
-                                    <th class="border rounded-0"><input type="checkbox"></th>
+                                    <th class="border rounded-0"></th>
                                     <th class="border rounded-0">ID</th>
                                     <th class="border rounded-0">Author</th>
                                     <th class="border rounded-0">Title</th>
@@ -99,10 +96,10 @@ if(isset($_SESSION['user_role'])){
                                     echo "<td class='border rounded-0' style='font-size:10px'>$post_content</td>";
  
                                     echo "<td class='border rounded-0'>
-                                    <a href='javascript:void(0)' data-href='posts.php?delete=$post_id' data-toggle='modal' data-target='#myModal' class='btn btn-danger'>Delete</a></td>";
+                                    <a href='javascript:void(0)' data-href='posts.php?delete=$post_id' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>";
                                   //  echo "<td class='border rounded-0'><a rel='$post_id' href='javascript:void(0)' class='btn btn-danger delete_link'>Delete</a></td>";
 //                                    echo "<td class='border rounded-0'><a onClick=\"javascript: return confirm('Are you sure?') \" class='btn btn-danger' href='posts.php?delete=$post_id'>Delete</a></td>";
-                                    echo "<td class='border rounded-0'><a class='btn btn-primary' href='posts.php?source=edit_posts&update=$post_id'>Update</a></td>";
+                                    echo "<td class='border rounded-0'><a class='btn btn-warning' style='font-weight:bold; color:white;' href='posts.php?source=edit_posts&update=$post_id'>Update</a></td>";
                                     echo "</tr>";
                                 }
                                 ?>
@@ -137,11 +134,3 @@ $('document').ready(function(){
 </script>
 
 
-<?php
-
- }
-}
-else{
-    header("Location: ../index.php");
-}
-?>

@@ -46,9 +46,10 @@
             <ul class="list-unstyled components">
             <li>
                     <a href="index.php">Dashboard</a>
-                </li>                <li>
-                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                    <ul class="collapse list-unstyled" id="memberSubmenu">
+                </li>                
+                <li class="active">
+                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Members</a>
+                    <ul class="collapse list-unstyled " id="memberSubmenu">
                         <li>
                             <a href="memberlist.php">Membership List</a>
                         </li>
@@ -127,21 +128,19 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Admin Status</h1>
                     <div class="border rounded shadow-lg" style="font-family: Montserrat, sans-serif;padding-top: 0px;background-color: #ffffff;margin-top: 77px;margin-right: 15px;margin-left: 15px;">
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-1" style="font-weight: bold;">History</a></li>
+                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1" style="font-weight: bold;">History</a></li>
                 <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2" style="font-weight: bold;">Monthly</a></li>
-                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-3" style="font-weight: bold;">Annual</a></li>
+                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3" style="font-weight: bold;">Annual</a></li>
             </ul>
             <div class="tab-content" style="background-color: #ffffff;">
-                <div class="tab-pane" role="tabpanel" id="tab-1">
+                <div class="tab-pane active" role="tabpanel" id="tab-1">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                        <div class="form-group pull-right col-lg-4"><input type="text" placeholder="Search by typing here.." class="search form-control"></div><span class="counter pull-right"></span>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Transaction History</h1>
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 165px;margin: 5px;">
-                            <table class="table">
+                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
+                        <table id="myTable" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                         <th class="border rounded-0">Username</th>
@@ -186,7 +185,7 @@
 
                                       echo "
                                       </table>";
-                                      echo "total sales: " . $payment;
+                                      echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Sales: " . $payment."</p>";
 
                                       mysqli_close($conn);
                                       ?>
@@ -197,10 +196,10 @@
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                        <div class="form-group pull-right col-lg-4"><input type="text" placeholder="Search by typing here.." class="search form-control"></div><span class="counter pull-right"></span>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Monthly Transactions</h1>
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 165px;margin: 5px;">
-                            <table class="table">
+                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
+                        <table id="myTable" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                         <th class="border rounded-0">Username</th>
@@ -246,7 +245,7 @@
 
                                             echo "
                                             </table>";
-                                            echo "total annual sales: " . $payment;
+                                            echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Annual Sales: " . $payment."</p>";
                                             mysqli_close($conn);
                                             ?>
                                 </tbody>
@@ -254,12 +253,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane active" role="tabpanel" id="tab-3">
+                <div class="tab-pane" role="tabpanel" id="tab-3">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                        <div class="form-group pull-right col-lg-4"><input type="text" placeholder="Search by typing here.." class="search form-control"></div><span class="counter pull-right"></span>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Annual Transactions</h1>
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 165px;margin: 5px;">
-                            <table class="table">
+                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: px;">
+                        <table id="myTable" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                         <th class="border rounded-0">Username</th>
@@ -307,7 +306,7 @@
                                       echo "
                                       </table>";
 
-                                      echo "total monthly sales: " . $payment;
+                                      echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Monthly Sales: " . $payment."</p>";
                                       mysqli_close($conn);
                                       ?>
                                 </tbody>
@@ -331,7 +330,7 @@
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[3];
                 if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {

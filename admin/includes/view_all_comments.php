@@ -54,7 +54,7 @@
                                     else{
                                         echo "<td class='border rounded-0'><a href='comment.php?approve={$comment_id}'>Approve </a> / Unapprove</td>";
                                     }
-                                    echo "<td class='text-center border rounded-0'><a href='comment.php?delete={$comment_id}'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Delete</button></a></td></tr>";    
+                                    echo "<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='comment.php?delete=$comment_id' href='javascript:void(0)'>Delete </a></td></tr>";    
 
                                     echo "</tr>";
               

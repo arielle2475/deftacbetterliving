@@ -44,6 +44,8 @@ if ($_POST['password'] == $_POST['confirmpassword']){
     
   $_SESSION['username'] = $username;
   $_SESSION['avatar'] = $avatar_path;
+  $_SESSION['email'] = $avatar_path;
+
   
   $sql = "INSERT INTO users (username, email, password, avatar)"
   . "VALUES ('$username', '$email', '$password', '$avatar_path')";
@@ -74,10 +76,11 @@ if ($_POST['password'] == $_POST['confirmpassword']){
 
 <div data-aos="fade" data-aos-duration="700" data-aos-delay="200" data-aos-once="true" class="login-dark" style="background-image: url(&quot;../assets/img/bg.gif&quot;);">
         <form class="form" action="form.php"method="post"  enctype="multipart/form-data" style="opacity: 0.85;" autocomplete="off">
-            <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
 
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="../assets/img/deftac.png" width="180px" data-bs-hover-animate="pulse"></div>
+			<div class="text-center bg-danger border rounded border-danger shake animated "style="padding:10px;color:white;"><?= $_SESSION['message'] ?></div>    
+
             <div class="form-group"><input class="form-control" type="text" name="username" required="" placeholder="Username" style="height: 45px;">
                 <input
                     class="form-control" type="email" name="email" required="" placeholder="Email"  style="height: 46px;padding-bottom: 4px;"></div>

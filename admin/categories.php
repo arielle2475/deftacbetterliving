@@ -73,7 +73,7 @@
 
                     </ul>
                 </li>
-                <li>
+                <li  class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -82,12 +82,12 @@
                         <li>
                             <a href="categories.php">View Categories</a>
                         </li>
-                        <li>
+                        <li  class="active">
                             <a href="comment.php">View Comments</a>
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
 

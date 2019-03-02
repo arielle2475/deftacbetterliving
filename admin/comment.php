@@ -1,4 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -72,7 +73,7 @@
 
                     </ul>
                 </li>
-                <li>
+                <li  class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -163,6 +164,15 @@
             }
             }
      </script>
+
+                                             
+<script>
+  
+  $('#myModal').on('show.bs.modal', function (e) {
+	
+    	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+});
         <?php include "includes/footer.php"; ?>
 
 </body>

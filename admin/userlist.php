@@ -154,7 +154,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                            <h1>Welcome,  <span class="user"><?= $_SESSION['adminname'] ?></span></h1>
+                                <h1>Welcome, </p>
                             </li>
 
                         </ul>
@@ -162,7 +162,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Member Status</h1>
+                    <h1>Admin Status</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                         <table id="myTable" class="table">
                             <thead>
@@ -177,6 +177,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                                 </tr>
                             </thead>
+                            
                             <tbody>
 
                                                                 <?php
@@ -201,12 +202,18 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                                         // output data of each row
 
                                         while($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr><td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
-                                            <td class='border rounded-0'>" . $row["username"]. "</td> <td class='border rounded-0'>" . $row["email"]. "</td><td class='border rounded-0'>" . $row["reg_date"]. "</td><td class='border rounded-0'>" . $row["approvedDate"]. "</td><td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
+                                            echo "<tr><td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='../signin/".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
+                                            <td class='border rounded-0'>" . $row["username"]. "</td> 
+                                            <td class='border rounded-0'>" . $row["email"]. "</td>
+                                            <td class='border rounded-0'>" . $row["reg_date"]. "</td>
+                                            <td class='border rounded-0'>" . $row["approvedDate"]. "</td>
+                                            <td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
+
                                     $active=$row['isActive'];
                                         if($active==1){
-                                          echo "<td class='text-center border rounded-0'><a href='includes/deactivate.php/?update=$row[id]'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button></a></td></tr>";    
-                                        }
+                                            echo '<td><a href="#" data-toggle="modal" data-target="#jobModal'.$row['id'].'" >Click here to edit</a>' . $row['id'] . '</td>';
+                                        }                                 
+
                                         if($active==0){
                                         echo "<td class='text-center border rounded-0'><a href='includes/activate.php/?update=$row[id]'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button></a></td></tr>";     
                                           }
@@ -217,7 +224,25 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                                     echo "
                                     </table>";
                                     mysqli_close($conn);
-                                    ?>
+                                    ?><?php while ($row = mysqli_fetch_array($result)) { ?>
+                                        <div class="modal fade" id="jobModal<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="jobModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="jobModalLabel<?php echo $row['id']; ?>"><strong>Job <?php echo $row['id']; ?></strong></h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Edit Job</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -245,6 +270,32 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
             }
      </script>
         <?php include "includes/footer.php"; ?>
+              
+        <script>
+  
+  $('#myModal').on('show.bs.modal', function (e) {
+	
+    	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+});
+/*
+$('document').ready(function(){
+	
+  $('.delete_link').on('click',function(){
+        var id = $(this).attr("rel");
+        var delete_url = "posts.php?delete="+id; 
+        
+        $('.modal_delete_link').attr('href', delete_url);
+        
+        $('#myModal').modal('show');
+    })
+
+
+});*/
+    
+
+
+</script>
 
 </body>
 </html>

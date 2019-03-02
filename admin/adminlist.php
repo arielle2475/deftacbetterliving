@@ -1,5 +1,5 @@
 <?php include "includes/admin_header.php"; ?>
-<?php include "includes/confirm_modal.php"; ?>
+<?php include "includes/confirm_admin_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -169,10 +169,12 @@
                                             <td class='border rounded-0'>" . $row["adminemail"]. "</td>"	;
                                     $active=$row['isactive'];
                                             if($active==1){
-                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(40,167,69);' href='javascript:void(0)'>Active</button><a href='includes/deactivateadmin.php/?update=$row[id]'></a></td></tr>";    
+                                            echo "<td class='text-center border rounded-0'><a href='includes/deactivateadmin.php/?update=$row[id]'></a><button value='$row[id];' class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(40,167,69);' href='javascript:void(0)'>Active</button>
+                                            </td></tr>";    
                                         }
                                             if($active==0){
-                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' href='javascript:void(0)'>Blocked</button><a href='includes/activateadmin.php/?update=$row[id]'></a></td></tr>";    
+                                            echo "<td class='text-center border rounded-0'><a href='includes/activateadmin.php/?update=$row[id]'></a><button value='$row[id];'class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' href='javascript:void(0)'>Blocked</button>
+                                            </td></tr>";    
                                         }
                                     
                                     }}
