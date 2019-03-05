@@ -1,6 +1,4 @@
 <?php include "includes/admin_header.php"; ?>
-<?php include "includes/confirm_admin_modal.php"; ?>
-
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,14 +59,14 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li class="active">
-                            <a href="adminlist.php">Admin List</a>
+                            <a href="adminlist.php">Admin Status</a>
                         </li>
                         <li >
-                            <a href="editadmin.php">Admin Status</a>
+                            <a href="editadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -95,14 +93,13 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
-
 
         <!-- Page Content Holder -->
         <div id="content">
@@ -168,12 +165,15 @@
                                             <td class='border rounded-0'>" . $row["adminname"]. "</td> 
                                             <td class='border rounded-0'>" . $row["adminemail"]. "</td>"	;
                                     $active=$row['isactive'];
+                                    
+                                    $row = json_encode($row);
+
                                             if($active==1){
-                                            echo "<td class='text-center border rounded-0'><a href='includes/deactivateadmin.php/?update=$row[id]'></a><button value='$row[id];' class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(40,167,69);' href='javascript:void(0)'>Active</button>
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
                                             </td></tr>";    
                                         }
                                             if($active==0){
-                                            echo "<td class='text-center border rounded-0'><a href='includes/activateadmin.php/?update=$row[id]'></a><button value='$row[id];'class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#myModal' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' href='javascript:void(0)'>Blocked</button>
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
                                             </td></tr>";    
                                         }
                                     
@@ -188,7 +188,8 @@
             </div>
         </div>
     </div>
-
+<!-- Admin Modal -->
+<?php include "includes/confirm_admin_modal.php"; ?>
      <script>
             function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -208,7 +209,39 @@
                 }       
             }
             }
-     </script>
+     </script>       <script>
+
+$('#myModal').on('show.bs.modal', function (e) {
+  
+      $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+  });
+
+$('#confirmModal').on('show.bs.modal', function (e) {
+  
+    let user = JSON.parse(e.relatedTarget.dataset.user);
+    console.log(user);
+    let number = 'Admin #';
+    let title = 'Are you sure you want to ';
+    let titleQuestion = user.isactive === '1' ? 'deactivate?' : 'activate?';
+    let buttonStyle = user.isactive === '1' ? 'btn-danger' : 'btn-success';
+    let buttonStyleOpposite = user.isactive === '0' ? 'btn-danger' : 'btn-success';
+    let buttonText = user.isactive === '1' ? 'Deactivate' : 'Activate';
+    let formAction = user.isactive === '1' ? 'includes/deactivateadmin.php?update='+user.id : 'includes/activateadmin.php?update='+user.id;
+    
+    document.querySelector('#userID').textContent = number + user.id;
+    document.querySelector('#confirmTitle').textContent = title + titleQuestion;
+    document.querySelector('#userImage').src = user.adminavatar;
+    document.querySelector('#userName').textContent = user.adminname;
+    document.querySelector('#userEmail').textContent = user.adminemail;
+    
+    document.querySelector('#confirmButton').value = buttonText;
+    document.querySelector('#confirmButton').classList.add(buttonStyle);
+    document.querySelector('#confirmButton').classList.remove(buttonStyleOpposite);
+
+    document.querySelector('#confirmForm').action = formAction;
+});
+</script>
         <?php include "includes/footer.php"; ?>
 
 </body>

@@ -28,8 +28,8 @@
                     </select>
 <br>            </div>
             <div class="col-md-4">
-                <input type="submit" class="btn btn-primary" value="Apply">
-                <a class="btn btn-primary" href="posts.php?source=add_posts">Add New Post</a>
+                <input type="submit" class="btn btn-success" style="font-weight:bold;" value="Apply">
+                <a class="btn btn-success" style="font-weight:bold;" href="posts.php?source=add_posts">Add New Post</a>
             </div>
             
             <table id="myTable" class="table">
@@ -95,8 +95,7 @@
                                     echo "<td class='border rounded-0'>$post_date</td>";
                                     echo "<td class='border rounded-0' style='font-size:10px'>$post_content</td>";
  
-                                    echo "<td class='border rounded-0'>
-                                    <a href='javascript:void(0)' data-href='posts.php?delete=$post_id' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>";
+                                    echo "<td class='border rounded-0'><a href='javascript:void(0)' data-href='posts.php?delete=$post_id' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>";
                                   //  echo "<td class='border rounded-0'><a rel='$post_id' href='javascript:void(0)' class='btn btn-danger delete_link'>Delete</a></td>";
 //                                    echo "<td class='border rounded-0'><a onClick=\"javascript: return confirm('Are you sure?') \" class='btn btn-danger' href='posts.php?delete=$post_id'>Delete</a></td>";
                                     echo "<td class='border rounded-0'><a class='btn btn-warning' style='font-weight:bold; color:white;' href='posts.php?source=edit_posts&update=$post_id'>Update</a></td>";

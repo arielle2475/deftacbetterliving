@@ -95,10 +95,10 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -130,7 +130,7 @@
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Name" class="search form-control"></div>
-                    <h1>Admin Status</h1>
+                    <h1>Membership List</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                         <table id="myTable" class="table">
                             <thead>

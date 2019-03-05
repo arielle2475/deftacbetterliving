@@ -6,43 +6,46 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
     header('location: ../Signin/login.php?error=Login to access.');
     }
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>User Profile | Deftac Betterliving</title>
-    <?php include "includes/header.php"; ?>
+    <title>Untitled</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <?php include "includes/delete_modal.php"; ?>
 
-  
-    </head>
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>.dropdown:hover .dropdown-menu {
+  display: block;
+}</style>
 </head>
 
-<body style="background-image: url(&quot;assets/img/bg2.jpg&quot;);background-size: cover;background-position: center;">
-    <section style="padding-bottom: 45px;background-position: center;background-size: cover;background-image: url(assets/img/bg2.png);">
-        <div class="container border rounded shadow-lg profile profile-view" id="profile" style="padding-right: 50px;padding-left: 50px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;width: 617px;margin-top: 28px;background-color: #ffffff;">
-            <h1>My Profile</h1>
-            <div class="avatar-bg center"></div>
-            <div class="form-group"><label>Username</label></div>
-            <div class="form-group"><label>Firstname</label></div>
-            <div class="form-group"><label>Lastname</label></div>
-            <div class="form-group"><label>Gender</label></div>
-            <div class="form-group"><label>Age</label></div>
-            <div class="form-group"><label>Address</label></div>
-            <div class="form-group"><label>Contact</label></div><button class="btn btn-primary form-btn" type="submit">EDIT</button></div>
-    </section>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="padding-top: 10px;padding-bottom: 10px;">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="padding-top: 10px;padding-bottom: 10px;">
                 <div class="container"><a class="navbar-brand" href="welcome.php" style="background-size: contain;"><img class="img-fluid" src="../assets/img/deftacmain.png" width="140px" data-bs-hover-animate="wobble"></a><button class="navbar-toggler navbar-toggler-right" data-toggle="collapse"
                             data-target="#navbarResponsive" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="nav navbar-nav ml-auto text-uppercase" style="margin-top:10px;">
-							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="welcome.php">Home</a></li>
+							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="welcome.php">Home</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
-							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="index.php">CHAt</a></li>                             
+							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="chat.php">CHAt</a></li>                             
 							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link active" href="userprofile.php">My Profile</a></>        
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="editprofile.php">Edit Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
                                     </div>
                                 </li>
@@ -50,4 +53,119 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                         </div>
                     </div>
                 </nav>   
-    <?php include "includes/footer.php"; ?>
+<body style="background-image: url(&quot;assets/img/bg2.jpg&quot;);background-size: cover;background-position: center;">
+    <section style="padding-bottom: 45px;background-position: center;background-size: cover;background-image: url(assets/img/bg2.png);">
+        <div class="container border rounded shadow-lg profile profile-view" id="profile" style="padding-right: 50px;padding-left: 50px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;width: 617px;margin-top: 28px;background-color: #ffffff;">
+            <h1>My Profile</h1>
+            <?php
+include "config.php";
+$query="SELECT*
+FROM users
+INNER JOIN mfillup ON users.username= mfillup.username WHERE users.username = '" . $_SESSION['username'] . "'";
+
+
+
+$run = mysqli_query($conn, $query) or die("MySQL error: " . mysqli_error($conn) . "<hr>\nQuery: $query");
+
+while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+  $name = $row['username'];
+  $gender = $row['u_gender'];
+  $fname = $row['u_fname'];
+  $lname = $row['u_lname'];
+  $age = $row['u_age'];
+  $address = $row['u_address'];
+  $contact = $row['u_contact'];
+  $desc = $row['u_joindesc'];
+  $email = $row['email'];
+  $img=$row['avatar']; 
+
+}
+
+
+?>
+<?php
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['username'])){
+    $sql = "SELECT username, avatar FROM users WHERE username='".$_SESSION["username"]."'";
+}else{
+    $sql = "SELECT username, avatar FROM usrrs";
+}	
+
+$result = $mysqli->query($sql); //$result = mysqli_result object
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['avatar'] = $row['avatar'];
+    
+}?>
+
+<?php
+if(isset($_POST['update'])){
+
+      
+    $c_image= $_FILES['avatar']['name'];
+    $c_image_temp=$_FILES['avatar']['tmp_name'];
+    
+    
+    if($c_image_temp != "")
+    {
+        move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/../Signin/'. $_FILES["avatar"]['name']);
+        $c_update="UPDATE users SET avatar= '$c_image'
+         WHERE username = '" . $_SESSION['username'] . "'"; 
+    }else
+    {
+    
+    }
+    
+    mysqli_query($conn, $c_update);
+    $_SESSION['avatar'] = $img;
+
+}
+?>
+
+        <!-- UPDATE AVATAR -->
+        <form action="" method="post" enctype="multipart/form-data">
+        <br>
+       <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="250" height="250"></span><br/></center>
+       <input type="file" name="avatar" value="<?php echo $_SESSION['avatar']; ?>"  /> 
+        <td colspan="2"><input type="submit" name="update" value="Update Avatar"/></td></form>
+        <div class="form-group"><label>Username</label></div>
+        <input type="text" name="username" value="<?php echo $_SESSION['username'] = $name ?>" class="form-control" readonly>
+            <div class="form-group"><label>Firstname</label></div>
+            <input type="text" name="u_fname" value="<?php echo $fname ?>" class="form-control" readonly>
+            <div class="form-group"><label>Lastname</label></div>
+            <input type="text" name="u_lname" value="<?php echo $lname ?>" class="form-control" readonly>
+            <div class="form-group"><label>Email</label></div>
+            <input type="email" name="u_email" value="<?php echo $email ?>" class="form-control" readonly>
+            <div class="form-group"><label>Gender</label></div>
+            <input type="text" name="u_gender" value="<?php echo $gender ?>" class="form-control" readonly>
+            <div class="form-group"><label>Age</label></div>
+            <input type="text" name="u_age" value="<?php echo $age ?>" class="form-control" readonly>
+            <div class="form-group"><label>Address</label></div>
+            <input type="text" name="u_address" value="<?php echo $address ?>" class="form-control" readonly>
+            <div class="form-group"><label>Contact</label></div>
+            <input type="text" name="u_contact" value="<?php echo $contact ?>" class="form-control" readonly>
+            <div class="form-group"><label>Why did you join?</label></div>
+            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" class="form-control" readonly>
+            <button class="btn btn-primary form-btn" data-toggle='modal' data-target='#myModal' >EDIT</button></div>
+    </section>
+  
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="../assets/js/agency.js"></script>
+    <script src="../assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+</body>
+<script>
+
+$('#myModal').on('show.bs.modal', function (e) {
+  
+      $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+  });
+
+</script>
+
+
+</html>

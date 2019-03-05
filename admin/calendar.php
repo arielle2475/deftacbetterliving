@@ -167,10 +167,10 @@
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
-                            <a href="adminlist.php">Admin List</a>
+                            <a href="adminlist.php">Admin Status</a>
                         </li>
                         <li>
-                            <a href="editadmin.php">Admin Status</a>
+                            <a href="editadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -194,13 +194,12 @@
                 </li>
 
             </ul>
-
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>

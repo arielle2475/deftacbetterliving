@@ -64,10 +64,10 @@
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
-                            <a href="adminlist.php">Admin List</a>
+                            <a href="adminlist.php">Admin Status</a>
                         </li>
                         <li  class="active">
-                            <a href="editadmin.php">Admin Status</a>
+                            <a href="editadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -94,10 +94,10 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <h1>Admin Status</h1>
+                    <h1>Add Admin</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                                                   
                               <?php  
@@ -199,7 +199,7 @@
                             </div>
                             <input type="file" class="form-control" name="adminavatar" accept="image/*" required></div>
                         <div class="col-md-8">
-                            <h1>Admin Profile </h1>
+                            <h1>Admin Profile</h1>
                             <hr>
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6">

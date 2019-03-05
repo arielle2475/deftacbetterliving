@@ -128,10 +128,10 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -154,7 +154,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <h1>Welcome, </p>
+                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
                             </li>
 
                         </ul>
@@ -162,7 +162,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Admin Status</h1>
+                    <h1>Membership Status</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                         <table id="myTable" class="table">
                             <thead>
@@ -177,7 +177,6 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                                 </tr>
                             </thead>
-                            
                             <tbody>
 
                                                                 <?php
@@ -203,52 +202,33 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                                         while($row = mysqli_fetch_assoc($result)) {
                                             echo "<tr><td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='../signin/".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
-                                            <td class='border rounded-0'>" . $row["username"]. "</td> 
-                                            <td class='border rounded-0'>" . $row["email"]. "</td>
-                                            <td class='border rounded-0'>" . $row["reg_date"]. "</td>
-                                            <td class='border rounded-0'>" . $row["approvedDate"]. "</td>
-                                            <td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
-
+                                            <td class='border rounded-0'>" . $row["username"]. "</td> <td class='border rounded-0'>" . $row["email"]. "</td><td class='border rounded-0'>" . $row["reg_date"]. "</td><td class='border rounded-0'>" . $row["approvedDate"]. "</td><td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
                                     $active=$row['isActive'];
-                                        if($active==1){
-                                            echo '<td><a href="#" data-toggle="modal" data-target="#jobModal'.$row['id'].'" >Click here to edit</a>' . $row['id'] . '</td>';
-                                        }                                 
+                                     
+                                    $row = json_encode($row);
 
-                                        if($active==0){
-                                        echo "<td class='text-center border rounded-0'><a href='includes/activate.php/?update=$row[id]'><button class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button></a></td></tr>";     
-                                          }
-                                      
-
+                                            if($active==1){
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
+                                            </td></tr>";    
+                                        }
+                                            if($active==0){
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
+                                            </td></tr>";    
+                                        }
+                                    
                                     }}
 
-                                    echo "
-                                    </table>";
-                                    mysqli_close($conn);
-                                    ?><?php while ($row = mysqli_fetch_array($result)) { ?>
-                                        <div class="modal fade" id="jobModal<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="jobModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="jobModalLabel<?php echo $row['id']; ?>"><strong>Job <?php echo $row['id']; ?></strong></h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Edit Job</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
+                                        echo "</tbody>
+                                        </table>";
+                                        mysqli_close($conn);
+                                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+<!-- Admin Modal -->
+<?php include "includes/confirm_admin_modal.php"; ?>
      <script>
             function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -268,35 +248,34 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 }       
             }
             }
-     </script>
-        <?php include "includes/footer.php"; ?>
-              
-        <script>
+     </script>       <script>
+
+$('#confirmModal').on('show.bs.modal', function (e) {
   
-  $('#myModal').on('show.bs.modal', function (e) {
-	
-    	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
-
-});
-/*
-$('document').ready(function(){
-	
-  $('.delete_link').on('click',function(){
-        var id = $(this).attr("rel");
-        var delete_url = "posts.php?delete="+id; 
-        
-        $('.modal_delete_link').attr('href', delete_url);
-        
-        $('#myModal').modal('show');
-    })
-
-
-});*/
+    let user = JSON.parse(e.relatedTarget.dataset.user);
+    console.log(user);
+    let number = 'Member #';
+    let title = 'Are you sure you want to ';
+    let titleQuestion = user.isActive === '1' ? 'deactivate?' : 'activate?';
+    let buttonStyle = user.isActive === '1' ? 'btn-danger' : 'btn-success';
+    let buttonStyleOpposite = user.isActive === '0' ? 'btn-danger' : 'btn-success';
+    let buttonText = user.isActive === '1' ? 'Deactivate' : 'Activate';
+    let formAction = user.isActive === '1' ? 'includes/deactivate.php?update='+user.id : 'includes/activate.php?update='+user.id;
     
+    document.querySelector('#userID').textContent = number + user.id;
+    document.querySelector('#confirmTitle').textContent = title + titleQuestion;
+    document.querySelector('#userImage').src = '../signin/'+user.avatar;
+    document.querySelector('#userName').textContent = user.username;
+    document.querySelector('#userEmail').textContent = user.email;
+    
+    document.querySelector('#confirmButton').value = buttonText;
+    document.querySelector('#confirmButton').classList.add(buttonStyle);
+    document.querySelector('#confirmButton').classList.remove(buttonStyleOpposite);
 
-
+    document.querySelector('#confirmForm').action = formAction;
+});
 </script>
+        <?php include "includes/footer.php"; ?>
 
 </body>
 </html>
-

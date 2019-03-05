@@ -95,10 +95,10 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -245,7 +245,7 @@
 
                                             echo "
                                             </table>";
-                                            echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Annual Sales: " . $payment."</p>";
+                                            echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Monthly Sales: " . $payment."</p>";
                                             mysqli_close($conn);
                                             ?>
                                 </tbody>
@@ -306,7 +306,7 @@
                                       echo "
                                       </table>";
 
-                                      echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Monthly Sales: " . $payment."</p>";
+                                      echo "<p style='color:black;font-weight:bold;float:right;padding:20px;'>Total Annual Sales: " . $payment."</p>";
                                       mysqli_close($conn);
                                       ?>
                                 </tbody>

@@ -86,13 +86,13 @@
             </div>
         </div>
     </div>
-    <header class="masthead" style="background-image: url(&quot;assets/img/headerbg.jpg&quot;);padding-top: 379px;">
+    <header class="masthead" style="background-image: url(&quot;assets/img/indexbg.gif&quot;);padding-top: 379px;">
         <div class="container">
             <div class="intro-text" style="padding-top: 0px;">
-                <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" data-aos-once="true" class="intro-lead-in" style="height: 24px;"><span style="color: rgb(0,0,0);font-family: Montserrat, sans-serif;">We are ONE Team and Family!<br><br></span></div>
-                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="550" data-aos-once="true" class="intro-heading text-uppercase"
-                    style="margin-bottom: 18px;"><span style="color: rgb(0,0,0);"><em>We are&nbsp;</em><strong><em>DEFTAC</em></strong><em>!</em><br></span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#services" data-aos="fade-up" data-aos-duration="1100"
-                    data-aos-delay="600" data-aos-once="true" style="opacity: 0.97;">Tell me more</a></div>
+                <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" data-aos-once="true" class="intro-lead-in" style="height: 24px;"><span style="color: rgb(0,0,0);font-family: Montserrat, sans-serif;background-color: rgba(247,205,56,0.8);">We are ONE Team and Family!&nbsp;<br><br></span></div>
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="550" data-aos-once="true"
+                    class="intro-heading text-uppercase" style="margin-bottom: 18px;"><span style="color: rgb(0,0,0);background-color: rgba(247,205,56,0.91);font-size: 72px;"><em>We are&nbsp;</em><strong><em>DEFTAC</em></strong><em>!&nbsp;</em><br></span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+                    role="button" href="#services" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600" data-aos-once="true" style="opacity: 0.97;margin-top: 20px;">Tell me more</a></div>
         </div>
     </header>
     <div class="modal fade portfolio-modal text-center" role="dialog" tabindex="-1" id="portfolioModal6">

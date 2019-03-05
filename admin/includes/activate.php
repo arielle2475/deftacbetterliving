@@ -24,7 +24,7 @@ VALUES ('$timestamp','$expdate','$id');";
 $data=mysqli_query($conn,$sql);
 $data2=mysqli_query($conn,$sql2);
 
-header('Location:../../userlist.php');
+header('Location:../userlist.php');
 }
 
 

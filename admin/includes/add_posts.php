@@ -23,8 +23,8 @@
     $create_post = mysqli_query($connection,$query);
     
     $post_id = mysqli_insert_id($connection);
-    
-    echo "<h5 class='well col-xs-6'>Post Created! '<a href='../post.php?post_id=$post_id'>  View Post </a>'</h5>";
+
+    echo "<center><h5 class='text-center bg-success border rounded border-success shake animated' style=' padding-top:5px; color:white; width:500px; height:40px;'>Post Created! <a href='../post.php?post_id=$post_id'>  </a></h5></center>";
     }
     
 
@@ -81,7 +81,7 @@
     </div>
     
     <div class="form-group">
-        <input type="submit" value="Publish Post" class="btn btn-primary" name="add_post">
+    <input type="submit" value="Publish Post" class="btn btn-success" style="font-weight:bold; color:white;" name="add_post">
     </div>
 </form>
 </div>

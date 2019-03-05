@@ -5,7 +5,6 @@
                                     <th>Post ID</th>
                                     <th>Author</th>
                                     <th>Email</th>
-                                    <th>Status</th>
                                     <th>Post Name</th>
                                     <th>Date</th>
                                     <th>Content</th>
@@ -33,7 +32,6 @@
                                     echo "<td class='border rounded-0'>$comment_post_id</td>";
                                     echo "<td class='border rounded-0'>$comment_author</td>";
                                     echo "<td class='border rounded-0'>$comment_email</td>";
-                                    echo "<td class='border rounded-0'>$comment_status</td>";
                                     
                                     $query = "SELECT * FROM posts WHERE post_id = $comment_post_id";
                                     $get_comment_post = mysqli_query($connection,$query);
@@ -47,14 +45,19 @@
                                     
                                     echo "<td class='border rounded-0'>$comment_date</td>";
                                     echo "<td class='border rounded-0'>$comment_content"."..."."</td>";
+                                    $active=$row['isactive'];
                                     
+                                    $row = json_encode($row);
+
+                                          
                                     if($comment_status == "Approved"){
-                                        echo "<td class='border rounded-0'>Approve / <a href='comment.php?unapprove={$comment_id}'> Unapprove</a></td>";
-                                    }
-                                    else{
-                                        echo "<td class='border rounded-0'><a href='comment.php?approve={$comment_id}'>Approve </a> / Unapprove</td>";
-                                    }
-                                    echo "<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='comment.php?delete=$comment_id' href='javascript:void(0)'>Delete </a></td></tr>";    
+                                        echo "<td class='text-center border rounded-0'> <a href='comment.php?unapprove={$comment_id}'><button class='btn  p-2 mr-2 mb-2'  style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Approved</button></a></td>"
+                                    ;}
+                                    if($comment_status == "Unapproved"){
+                                        echo "<td class='text-center border rounded-0'> <a href='comment.php?approve={$comment_id}'><button class='btn = p-2 mr-2 mb-2'  style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Unapproved</button></a></td>"
+                                    ;}
+                                    echo "<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='comment.php?delete=$comment_id' href='javascript:void(0)'>Delete</a> 
+                                    </td></tr>";    
 
                                     echo "</tr>";
               
@@ -80,3 +83,29 @@
                                 ?> 
                                   </tbody>
                         </table>
+                        <script>
+  
+  $('#myModal').on('show.bs.modal', function (e) {
+	
+    	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+});
+/*
+$('document').ready(function(){
+	
+  $('.delete_link').on('click',function(){
+        var id = $(this).attr("rel");
+        var delete_url = "posts.php?delete="+id; 
+        
+        $('.modal_delete_link').attr('href', delete_url);
+        
+        $('#myModal').modal('show');
+    })
+
+
+});*/
+    
+
+
+</script>
+

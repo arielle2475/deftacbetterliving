@@ -40,17 +40,18 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                         </div>
                     </div>
                 </nav>   
-    <div>
-        <div data-aos="fade" class="header-blue" style="padding-bottom: 81px;background-image: url(&quot;../assets/img/bg.gif&quot;);filter: brightness(96%) contrast(92%) grayscale(49%) hue-rotate(0deg) saturate(159%);background-position: center;background-size: cover;background-repeat: no-repeat;padding-top: 20px;min-width: auto;max-width: auto;">
-            <div class="container hero">
-                <div class="row d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-xl-start">
-                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                        <h1 data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="color: rgb(119,94,9);filter: brightness(200%) contrast(120%);font-family: Montserrat, sans-serif;font-weight: bold;font-size: 57px;width: 748px;margin-top: 80px;min-width: auto;max-width: auto;"><strong>KNOW YOUR HISTORY</strong><br></h1>
-                        <p class="d-sm-flex flex-grow-1 flex-shrink-0 flex-sm-shrink-0" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: normal;width: 608px;font-size: 20px;min-width: auto;max-width: auto;">Take a trip down memory lane and check out our videos and photos<br></p><button class="btn btn-light btn-lg action-button" type="button" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">Learn More</button></div>
+                <div class="header-blue" style="background-image: url(&quot;../assets/img/bg.gif&quot;);background-position: center;background-size: cover;background-repeat: no-repeat;">
+           <div class="container hero">
+                <div class="row" style="margin-top: 80px;">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1" style="margin-top: 29px;">
+                        <h1  data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="font-family: Montserrat, sans-serif;font-weight: bold;font-size: 54px;color: rgb(254,209,54);"><strong>FAMILY AS ONE</strong><br></h1>
+                        <p  data-aos="fade-up" data-aos-delay="100" data-aos-once="true" style="font-size: 18px;font-weight: 500;font-family: Montserrat, sans-serif;">Take a trip down memory lane and know your history with our gallery!<br></p></div>
+                    <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                        <div class="iphone-mockup"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <div class="container-fluid text-center" id="dqv" style="padding-top: 85px;background-color: #dfdfdf;padding-bottom: 70px;">
         <h1 data-aos="fade-up"  data-aos-delay="50" data-aos-once="true" style="padding-bottom: 40px;">DEFTAC VIDEOS</h1>
         <div class="row d-xl-flex justify-content-xl-center" style="margin-right: -50px;margin-left: -50px;padding-top: 0px;padding-right: 0px;">
