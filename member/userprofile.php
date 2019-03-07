@@ -10,11 +10,12 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>User Profile | Deftac Betterliving</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <?php include "includes/delete_modal.php"; ?>
+    <link rel="stylesheet" href="../assets/css/Pretty-Footer.css">
 
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
@@ -54,10 +55,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     </div>
                 </nav>   
 <body style="background-image: url(&quot;assets/img/bg2.jpg&quot;);background-size: cover;background-position: center;">
-    <section style="padding-bottom: 45px;background-position: center;background-size: cover;background-image: url(assets/img/bg2.png);">
-        <div class="container border rounded shadow-lg profile profile-view" id="profile" style="padding-right: 50px;padding-left: 50px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;width: 617px;margin-top: 28px;background-color: #ffffff;">
-            <h1>My Profile</h1>
-            <?php
+<?php
 include "config.php";
 $query="SELECT*
 FROM users
@@ -78,6 +76,10 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
   $desc = $row['u_joindesc'];
   $email = $row['email'];
   $img=$row['avatar']; 
+  $regdate = $row['reg_date']; 
+  $appdate = $row['approvedDate']; 
+  $expdate = $row['expirationDate']; 
+
 
 }
 
@@ -120,34 +122,67 @@ if(isset($_POST['update'])){
 
 }
 ?>
-
-        <!-- UPDATE AVATAR -->
-        <form action="" method="post" enctype="multipart/form-data">
-        <br>
-       <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="250" height="250"></span><br/></center>
-       <input type="file" name="avatar" value="<?php echo $_SESSION['avatar']; ?>"  /> 
-        <td colspan="2"><input type="submit" name="update" value="Update Avatar"/></td></form>
-        <div class="form-group"><label>Username</label></div>
-        <input type="text" name="username" value="<?php echo $_SESSION['username'] = $name ?>" class="form-control" readonly>
-            <div class="form-group"><label>Firstname</label></div>
-            <input type="text" name="u_fname" value="<?php echo $fname ?>" class="form-control" readonly>
-            <div class="form-group"><label>Lastname</label></div>
-            <input type="text" name="u_lname" value="<?php echo $lname ?>" class="form-control" readonly>
-            <div class="form-group"><label>Email</label></div>
-            <input type="email" name="u_email" value="<?php echo $email ?>" class="form-control" readonly>
-            <div class="form-group"><label>Gender</label></div>
-            <input type="text" name="u_gender" value="<?php echo $gender ?>" class="form-control" readonly>
-            <div class="form-group"><label>Age</label></div>
-            <input type="text" name="u_age" value="<?php echo $age ?>" class="form-control" readonly>
-            <div class="form-group"><label>Address</label></div>
-            <input type="text" name="u_address" value="<?php echo $address ?>" class="form-control" readonly>
-            <div class="form-group"><label>Contact</label></div>
-            <input type="text" name="u_contact" value="<?php echo $contact ?>" class="form-control" readonly>
-            <div class="form-group"><label>Why did you join?</label></div>
-            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" class="form-control" readonly>
-            <button class="btn btn-primary form-btn" data-toggle='modal' data-target='#myModal' >EDIT</button></div>
+<section style="background-position: center;background-size: cover;background-color: #e1e1e1;">
+        <div class="row register-form" style="margin-top: -17px;margin-right: -15px;margin-left: -15px;">
+            <div class="col-md-8 offset-md-2">
+                <form class="border rounded-0 custom-form" style="padding-right: 0px;padding-left: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-top: 0px;background-color: #ffffff;font-family: Montserrat, sans-serif;padding-bottom: 16px;">
+                    <div class="shadow-lg" data-bs-parallax-bg="true" style="background-position: center;background-size: cover;padding-top: 28px;background-color: #343a40;background-image: url(&quot;assets/img/header-bg.jpg&quot;);background-repeat: no-repeat;filter: brightness(101%);opacity: 1;padding-bottom: 18px;">
+                        <div class="form-row form-group">
+                            <div class="col text-right d-flex d-xl-flex justify-content-end align-items-center justify-content-xl-end align-items-xl-center" style="height: -2px;"><a class="fa fa-pencil" data-toggle='modal' data-target='#myModal' href="" style="font-size: 35px;padding-right: 27px;color: rgb(255,255,255);"></a></div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" style="height: 200px;"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="200" height="200" style="margin-left: 0px;margin-bottom: 30px;"></div>
+                        </div>
+                        <h1 class="text-center" style="color: rgb(255,255,255);font-size: 49px;padding-bottom: 0px;"><?php echo $fname ?> <?php echo $lname ?></h1>
+                        <h1 class="text-center" style="color: rgb(255,255,255);font-size: 15px;padding-bottom: 0px;">Member since: <?php echo $regdate ?>&nbsp;</h1>
+                    </div>
+                    <div class="border rounded shadow-lg" style="height: auto;margin: 30px;padding: 40px;padding-top: 0px;padding-right: 0px;padding-left: 0px;">
+                        <h1 class="text-center" style="padding-top: 10px;padding-bottom: 10px;margin-bottom: 25px;color: rgb(255,255,255);font-size: 30px;background-color: rgb(52,58,64);">Membership Status</h1>
+                        <h1 style="font-size: 20px;color: rgb(36,146,47);padding-left: 40px;">Started: <?php echo $appdate ?></h1>
+                        <h1 style="font-size: 20px;color: rgb(214,52,42);padding-left: 40px;">Expiration: <?php echo $expdate ?></h1>
+                    </div>
+                    <div class="border rounded shadow-lg" style="height: auto;margin: 30px;padding: 40px;padding-top: 0px;padding-right: 0px;padding-left: 0px;">
+                        <h1 class="text-truncate text-center flex-grow-1 flex-shrink-1 flex-wrap" style="padding-top: 10px;padding-bottom: 10px;margin-bottom: 25px;color: rgb(255,255,255);font-size: 32px;background-color: #343a40;">User Information</h1>
+                        <div class="form-row">
+                            <div class="col">
+                                <h1 class="text-truncate" style="font-size: 17px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-envelope" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $email ?></h1>
+                                <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-user" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $gender ?></h1>
+                                <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-calendar" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $age ?></h1>
+                            </div>
+                            <div class="col">
+                                <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-phone-square" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $contact ?></h1>
+                                <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-map" style="color: rgb(255,193,7);font-size: 30px;padding-bottom: 9px;"></i>&nbsp;<?php echo $address ?></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border rounded shadow-lg" style="height: auto;margin: 30px;padding: 40px;padding-top: 0px;padding-right: 0px;padding-left: 0px;">
+                        <h1 class="text-center" style="padding-top: 10px;padding-bottom: 10px;margin-bottom: 25px;color: rgb(255,255,255);font-size: 30px;background-color: #343a40;">Why did you join Jiu-Jitsu?</h1>
+                        <h1 class="text-center" style="padding: 20px;padding-top: 0px;font-size: 24px;padding-bottom: 0px;"><?php echo $desc ?>&nbsp;</h1>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
-  
+    <footer style="margin-top:-100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center"><span class="copyright" style="font-size: 11px;">Copyright&nbsp;© Deftac Betterliving 2016</span></div>
+                <div class="col-md-4">
+                    <ul class="text-center list-inline social-buttons">
+                        <li class="list-inline-item"><a href="https://bjjasia.com/gym/deftac-better-living/"><i class="fa fa-hand-grab-o" style="margin: 12px;"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/deftacbetterliving/"><i class="fa fa-facebook" style="margin: 12px;"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/deftacbetterliving/"><i class="fa fa-instagram" style="margin: 12px;"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks" style="width: 258px;">
+                        <li class="list-inline-item" style="width: 213px;"><a href="#" style="font-size: 12px;"><i class="fa fa-envelope-open"></i>&nbsp; deftacbetterliving@gmail.com</a></li>
+                        <li class="list-inline-item"><a href="#" style="font-size: 12px;"><i class="fa fa-vcard"></i>&nbsp; 09054041458</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>

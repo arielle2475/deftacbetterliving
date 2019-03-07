@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </div>
-        </div>
+        </div></div>
     <section class="card-section-imagia" style="padding-top: 80px;">
         <h1 data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="padding-bottom: 30px;">COACHES</h1>
         <div class="container" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">

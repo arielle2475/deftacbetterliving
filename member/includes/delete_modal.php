@@ -18,7 +18,7 @@
       </div>
       <div class="modal-body  d-flex d-lg-flex justify-content-center justify-content-lg-center align-items-lg-center" >
 
-        <section  style="height: 750px;padding-top: 0px;background-color: #ffffff;font-family: Montserrat, sans-serif; padding:10px; max-width: 600px;width: 600px;">
+        <section  style="height: 950px;padding-top: 0px;background-color: #ffffff;font-family: Montserrat, sans-serif; padding:10px; max-width: 600px;width: 600px;">
            
         <?php
         include "config.php";
@@ -47,6 +47,13 @@
         $result = $mysqli->query($sql); 
         
         ?>     
+
+     <form action=""  method="post" enctype="multipart/form-data">
+        <br>
+       <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="100" height="100"></span><br/></center>
+       <input class="btn" type="file" name="avatar" value="<?php echo $_SESSION['avatar']; ?>"  /> 
+        <td colspan="2"><input class="btn btn-warning" style="color:white;" type="submit" name="update" value="Update Avatar"/></td></form>
+
         <form method="POST" action="edit.php">
         
         <div class="form-group" ><label style="margin-bottom:-13px; font-weight:bold;">Username</label></div>   

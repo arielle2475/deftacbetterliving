@@ -1,6 +1,6 @@
 <table class="table table-hover">
                             <thead>
-                                <tr>
+                            <tr class="text-center" style="font-size:12px;color: rgb(255,255,255);background-color: #333332;">
                                     <th>Id</th>
                                     <th>Post ID</th>
                                     <th>Author</th>
@@ -9,6 +9,7 @@
                                     <th>Date</th>
                                     <th>Content</th>
                                     <th>Approval Status</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

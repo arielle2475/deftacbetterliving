@@ -123,7 +123,9 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-
+                <li>
+                <a class="h ha"  href="gallery.php">Gallery</a>
+            </li>
             </ul>
 
             <ul class="list-unstyled CTAs">

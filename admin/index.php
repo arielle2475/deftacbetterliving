@@ -89,7 +89,9 @@
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-
+                <li >
+                <a class="h ha"  href="gallery.php">Gallery</a>
+            </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
