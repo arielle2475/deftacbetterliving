@@ -29,7 +29,6 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="submit.php">Membership</a></li>
                               <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
                                     </div>
                                 </li>

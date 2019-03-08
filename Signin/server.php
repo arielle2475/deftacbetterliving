@@ -84,7 +84,7 @@ if (isset($_POST['login_user'])) {
 
 	}
 	elseif	($dbResults['isActive'] == 0)  {
-		  header('location: ../member/renewal.php');
+		  header('location: ../nonmember/renewal.php');
 	
   	}else {
   		array_push($errors, "Wrong username/password combination");
