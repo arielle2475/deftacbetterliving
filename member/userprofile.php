@@ -199,7 +199,7 @@ if(isset($_POST['update'])){
         <div class="row register-form" style="margin-top: -17px;margin-right: -15px;margin-left: -15px;">
             <div class="col-md-8 offset-md-2">
                 <form class="border rounded-0 custom-form" style="padding-right: 0px;padding-left: 0px;margin-right: 0px;margin-left: 0px;margin-top: 0px;padding-top: 0px;background-color: #ffffff;font-family: Montserrat, sans-serif;padding-bottom: 16px;">
-                    <div class="shadow-lg" data-bs-parallax-bg="true" style="background-position: center;background-size: cover;padding-top: 28px;background-color: #343a40;background-image: url(&quot;assets/img/header-bg.jpg&quot;);background-repeat: no-repeat;filter: brightness(101%);opacity: 1;padding-bottom: 18px;">
+                    <div class="shadow-lg" data-bs-parallax-bg="true" style="background-position: center;background-size: cover;padding-top: 28px;background-color: #343a40;background-image: url(&quot;../assets/img/header.gif&quot;);background-repeat: no-repeat;filter: brightness(101%);opacity: 1;padding-bottom: 18px;">
                         <div class="form-row form-group">
                             <div class="col text-right d-flex d-xl-flex justify-content-end align-items-center justify-content-xl-end align-items-xl-center" style="height: -2px;"><a class="fa fa-pencil" data-toggle='modal' data-target='#myModal' href="" style="font-size: 35px;padding-right: 27px;color: rgb(255,255,255);"></a></div>
                         </div>

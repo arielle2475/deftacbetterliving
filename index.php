@@ -69,7 +69,7 @@
                             <div class="col-lg-8 mx-auto">
                                 <div class="modal-body">
                                     <h2 class="text-uppercase">DEFTAC- RIBEIRO 2018&nbsp;<br></h2>
-                                    <p class="item-intro text-muted">Congratulations to the UNDISPUTED BEST TEAM of 2018<br></p><img src="1.jpg" class="img-fluid d-block mx-auto">
+                                    <p class="item-intro text-muted">Congratulations to the UNDISPUTED BEST TEAM of 2018<br></p><img src="assets/img/portfolio/1.jpg" class="img-fluid d-block mx-auto">
                                     <p>Last year was awesome and we just keep getting better every single time.&nbsp;<br><br>KING OF PHILIPPINES JIU JITSU CHAMPIONSHIP 2018<br>OVERALL CHAMPION<br><br>ASJJF DUMAU MANILA INTERNATIONAL NO-GI CHAMPIONSHIP 2018<br>OVERALL
                                         CHAMPION<br><br>ASJJF CENTRAL LUZON INTERNATIONAL JIU JITSU CHAMPIONSHIP 2018<br>OVERALL CHAMPION<br><br>ASIA PACIFIC INTERNATIONAL JIU JITSU CHAMPIONSHIP 2018<br>OVERALL CHAMPION<br><br>PAN ASIANS 2018<br>OVERALL
                                         CHAMPION<br><br>MANILA OPEN CHAMPION IBJFF<br>OVERALL CHAMPION<br><br>IBJFF ASIAN OPEN NOVICE<br>OVERALL CHAMPION<br><br>SEA GAMES GRAPPLING&nbsp;<br>27 GOLD<br><br>At DEFTAC we make sure that you get to the next
@@ -251,7 +251,7 @@
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/1-thumbnail.jpg"></a>
+                        </div><img class="img-fluid" src="assets/img/portfolio/1-thumbnaill.jpg"></a>
                     <div class="portfolio-caption">
                         <h4>Deftac Ribeiro 2018</h4>
                         <p class="text-muted" style="font-family: Montserrat, sans-serif;">Congratulations to the UNDISPUTED BEST TEAM of 2018<br></p>
@@ -261,7 +261,7 @@
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/1-thumbnail.jpg"></a>
+                        </div><img class="img-fluid" src="assets/img/portfolio/2-thumbnaill.jpg"></a>
                     <div class="portfolio-caption">
                         <h4>Dumau Manila International Open<br><br></h4>
                         <p class="text-muted" style="font-family: Montserrat, sans-serif;">What a way to close out our last tournament for 2018 at the Dumau Manila International Open!<br></p>
@@ -291,7 +291,7 @@
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid img-fluid" src="assets/img/portfolio/1-thumbnail.jpg"></a>
+                        </div><img class="img-fluid img-fluid" src="assets/img/portfolio/5-thumbnaill.jpg"></a>
                     <div class="portfolio-caption">
                         <h4><em>URCC 28 VINDICATION LIVE</em><br></h4>
                         <p class="text-muted" style="font-family: Montserrat, sans-serif;">On HIGH ALERT as WAVES OF DESTRUCTION are coming your way!<br></p>
@@ -301,7 +301,7 @@
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                        </div><img class="img-fluid" src="assets/img/portfolio/1-thumbnail.jpg"></a>
+                        </div><img class="img-fluid" src="assets/img/portfolio/6-thumbnaill.jpg"></a>
                     <div class="portfolio-caption">
                         <h4><em>2016 at Deftac Better Living. Brotherhood &amp; Jiu-Jitsu.</em><br></h4>
                         <p class="text-muted" style="font-family: Montserrat, sans-serif;">You get a taste of these things and you can't stop.&nbsp;<br></p>
@@ -317,7 +317,7 @@
                     <h2 class="text-uppercase" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">ABOUT<br></h2>
                     <h3 class="text-muted section-subheading" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" style="font-family: Montserrat, sans-serif;font-size: 15px;margin-bottom: 39px;margin-top: 29px;margin-right: 50px;margin-left: 50px;font-style: normal;">DEFTAC is founded and led by pioneers of mixed-martial arts and Brazilian Jiu-Jitsu (BJJ) here in the Philippines. Train side-by-side with our team. Our coaches and mentors have competed internationally, and are multi-awarded, top
                         practitioners of today’s jiu-jitsu. We have chapters all over the Philippines. Watch our highlight reel below and see how you can be a part of our family.<br></h3>
-                    <div data-aos="fade-up" data-aos-delay="200" class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" data-aos-once="true" style="width: 1107px;"></iframe></div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="video-container"><iframe allowfullscreen="" frameborder="0" src="assets/img/video/index.mp4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" data-aos-once="true" style="width: 1107px;"></iframe></div>
                 </div>
             </div>
         </div>

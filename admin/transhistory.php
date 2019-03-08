@@ -101,6 +101,9 @@
                 <li >
                 <a class="h ha"  href="gallery.php">Gallery</a>
             </li>
+            <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
@@ -147,8 +150,9 @@
             <div class="tab-content" style="background-color: #ffffff;">
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
+                    <h1 style="font-size: 35px;">Transaction History</h1> 
+                    <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php">Print PDF</a></button>
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
-                        <h1 style="font-size: 35px;">Transaction History</h1>
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
                                 <thead>
@@ -208,6 +212,8 @@
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Monthly Transactions</h1>
+                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="monthlypdf.php">Print PDF</a></button>
+
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
                                 <thead>
@@ -267,6 +273,8 @@
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Annual Transactions</h1>
+                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="yearlypdf.php">Print PDF</a></button>
+
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: px;">
                         <table id="myTable" class="table">
                                 <thead>

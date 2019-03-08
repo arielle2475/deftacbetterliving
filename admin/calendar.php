@@ -200,6 +200,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <li>
                 <a class="h ha"  href="gallery.php">Gallery</a>
             </li>
+            <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
             </ul>
             <ul class="list-unstyled CTAs">
                 <li>

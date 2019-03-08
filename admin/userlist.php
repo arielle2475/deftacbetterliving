@@ -132,6 +132,9 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 <li>
                 <a class="h ha"  href="gallery.php">Gallery</a>
             </li>
+            <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">

@@ -92,6 +92,12 @@
                 <li class="active">
                     <a href="calendar.php">Calendar</a>
                 </li>
+                <li >
+                    <a href="gallery.php">Gallery</a>
+                </li>
+                <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
 
             </ul>
 
