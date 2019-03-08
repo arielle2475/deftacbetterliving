@@ -73,7 +73,7 @@
 
                     </ul>
                 </li>
-                <li>
+                <li  class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li class="active">
@@ -98,7 +98,7 @@
                     <a href="profile.php" class="download">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a href="../signin/loginadmin.php" class="article">Logout</a>
                 </li>
             </ul>
         </nav>

@@ -19,7 +19,7 @@ function formatDate($date){
 }
 
 
-$query = " SELECT * FROM chat ORDER BY date DESC";
+$query = " SELECT * FROM chat ORDER BY date ASC";
 $run = mysqli_query($con, $query);
 
 	while ($row =mysqli_fetch_array($run, MYSQLI_BOTH)) {

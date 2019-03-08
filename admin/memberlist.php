@@ -51,7 +51,8 @@
             <ul class="list-unstyled components">
             <li>
                     <a href="index.php">Dashboard</a>
-                </li>                <li>
+                </li>                
+                <li  class="active">
                     <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
                     <ul class="collapse list-unstyled" id="memberSubmenu">
                         <li  class="active">

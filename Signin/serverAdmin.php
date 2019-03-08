@@ -65,6 +65,11 @@ if (isset($_POST['login_Admin'])) {
   if (empty($username)) {
   	array_push($errors, "Username is required");
   }
+  else {
+    echo '<script language="javascript">';
+    echo 'alert("Wrong Username/Password Combination!" )';
+    echo '</script>';
+  }
   if (empty($password)) {
   	array_push($errors, "Password is required");
   }

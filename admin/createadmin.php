@@ -1,11 +1,4 @@
 <?php include "includes/admin_header.php"; ?>
-<?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
- ?>
-<?php include "includes/delete_modal.php"; ?>
 
 
     <meta charset="utf-8">
@@ -67,7 +60,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li  class="active">
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
@@ -76,10 +69,13 @@
                         <li>
                             <a href="editadmin.php">Admin Status</a>
                         </li>
+                        <li  class="active">
+                            <a href="createadmin.php">Admin Create</a>
+                        </li>
 
                     </ul>
                 </li>
-                <li  class="active">
+                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -88,12 +84,12 @@
                         <li>
                             <a href="categories.php">View Categories</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="comment.php">View Comments</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="calendar.php">Calendar</a>
                 </li>
 
@@ -135,52 +131,61 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Comments</h1>
+                    <h1>Admin Create</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
-                    <div class="col-md-12">
-                        
-                        <?php
-                          include "includes/view_all_comments.php";
-                          ?>
-                    
-              </div>
+                                                  
+                            <?php
+        include "../member/config.php";
+
+        $query="SELECT *
+        FROM admins
+        WHERE adminname = '" . $_SESSION['adminname'] . "'";
+
+        $run = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+        $name = $row['adminname'];
+        $email = $row['adminemail'];
+        $password = $row['password'];
+    
+
+        }
+        ?>
+        <?php
+        $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+        $sql = 'SELECT adminname, adminavatar FROM admins';
+        $result = $mysqli->query($sql); 
+        
+        ?>
+
+     
+        <form method="POST" action="includes/edit.php">
+        
+        <div class="form-group"><label>Username</label></div>   
+        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
+
+        <div class="form-group"><label>Email</label></div>
+        <input type="email" name="adminemail" value="<?php echo $email ?>" required="required" placeholder="Enter Email" class="form-control">
+        
+        <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+ 
+                   
                 </div>
             </div>
         </div>
     </div>
 
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-
-                                             
-<script>
-  
-  $('#myModal').on('show.bs.modal', function (e) {
-	
-    	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
-
-});
         <?php include "includes/footer.php"; ?>
 
 </body>
 </html>
 
+
+   

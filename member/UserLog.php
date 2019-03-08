@@ -30,7 +30,7 @@ $name = $_SESSION['username'];
 
 		else{
 			echo "<a href='profile.php?id=$row[id]' title='View Profile of $row[adminname]' style='text-decoration:none'>
-			<p style='background-color:#F74F4F; padding-left:5px; font-weight:bold; border-radius:10px; height:24px; line-height:24px; color:#fff'>Admin: ".strtoupper($row['adminname'])."&nbsp;</p></a>";
+			<p style='background-color:#F74F4F; padding-left:5px; font-weight:bold; border-radius:10px; height:24px; line-height:24px; color:#fff'>ADMIN: ".strtoupper($row['adminname'])."&nbsp;</p></a>";
 		}
 		
 		

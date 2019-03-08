@@ -60,14 +60,17 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li  class="active">
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
                             <a href="adminlist.php">Admin List</a>
                         </li>
-                        <li>
+                        <li  class="active">
                             <a href="editadmin.php">Admin Status</a>
+                        </li>
+                        <li>
+                            <a href="createadmin.php">Admin Create</a>
                         </li>
 
                     </ul>
@@ -128,7 +131,6 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Name" class="search form-control"></div>
                     <h1>Admin Status</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                                                   
@@ -149,7 +151,7 @@
                                   $password = md5($_POST['password']);
 
                                   //path were our avatar image will be stored
-                                  $avatar_path = $mysqli->real_escape_string('..//images/'.$_FILES['adminavatar']['name']);
+                                  $avatar_path = $mysqli->real_escape_string('../images/'.$_FILES['adminavatar']['name']);
                                   
 
                                   //make sure filetype is image
@@ -158,8 +160,7 @@
                                     //copy image to images/ folder 
                                   if (copy($_FILES['adminavatar']['tmp_name'], $avatar_path)) {
                                         //set session variables to display on welcome page
-                              $_SESSION['adminname'] = $username;
-                              $_SESSION['adminavatar'] = $avatar_path;
+
 
                               //create SQL query string for inserting data into the database
                               $sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
@@ -169,7 +170,7 @@
                                           if ($mysqli->query($sql) === true){
                                               $_SESSION['message'] = "Registration successful!"
                                               . "Added $username to the database!";
-                                              header("location: ../admin/adminsubmit.php");
+                                              header("location: ../admin/adminlist.php");
                                           }
                                           else {
                                               $_SESSION['message'] = 'User could not be added to the database!';
@@ -191,32 +192,41 @@
 
 
                               ?>
+                 <form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                 <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
 
                     <div class="form-row profile-row" style="padding: 13px;">
                     
                         <div class="col-md-4 relative">
                                 <div class="avatar-bg center">
-                            </div><input type="file" class="form-control" name="adminavatar" accept="image/*" required></div>
+                            </div>
+                            <input type="file" class="form-control" name="adminavatar" accept="image/*" required></div>
                         <div class="col-md-8">
                             <h1>Admin Profile </h1>
                             <hr>
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Username</label><input class="form-control" type="text" name="adminname"></div>
+                                    <div class="form-group"><label>Username</label>
+                                    <input class="form-control" type="text" name="adminname"></div>
                                 </div>
                             </div>
-                            <div class="form-group"><label>Email </label><input class="form-control" type="email" autocomplete="off" required="" name="adminemail"></div>
+                            <div class="form-group"><label>Email </label>
+                            <input class="form-control" type="email" autocomplete="off" required="" name="adminemail"></div>
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>
+                                    <div class="form-group"><label>Password </label>
+                                    <input class="form-control" type="password" name="password" autocomplete="new-password" required=""></div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Confirm Password</label><input class="form-control" type="password" name="confirmpassword" autocomplete="off" required=""></div>
+                                    <div class="form-group"><label>Confirm Password</label>
+                                    <input class="form-control" type="password" name="confirmpassword" autocomplete="new-password" required=""></div>
                                 </div>
                             </div>
                             <hr>
                             <div class="form-row">
-                                <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" value="Register Admin" name="register" type="submit">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
+                                <div class="col-md-12 content-right">
+                                <input type="submit" value="Register Admin" name="register" style="font-weight:bold;" class="btn btn-success form-btn" />
+                                    <button class="btn btn-danger form-btn" style="font-weight:bold;" type="reset">Cancel </button></div>
                             </div>
                         </div>
                     </div>
@@ -225,138 +235,17 @@
 
 
 
-
-<h1>Create an Admin account</h1>
-<form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
-<div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
-  <input type="text" placeholder="User Name" name="adminname" required />
-  <input type="email" placeholder="Email" name="adminemail" required />
-  <input type="password" placeholder="Password" name="password" autocomplete="new-password" required />
-  <input type="password" placeholder="Confirm Password" name="confirmpassword" autocomplete="new-password" required />
-  <div class="avatar"><label>Select your avatar: </label><input type="file" name="adminavatar" accept="image/*" required /></div>
-  <input type="submit" value="Register Admin" name="register" class="btn btn-block btn-primary" />
  
-                    </div>
+                   
                 </div>
             </div>
         </div>
     </div>
 
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
         <?php include "includes/footer.php"; ?>
 
 </body>
 </html>
 
 
-        </ul>
-      </nav>
-      <!-- ################################################################################################ --> 
-    </header>
-  </div>
- 
-</div>
-
-
-</div></div>
-<div id="box1" class="wrapper row3" style="background-image:url('../images/demo/bgall.jpg');">
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-<!--- FOOTER -->
-
-<link rel="stylesheet" href="layout/footer.css">
-<footer class="footer-distributed">
-      <br>
-      <div class="footer-left">
-        <div class="footerlogo">
-        <img src="images/deftacmain.png">
-      </div>
-
-        <p class="footer-company-name">Deftac Betterliving &copy; 2018</p>
-      </div>
-
-      <div class="footer-center">
-    <br>
-
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p><span>Deftac Betterliving</span> Parañaque</p>
-        
-
-        </div>
-
-        <div>
-          <i class="fa fa-phone"></i>
-          <p>+639054041458</p>
-        </div>
-
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p><a href="mailto:deftacbetterliving@gmail.com">deftacbettingliving@gmail.com</a></p>
-        </div>
-
-      </div>
-
-      <div class="footer-right">
-        <br>
-        <div class="footerlogo">
-        <img src="images/ribiero.png">
-      </div>
-
-        </div>
-
-      </div>
-
-    </footer>
-    
-
-<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a> 
-<!-- JAVASCRIPTS --> 
-<script src="layout/scripts/jquery.min.js"></script> 
-<script src="layout/scripts/jquery.backtotop.js"></script> 
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-</body>
-</html>
+   

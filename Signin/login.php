@@ -21,11 +21,11 @@
         </div>
     </nav>
     <div data-aos="fade" data-aos-duration="700" data-aos-delay="200" data-aos-once="true" class="login-dark" style="background-image: url(&quot;../assets/img/bg.gif&quot;);">
-        <form method="post" style="opacity: 0.85;" action="login.php">
-        <?php include('errors.php'); ?>
+        <form method="POST" style="opacity: 0.85;" action="login.php">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="../assets/img/deftac.png" width="180px" data-bs-hover-animate="pulse"></div>
-            <div class="form-group"><input class="form-control" type="text" name="username" required="" placeholder="Username" ></div>
+            <?php include('errors.php'); ?>
+            <div class="form-group"><input class="form-control" type="text" name="username" required placeholder="Username" ></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="login_user" style="background-color: rgb(254,209,54);">Log In</button></div><a href="form.php" class="forgot">Not Yet a Member? Register now!</a></form>
     </div>

@@ -161,17 +161,52 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 } 
                 ?>
                     <div class="border rounded shadow toc" style="padding: 16px;margin-top: 20px;">
+                    
+<?php if(isset($error)){
+                    echo "<p class='alert alert-danger text-center'>{$error}</p>";
+                        } 
+                    if(isset($success)){
+                    echo "<p class='alert alert-success text-center'>{$success}</p>";
+                        }
+                    ?>
                     <h4>Leave a Comment:</h4>
                     <form role="form" action="" method="post">
-                          
+                    <?php
+        include "config.php";
+
+        $query="SELECT*
+        FROM users
+        INNER JOIN mfillup ON users.username= mfillup.username WHERE users.username = '" . $_SESSION['username'] . "'";
+
+        $run = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+            $name = $row['username'];
+        $gender = $row['u_gender'];
+        $lname = $row['u_lname'];
+        $fname = $row['u_fname'];
+        $age = $row['u_age'];
+        $address = $row['u_address'];
+        $contact = $row['u_contact'];
+        $desc = $row['u_joindesc'];
+        $email = $row['email'];
+
+        }
+        ?>
+        <?php
+        $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+        $sql = 'SELECT username, avatar FROM users';
+        $result = $mysqli->query($sql); 
+        
+        ?>
+
                            <div class="form-group">
                            <label for="comment_author">Author</label>
-                           <input type="text" class="form-control" name="comment_author">
+                           <input type="text" value="<?php echo $fname." ".$lname ?> (member)" class="form-control" name="comment_author" readonly>
                             </div>
-                            
+                          
                             <div class="form-group">
                            <label for="comment_email">Email</label>
-                           <input type="email" class="form-control" name="comment_email">
+                           <input type="email" value="<?php echo $email ?>"  class="form-control" name="comment_email" readonly>
                             </div>
                             
                         <div class="form-group">
@@ -180,13 +215,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                         </div>
                         <button type="submit" class="btn btn-primary" name="add_comment">Add Comment</button>
                     </form>
-                    <?php if(isset($error)){
-                    echo "<h4 class='alert alert-danger text-center'>{$error}</h4>";
-                        } 
-                    if(isset($success)){
-                    echo "<h4 class='alert alert-success text-center'>{$success}</h4>";
-                        }
-                    ?>
+                  
                     
                 </div>
 </div>

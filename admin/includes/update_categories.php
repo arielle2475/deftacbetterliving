@@ -29,6 +29,6 @@
                 ?>
     </div>
     <div class="form-group">
-    <input type="submit" name="update_category" class="btn btn-primary" value="Update Category">
+    <input type="submit" name="update_category" class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(229,196,76);' value="Update Category">
     </div>
 </form>

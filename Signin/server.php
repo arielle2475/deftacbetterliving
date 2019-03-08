@@ -64,6 +64,7 @@ if (isset($_POST['login_user'])) {
   if (empty($username)) {
   	array_push($errors, "Username is required");
   }
+ 
   if (empty($password)) {
   	array_push($errors, "Password is required");
   }
@@ -75,23 +76,17 @@ if (isset($_POST['login_user'])) {
   	$results = mysqli_query($db, $query);
 	
   	if (mysqli_num_rows($results) == 1) {
-		$dbResults = $results->fetch_assoc();
-		if ($dbResults['isActive'] == 1) {
-		  $_SESSION['username'] = $username;
-		  $_SESSION['message'] = "You are now logged in";
-		  header('location: ../member/welcome.php');
-		
-
-	}
-	elseif	($dbResults['isActive'] == 0)  {
-		  header('location: ../member/renewal.php');
-	
-  	}else {
-  		array_push($errors, "Wrong username/password combination");
-		  	  header('location: ../signin/login.php');
-
-  	}
+		  $dbResults = $results->fetch_assoc();
+		  if ($dbResults['isActive'] == 1) {
+		    $_SESSION['username'] = $username;
+		    $_SESSION['message'] = "You are now logged in";
+        header('location: ../member/welcome.php');
+	    } elseif	($dbResults['isActive'] == 0)  {
+        header('location: ../member/renewal.php');
+      }
+    } else {
+      array_push($errors, 'Wrong Username/Password');
+    }
   }
-}
 }
 ?>

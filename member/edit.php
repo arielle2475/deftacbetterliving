@@ -42,7 +42,6 @@ if(!$error) {
         echo 'alert("Username already exist!");'; 
         echo 'window.location.href = "editprofile.php";';
         echo '</script>';
-        var_dump($_POST);
         
          
     }
@@ -62,7 +61,7 @@ else { //here you need to add else condition
          mysqli_query($conn, $sql);  
          mysqli_query($conn, $sql2);
          $_SESSION['username'] = $name;
-         header("Location: welcome.php");
+         header("Location: ../welcome.php");
 
 }
 }

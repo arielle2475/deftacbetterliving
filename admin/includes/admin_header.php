@@ -1,7 +1,16 @@
 <?php ob_start(); ?>
-<?php session_start(); ?>
-<?php include "../includes/database.php" ?>
+<?php 
+session_start();
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+    session_destroy();
+    header('location: ../Signin/loginadmin.php?error=Login to access admin.');
+    }
+?><?php include "../includes/database.php" ?>
 <?php include "functions.php"; ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
