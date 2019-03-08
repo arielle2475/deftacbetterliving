@@ -38,17 +38,18 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                         </div>
                     </div>
                 </nav>   
-    <div>
-        <div data-aos="fade" class="header-blue" style="padding-bottom: 81px;background-image: url(&quot;../assets/img/bg.gif&quot;);filter: brightness(96%) contrast(92%) grayscale(49%) hue-rotate(0deg) saturate(159%);background-position: center;background-size: cover;background-repeat: no-repeat;padding-top: 20px;min-width: auto;max-width: auto;">
-            <div class="container hero">
-                <div class="row d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-xl-start">
-                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                        <h1 data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="color: rgb(119,94,9);filter: brightness(200%) contrast(120%);font-family: Montserrat, sans-serif;font-weight: bold;font-size: 57px;width: 748px;margin-top: 80px;min-width: auto;max-width: auto;"><strong>MEET OUR COACHES</strong><br></h1>
-                        <p class="d-sm-flex flex-grow-1 flex-shrink-0 flex-sm-shrink-0" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" style="color: #ffffff;font-family: Montserrat, sans-serif;font-weight: normal;width: 608px;font-size: 20px;min-width: auto;max-width: auto;">Get to know your coaches who will teach you the ways of jiu-jitsu!<br></p><button class="btn btn-light btn-lg action-button" type="button" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">Learn More</button></div>
+                <div class="header-blue" style="background-image: url(&quot;../assets/img/bg.gif&quot;);background-position: center;background-size: cover;background-repeat: no-repeat;">
+           <div class="container hero">
+                <div class="row" style="margin-top: 80px;">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1" style="margin-top: 29px;">
+                        <h1  data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="font-family: Montserrat, sans-serif;font-weight: bold;font-size: 54px;color: rgb(254,209,54);"><strong>Get to know the Coaches!</strong><br></h1>
+                        <p  data-aos="fade-up" data-aos-delay="100" data-aos-once="true" style="font-size: 18px;font-weight: 500;font-family: Montserrat, sans-serif;">Get to know your coaches who will teach you the ways of jiu-jitsu!<br></p>
+                    <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                        <div class="iphone-mockup"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div></div>
     <section class="card-section-imagia" style="padding-top: 80px;">
         <h1 data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="padding-bottom: 30px;">COACHES</h1>
         <div class="container" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
@@ -90,7 +91,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                                 <div class="content-imagia">
                                     <h3 class="name-imagia">Coach Richard Lasprilla</h3>
                                     <p class="subtitle-imagia">Co-Instructor</p>
-                                    <p class="text-center"><em>Coach Richard Lasprilla was born and raised in the heart of the Amazon, Manaus, Brazil. Considered by many as the greatest Jiu-Jitsu competitor in the&nbsp;<br></em></p>
+                                    <p class="text-center"><em>Coach Richard Lasprilla was born and raised in the heart of the Amazon, Manaus, Brazil. Considered by many as the greatest Jiu-Jitsu competitor in &nbsp;<br></em></p>
                                 </div>
                                 <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
                             </div>
@@ -98,7 +99,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                                 <div class="content-imagia content-back-imagia">
                                     <div>
                                         <h3 class="text-center">Purple Belt</h3>
-                                        <p class="text-center"><br>&nbsp;history of the sport, Richard excelled in competition at an early age. He received his Black Belt from the hands of his older brother, Saulo Lasprilla in 2001. A year later, both Richard and Saulo moved
+                                        <p class="text-center"><br>&nbsp;the history of the sport, Richard excelled in competition at an early age. He received his Black Belt from the hands of his older brother, Saulo Lasprilla in 2001. A year later, both Richard and Saulo moved
                                             to Toledo, Ohio where they started the Ribeiro Jiu-Jitsu Association.&nbsp;<br></p>
                                     </div>
                                 </div>
@@ -147,37 +148,37 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
             <h3 class="text-left">Choke Holds</h3>
             <div class="row" style="padding-bottom: 30px;">
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/nCCVE3zQfqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/4mDKZOaTzBM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/YLYBOuXKzVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
             </div>
             <h3 class="text-left">Armbars</h3>
             <div class="row" style="padding-bottom: 30px;">
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/Dq8nahFOnI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZOlNtDJ60DY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/WnhJERWQvcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
             </div>
             <h3 class="text-left">Take Downs</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/0wYR63ZsbI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/tPYrtF9xc8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
                 <div class="col-md-4">
-                    <div class="video-container"><iframe allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/201361986"></iframe></div>
+                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/dt-t6a5IxBI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
             </div>
         </div>

@@ -45,10 +45,8 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
     <link rel="stylesheet" href="assets/css/Table-With-Search.css">
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
 	
     <!-- Wisiwig Editer -->
    <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script> -->

@@ -1,161 +1,183 @@
-<?php include"includes/admin_header.php"; ?>
-<?php
-if(isset($_SESSION['username'])){
-    
-    $profile_user = $_SESSION['username'];
-    $query = "SELECT * FROM users WHERE username = '$profile_user'";
-    $edit_user_profile = mysqli_query($connection,$query);
-    while($row = mysqli_fetch_assoc($edit_user_profile)){
-        
-        $username = $row['username'];
-        $user_password = $row['user_password'];
-        $user_firstname = $row['user_firstname'];
-        $user_lastname = $row['user_lastname'];
-        $user_image = $row['user_image'];
-        $user_email = $row['user_email'];
-        $user_role = $row['user_role'];
-
-    }
-    
-    if(isset($_POST['update_profile'])){
-    $username = $_SESSION['username'];
-    $user_password = $_POST['user_password'];
-    $user_firstname = $_POST['user_firstname'];
-    $user_lastname = $_POST['user_lastname'];
-    
-    $user_image = $_FILES['user_image']['name'];
-    $tmp_user_image = $_FILES['user_image']['tmp_name'];
-    
-    $user_email = $_POST['user_email'];
-    $user_role = $_POST['user_role'];
-    move_uploaded_file($tmp_user_image, "./images/$user_image");
-        
-        if(!$user_image){
-            $query = "SELECT * FROM users WHERE username = '$profile_user'";
-            $edit_user_profile = mysqli_query($connection,$query);
-            while($row = mysqli_fetch_assoc($edit_user_profile)){
-
-               $user_image = $row['user_image'];
-            }
-        }
-    
-    $query = "UPDATE users SET user_password='$user_password', user_firstname ='$user_firstname',user_lastname = '$user_lastname',user_image='$user_image',user_email='$user_email',user_role ='$user_role' WHERE username ='$username' ";
-
-    
-    $create_user = mysqli_query($connection,$query);
-    
-    confirm_query($create_user);
-    }
-}
+<?php include "includes/admin_header.php"; ?>
 
 
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
 
-?>
-    <div id="wrapper">
+    <title>Deftac Betterliving</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style5.css">
 
-        <!-- Navigation -->
-        <?php include"includes/admin_navigation.php"; ?>
-         
-    <!-- Content of the admin page --->
-       
-        <div id="page-wrapper">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-            <div class="container-fluid">
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Welcome to the Admin,
-                            <small><?php echo $_SESSION['username']; ?></small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="./index.php">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Profile
-                            </li>
-                        </ol>
-                        
-                        
-                        
-                    </div>
-                    <div class="col-md-12">
-                        
-                        <form action="" method="post" enctype="multipart/form-data">
-                           <div class="col-md-5">
-                               <div class="form-group">
-                               <label for="user_image">Profile Image</label>
-                               <p><img width="400px" src="./images/<?php echo $user_image; ?>" alt=""></p>
-                                <input type="file" name="user_image">
-                            </div>
-                           </div>
-                            <div class="col-md-6">
-                            <h1 >User Profile</h1>
-                            <div class="form-group">
-                               <label for="username"> Username</label>
-                                <input value='<?php echo $username; ?>' type="text" class="form-control" name="username" disabled>
-                            </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+ 
+</head>
 
-                            <div class="form-group">
-                               <label for="user_password"> Password</label>
-                                <input value='<?php echo $user_password; ?>' type="password" class="form-control" name="user_password">
-                            </div>
+<body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
 
-
-                             <div class="form-group">
-                               <label for="user_role"> User Role: </label>
-                                <p><select name="user_role" id="">
-                                   <option value="<?php echo $user_role;?>"><?php echo $user_role;?></option>
-                                    <?php  
-                                    if($user_role == "Admin"){
-                                        echo "<option value='Subscriber'>Subscriber</option>";
-                                    }
-                                    else{
-                                        echo "<option value='Admin'>Admin</option>";
-                                    }
-
-                                    ?>
-                                 </select></p>
-                            </div>
-
-                            <div class="form-group">
-                               <label for="user_firstname"> First Name</label>
-                                <input value='<?php echo $user_firstname; ?>' type="text" class="form-control" name="user_firstname">
-                            </div>
-
-                            <div class="form-group">
-                               <label for="user_lastname"> Last Name</label>
-                               <input value='<?php echo $user_lastname; ?>' type="text" class="form-control" name="user_lastname">
-                            </div>
-
-                             <div class="form-group">
-                               <label for="user_email"> Email</label>
-                                <input value='<?php echo $user_email; ?>' type="email" class="form-control" name="user_email">
-                            </div>
-
-                            <div class="form-group text-center">
-                                <input type="submit" value="Update Profile" class="btn btn-primary" name="update_profile">
-                            </div>
-                            </div>
-                        </form>
-                        
-
-                    </div>
-                    
-                    
-                </div>
-                <!-- /.row -->
-
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a class="text-center" href="#" style="padding-left: 40px;"><img src="assets/img/deftac.png" width="100px" style="width: 125px;height: 125px;"></a>
             </div>
-            <!-- /.container-fluid -->
 
-        </div>
-        <!-- /#page-wrapper -->
+            <ul class="list-unstyled components">
+            <li>
+                    <a href="index.php">Dashboard</a>
+                </li>                <li>
+                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
+                    <ul class="collapse list-unstyled" id="memberSubmenu">
+                        <li>
+                            <a href="memberlist.php">Membership List</a>
+                        </li>
+                        <li>
+                            <a href="userlist.php">Membership Status</a>
+                        </li>
+                        <li>
+                            <a href="transhistory.php">Membership Transactions</a>
+                        </li>
+                    </ul>
+                </li>
+                <li  class="active">
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
+                    <ul class="collapse list-unstyled" id="adminSubmenu">
+                        <li>
+                            <a href="adminlist.php">Admin Status</a>
+                        </li>
+                        <li  class="active">
+                            <a href="editadmin.php">Add Admin</a>
+                        </li>
 
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="posts.php">View Posts</a>
+                        </li>
+                        <li>
+                            <a href="categories.php">View Categories</a>
+                        </li>
+                        <li>
+                            <a href="comment.php">View Comments</a>
+                        </li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="calendar.php">Calendar</a>
+                </li>
+                <li  >
+                <a class="h ha"  href="gallery.php">Gallery</a>
+            </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li class="active">
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
+                </li>
+                <li>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
+                    <h1>Add Admin</h1>
+                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+
+<?php
+        include "config.php";
+
+        $query="SELECT*
+        FROM admins
+         ";
+
+        $run = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+            $name = $row['adminname'];
+            $email = $row['adminemail'];
+            $password = $row['password'];
+            $avatar = $row['adminavatar'];
+
+
+        }
+        ?>
+        <?php
+        $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+        $sql = 'SELECT adminname, adminavatar, adminemail FROM admins';
+        $result = $mysqli->query($sql); 
+        
+        ?>
+
+        <h1>Edit Profile</h1>
+     
+        <form method="POST" action="edit.php">
+        <img width="45px" class="rounded-circle mx-auto" height="100px" src='<?= $_SESSION['adminavatar']?>'>
+        <div class="form-group"><label>Username</label></div>   
+        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter Admin Name" class="form-control">
+          
+             <div class="form-group"><label>Email</label></div>
+            <input type="email" name="adminemail" value="<?php echo $_SESSION['adminemail'] ?>" required="required" placeholder="Enter Email" class="form-control">
+
+</div><button class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+</form>
+    </section>
+ 
     </div>
-    <!-- /#wrapper -->
+            </div>
+        </div>
+    </div>
 
-    <?php include"includes/admin_footer.php"; ?>
+        <?php include "includes/footer.php"; ?>
+
+</body>
+</html>
+

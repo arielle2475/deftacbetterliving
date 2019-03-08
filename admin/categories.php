@@ -71,10 +71,10 @@
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
-                            <a href="adminlist.php">Admin List</a>
+                            <a href="adminlist.php">Admin Status</a>
                         </li>
                         <li>
-                            <a href="editadmin.php">Admin Status</a>
+                            <a href="editadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -96,15 +96,17 @@
                 <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
-
+                <li >
+                <a class="h ha"  href="gallery.php">Gallery</a>
+            </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/login.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -137,7 +139,7 @@
             </nav>
                 <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right "><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a category"  placeholder="Search Category" class="search form-control"></div>
-                    <h1>Category</h1>
+                    <h1>Categories</h1>
                     <div class="row" style="padding-top:30px;">
                         <div class="col-sm-6">
 
@@ -188,7 +190,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12">
-                        <p class="text-center" style="padding-top:40px;">Note: * Deleting categories will also delete the thier corresponding posts *</p>
+                        <p class="text-center" style="padding-top:40px;">Note: * Deleting categories will also delete the their corresponding posts *</p>
                     
                     
                 </div>

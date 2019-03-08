@@ -40,8 +40,9 @@ if(!$error) {
     {
      echo '<script type="text/javascript">'; 
         echo 'alert("Username already exist!");'; 
-        echo 'window.location.href = "editprofile.php";';
+        echo 'window.location.href = "userprofile.php";';
         echo '</script>';
+        var_dump($_POST);
         
          
     }
@@ -49,7 +50,7 @@ if(!$error) {
     {  
        echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
-    echo 'window.location.href = "editprofile.php";';
+    echo 'window.location.href = "userprofile.php";';
     echo '</script>';
 
     }
@@ -61,7 +62,7 @@ else { //here you need to add else condition
          mysqli_query($conn, $sql);  
          mysqli_query($conn, $sql2);
          $_SESSION['username'] = $name;
-         header("Location: ../welcome.php");
+         header("Location: welcome.php");
 
 }
 }

@@ -41,8 +41,8 @@ if(isset($_GET['update'])){
         
         $update_posts = mysqli_query($connection, $query);
         confirm_query($update_posts);
-        
-        echo "<h5 class='well col-xs-6'>Post Updated! <a href='../post.php?post_id=$update_id'>  View Post </a></h5>";
+
+        echo "<center><h5 class='text-center bg-success border rounded border-success shake animated' style=' padding-top:5px; color:white; width:500px; height:40px;'>Post Updated! <a href='../post.php?post_id=$update_id'>  </a></h5></center>";
     }
 }
 ?>
@@ -119,7 +119,7 @@ if(isset($_GET['update'])){
     </div>
     
     <div class="form-group">
-        <input type="submit" value="Update Post" class="btn btn-primary" name="update_post">
+        <input type="submit" value="Update Post" class="btn btn-warning" style="font-weight:bold; color:white;" name="update_post">
     </div>
 </form>
 </div>

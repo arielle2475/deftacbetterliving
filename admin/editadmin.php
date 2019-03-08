@@ -66,11 +66,11 @@
                         <li>
                             <a href="adminlist.php">Admin List</a>
                         </li>
-                        <li  class="active">
-                            <a href="editadmin.php">Admin Status</a>
+                        <li class="active">
+                            <a href="editadmin.php">Edit Admin</a>
                         </li>
                         <li>
-                            <a href="createadmin.php">Admin Create</a>
+                            <a href="createadmin.php">Create Admin</a>
                         </li>
 
                     </ul>
@@ -131,106 +131,46 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <h1>Admin Status</h1>
+                    <h1>Admin Create</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                                                   
-                              <?php  
+                            <?php
+        include "../member/config.php";
 
-                              $_SESSION['message'] = '';
-                              $mysqli = new mysqli("localhost", "root", "", "thesis");
-                              if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $query="SELECT *
+        FROM admins
+        WHERE adminname = '" . $_SESSION['adminname'] . "'";
 
-                              if ($_POST['password'] == $_POST['confirmpassword']) {
+        $run = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+        $name = $row['adminname'];
+        $email = $row['adminemail'];
+        $password = $row['password'];
+    
 
-                                
-                                  //define other variables with submitted values from $_POST
-                                  $username = $mysqli->real_escape_string($_POST['adminname']);
-                                  $email = $mysqli->real_escape_string($_POST['adminemail']);
+        }
+        ?>
+        <?php
+        $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+        $sql = 'SELECT adminname, adminavatar FROM admins';
+        $result = $mysqli->query($sql); 
+        
+        ?>
 
-                                  //md5 hash password for security
-                                  $password = md5($_POST['password']);
+     
+        <form method="POST" action="includes/edit.php">
+        
+        <div class="form-group"><label>Username</label></div>   
+        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
 
-                                  //path were our avatar image will be stored
-                                  $avatar_path = $mysqli->real_escape_string('../images/'.$_FILES['adminavatar']['name']);
-                                  
-
-                                  //make sure filetype is image
-                                  // if (preg_match("!images!",$_FILES['avatar']['type']))   {         
-                                
-                                    //copy image to images/ folder 
-                                  if (copy($_FILES['adminavatar']['tmp_name'], $avatar_path)) {
-                                        //set session variables to display on welcome page
-
-
-                              //create SQL query string for inserting data into the database
-                              $sql = "INSERT INTO admins (adminname, adminemail, password, adminavatar) "
-                              . "VALUES ('$username', '$email', '$password', '$avatar_path')";
-                                      
-                                      
-                                          if ($mysqli->query($sql) === true){
-                                              $_SESSION['message'] = "Registration successful!"
-                                              . "Added $username to the database!";
-                                              header("location: ../admin/adminlist.php");
-                                          }
-                                          else {
-                                              $_SESSION['message'] = 'User could not be added to the database!';
-                                          }
-                                          // $mysqli->close();          
-                                      }
-                                    else {
-                                          $_SESSION['message'] = 'File upload failed!';
-                                      }
-                                    }
-                                //  else {
-                                //      $_SESSION['message'] = 'Please only upload GIF, JPG or PNG images!';
-                                //  }
-                              //}
-                              else {
-                                    $_SESSION['message'] = 'Two passwords do not match!';
-                                }
-                                }
-
-
-                              ?>
-                 <form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
-                 <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
-
-                    <div class="form-row profile-row" style="padding: 13px;">
-                    
-                        <div class="col-md-4 relative">
-                                <div class="avatar-bg center">
-                            </div>
-                            <input type="file" class="form-control" name="adminavatar" accept="image/*" required></div>
-                        <div class="col-md-8">
-                            <h1>Admin Profile </h1>
-                            <hr>
-                            <div class="form-row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Username</label>
-                                    <input class="form-control" type="text" name="adminname"></div>
-                                </div>
-                            </div>
-                            <div class="form-group"><label>Email </label>
-                            <input class="form-control" type="email" autocomplete="off" required="" name="adminemail"></div>
-                            <div class="form-row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Password </label>
-                                    <input class="form-control" type="password" name="password" autocomplete="new-password" required=""></div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group"><label>Confirm Password</label>
-                                    <input class="form-control" type="password" name="confirmpassword" autocomplete="new-password" required=""></div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-row">
-                                <div class="col-md-12 content-right">
-                                <input type="submit" value="Register Admin" name="register" style="font-weight:bold;" class="btn btn-success form-btn" />
-                                    <button class="btn btn-danger form-btn" style="font-weight:bold;" type="reset">Cancel </button></div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+        <div class="form-group"><label>Email</label></div>
+        <input type="email" name="adminemail" value="<?php echo $email ?>" required="required" placeholder="Enter Email" class="form-control">
+        
+        <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+            </div>
+        </div>
+    </div>
+</form>
 
 
 

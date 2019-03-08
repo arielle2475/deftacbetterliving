@@ -16,6 +16,6 @@ $sql = "UPDATE users,mfillup SET users.isActive = 0, mfillup.expirationDate=NOW(
 WHERE users.id=$id AND users.username=mfillup.username";
 
 $data = mysqli_query($conn,$sql);
-header('Location:../../userlist.php');
+header('Location:../userlist.php');
 }
 ?>

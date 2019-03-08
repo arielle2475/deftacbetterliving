@@ -87,18 +87,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
-
+                <li>
+                <a class="h ha"  href="gallery.php">Gallery</a>
+            </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="profile.php" class="download">Profile</a>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="../signin/loginadmin.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
