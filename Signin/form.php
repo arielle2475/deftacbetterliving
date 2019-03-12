@@ -50,7 +50,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
   
   //if the query is successful, redirect to welcome.php page, done!
   if ($mysqli->query($sql) === true) {
-    $_SESSION['message'] = "Registration succesful! Added $username to the database!";header("location: ../member/newmember.php");
+    $_SESSION['message'] = "Registration succesful! Added $username to the database!";header("location: ../nonmember/newmember.php");
   }
   
   else {

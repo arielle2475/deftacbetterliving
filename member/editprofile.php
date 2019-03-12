@@ -64,7 +64,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 
         $run = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
-            $name = $row['username'];
+            $username = $row['username'];
         $gender = $row['u_gender'];
         $lname = $row['u_lname'];
         $fname = $row['u_fname'];
