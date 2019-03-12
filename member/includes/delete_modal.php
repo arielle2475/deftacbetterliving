@@ -57,7 +57,7 @@
         <form method="POST" action="edit.php">
         
         <div class="form-group" ><label style="margin-bottom:-13px; font-weight:bold;">Username</label></div>   
-        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
+        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter User Name" class="form-control">
           
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Firstname</label></div>
             <input  type="text" name="u_fname" value="<?php echo $fname; ?>" required="required" pattern="^[a-zA-Z_ ]+$" placeholder="Enter First Name" class="form-control">
@@ -78,7 +78,7 @@
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Contact</label></div>
             <input type="text" name="u_contact" value="<?php echo $contact ?>"  required="required" pattern="^[\d\(\)\-+]+$" placeholder="Enter Contact" class="form-control">
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Why did you join?</label></div>
-            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._ ]+$" placeholder="" class="form-control">
+            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._! ]+$" placeholder="" class="form-control">
   
        <div class="modal-footer" style="height: 57px;">
        <button class="btn btn-warning form-btn" type="submit" name="submit" style="margin-top:20px; color:white;"  >Update</button>

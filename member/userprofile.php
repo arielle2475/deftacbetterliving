@@ -6,7 +6,19 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
   header('location: ../Signin/login.php?error=Login to access chat.');
   }
 ?>
+<?php
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['username'])){
+    $sql = "SELECT username, avatar FROM users WHERE username='".$_SESSION["username"]."'";
+}else{
+    $sql = "SELECT username, avatar FROM users";
+}	
 
+$result = $mysqli->query($sql); //$result = mysqli_result object
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['avatar'] = $row['avatar'];
+    
+}?>
 <?php
 // USER NOTIFIER FUNCTION
 
@@ -31,6 +43,30 @@ $sum = round($datediff / (60 * 60 * 24));
 
 switch(true)
 {
+    case ($sum == 7):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 7 days!")';
+    echo '</script>';
+    break;
+
+    case ($sum == 6):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 6 days!")';
+    echo '</script>';
+    break;
+
+    case ($sum == 5):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 5 days!")';
+    echo '</script>';
+    break;
+
+    case ($sum == 4):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 4 days!")';
+    echo '</script>';
+    break;
+
     case ($sum == 3):
     echo '<script language="javascript">';
     echo 'alert("Your membership will expire in 3 days!")';
@@ -163,7 +199,7 @@ $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
 if(isset($_SESSION['username'])){
     $sql = "SELECT username, avatar FROM users WHERE username='".$_SESSION["username"]."'";
 }else{
-    $sql = "SELECT username, avatar FROM usrrs";
+    $sql = "SELECT username, avatar FROM users";
 }	
 
 $result = $mysqli->query($sql); //$result = mysqli_result object
@@ -184,14 +220,17 @@ if(isset($_POST['update'])){
     {
         move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/../Signin/images/'. $_FILES["avatar"]['name']);
         $c_update="UPDATE users SET avatar= '$c_image'
-         WHERE username = '" . $_SESSION['username'] . "'"; 
+        WHERE username = '" . $_SESSION['username'] . "'"; 
+        echo "<meta http-equiv='refresh' content='0'>";
+
     }else
     {
-    
+        header("Location: welcome.php");
+
     }
-    
     mysqli_query($conn, $c_update);
     $_SESSION['avatar'] = $img;
+    header("Location: welcome.php");
 
 }
 ?>
