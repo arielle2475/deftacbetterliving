@@ -73,9 +73,7 @@
                         <li class="active">
                             <a href="adminlist.php">Admin Status</a>
                         </li>
-                        <li >
-                            <a href="editadmin.php">Edit Admin</a>
-                        </li>
+
                         <li>
                             <a href="createadmin.php">Create Admin</a>
                         </li>

@@ -1,4 +1,4 @@
-<?php include "includes/database.php"; ?>
+<?php include "includes/dbc.php"; ?>
 
 <?php 
 session_start();

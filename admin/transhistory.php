@@ -72,9 +72,7 @@
                         <li>
                             <a href="adminlist.php">Admin List</a>
                         </li>
-                        <li >
-                            <a href="editadmin.php">Edit Admin</a>
-                        </li>
+
                         <li>
                             <a href="createadmin.php">Create Admin</a>
                         </li>

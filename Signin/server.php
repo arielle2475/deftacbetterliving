@@ -82,7 +82,7 @@ if (isset($_POST['login_user'])) {
 		    $_SESSION['message'] = "You are now logged in";
         header('location: ../member/welcome.php');
 	    } elseif	($dbResults['isActive'] == 0)  {
-        header('location: ../member/renewal.php');
+        header('location: ../nonmember/renewal.php');
       }
     } else {
       array_push($errors, 'Wrong Username/Password');

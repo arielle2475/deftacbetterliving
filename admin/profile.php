@@ -60,14 +60,15 @@
                         </li>
                     </ul>
                 </li>
-                <li  class="active">
+                <li>
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
-                            <a href="adminlist.php">Admin Status</a>
+                            <a href="adminlist.php">Admin List</a>
                         </li>
-                        <li  class="active">
-                            <a href="editadmin.php">Add Admin</a>
+
+                        <li>
+                            <a href="createadmin.php">Create Admin</a>
                         </li>
 
                     </ul>
@@ -86,20 +87,24 @@
                         </li>
                     </ul>
                 </li>
-                <li >
+                <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li  >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
+                <li >
+                    <a href="gallery.php">Gallery</a>
+                </li>
+                <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
+
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li class="active">
-                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
+                <li>
+                <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -130,48 +135,53 @@
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <h1>Add Admin</h1>
+                    <h1>Admin Create</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+                                                  
+                            <?php
+        include "../member/config.php";
 
-<?php
-        include "config.php";
-
-        $query="SELECT*
+        $query="SELECT *
         FROM admins
-         ";
+        WHERE adminname = '" . $_SESSION['adminname'] . "'";
 
         $run = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
-            $name = $row['adminname'];
-            $email = $row['adminemail'];
-            $password = $row['password'];
-            $avatar = $row['adminavatar'];
-
+        $name = $row['adminname'];
+        $email = $row['adminemail'];
+        $password = $row['password'];
+    
 
         }
         ?>
         <?php
         $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
-        $sql = 'SELECT adminname, adminavatar, adminemail FROM admins';
+        $sql = 'SELECT adminname, adminavatar FROM admins';
         $result = $mysqli->query($sql); 
         
         ?>
 
-        <h1>Edit Profile</h1>
      
-        <form method="POST" action="edit.php">
-        <img width="45px" class="rounded-circle mx-auto" height="100px" src='<?= $_SESSION['adminavatar']?>'>
+        <form method="POST" action="includes/edit.php">
+        
         <div class="form-group"><label>Username</label></div>   
-        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter Admin Name" class="form-control">
-          
-             <div class="form-group"><label>Email</label></div>
-            <input type="email" name="adminemail" value="<?php echo $_SESSION['adminemail'] ?>" required="required" placeholder="Enter Email" class="form-control">
+        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
 
-</div><button class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
-</form>
-    </section>
- 
+        <div class="form-group"><label>Email</label></div>
+        <input type="email" name="adminemail" value="<?php echo $email ?>" required="required" placeholder="Enter Email" class="form-control">
+        
+        <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+            </div>
+        </div>
     </div>
+</form>
+
+
+
+
+ 
+                   
+                </div>
             </div>
         </div>
     </div>
@@ -181,3 +191,5 @@
 </body>
 </html>
 
+
+   

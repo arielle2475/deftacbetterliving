@@ -66,9 +66,6 @@
                         <li>
                             <a href="adminlist.php">Admin Status</a>
                         </li>
-                        <li  class="active">
-                            <a href="editadmin.php">Add Admin</a>
-                        </li>
                         <li>
                             <a href="createadmin.php">Admin Create</a>
                         </li>
@@ -197,7 +194,7 @@
 
 
                               ?>
-                 <form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                 <form class="form" action="createadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
                  <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
 
                     <div class="form-row profile-row" style="padding: 13px;">
