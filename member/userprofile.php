@@ -153,7 +153,7 @@ switch(true)
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
 							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="index.php">CHAt</a></li>                             
-							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/images/<?= $_SESSION['avatar']?>' </span></a>
+                              <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link active" href="userprofile.php">My Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></>        
@@ -218,7 +218,7 @@ if(isset($_POST['update'])){
     
     if($c_image_temp != "")
     {
-        move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/../Signin/images/'. $_FILES["avatar"]['name']);
+        move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/../Signin/'. $_FILES["avatar"]['name']);
         $c_update="UPDATE users SET avatar= '$c_image'
         WHERE username = '" . $_SESSION['username'] . "'"; 
         echo "<meta http-equiv='refresh' content='0'>";
@@ -243,7 +243,7 @@ if(isset($_POST['update'])){
                             <div class="col text-right d-flex d-xl-flex justify-content-end align-items-center justify-content-xl-end align-items-xl-center" style="height: -2px;"><a class="fa fa-pencil" data-toggle='modal' data-target='#myModal' href="" style="font-size: 35px;padding-right: 27px;color: rgb(255,255,255);"></a></div>
                         </div>
                         <div class="form-row form-group">
-                            <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" style="height: 200px;"><img class="rounded-circle mx-auto" src='../Signin/images/<?= $_SESSION['avatar']?>' width="200" height="200" style="margin-left: 0px;margin-bottom: 30px;"></div>
+                            <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" style="height: 200px;"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="200" height="200" style="margin-left: 0px;margin-bottom: 30px;"></div>
                         </div>
                         <h1 class="text-center" style="color: rgb(255,255,255);font-size: 49px;padding-bottom: 0px;"><?php echo $fname ?> <?php echo $lname ?></h1>
                         <h1 class="text-center" style="color: rgb(255,255,255);font-size: 15px;padding-bottom: 0px;">Member since: <?php echo $regdate ?>&nbsp;</h1>

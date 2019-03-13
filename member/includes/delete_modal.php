@@ -50,8 +50,8 @@
 
      <form action=""  method="post" enctype="multipart/form-data">
         <br>
-       <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/images/<?= $_SESSION['avatar']?>' width="100" height="100"></span><br/></center>
-       <input class="btn" type="file" name="avatar" value="../Signin/images/<?= $_SESSION['avatar']?>"  /> 
+       <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="100" height="100"></span><br/></center>
+       <input class="btn" type="file" name="avatar" value="../Signin/<?= $_SESSION['avatar']?>"  /> 
         <td colspan="2">
         <input class="btn btn-warning" style="color:white;" type="submit" name="update" onsubmit="setTimeout(function () { window.location.reload(); }, 10)"value="Update Avatar"/></td></form>
 

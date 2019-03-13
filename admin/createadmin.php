@@ -86,7 +86,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
                 <li >
