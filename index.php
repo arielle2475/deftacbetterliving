@@ -361,8 +361,13 @@
                 </div>
             </div>
         </div>
-    </section><script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div style="padding: 20px;" class="elfsight-app-19fea350-108b-48e4-84d4-f94867c3be82"></div>
+    </section><br>
+    <section style="padding:10px;">
+    <h1 style="background-color:rgb(255, 255, 255);text-align:center; margin-bottom:-50px;">Instagram</h1>
+    <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
+<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
+<ul class="juicer-feed" data-feed-id="mtoledodo-cc38d9fb-12ab-47aa-a17b-89ff83ec3523"></ul></div>
+    </section>
     <section data-aos="fade-up" data-aos-duration="500" data-aos-delay="900" data-aos-once="true" id="contact" style="background-image: url('assets/img/map-image.png');height: 797px;">
         <div class="container">
             <div class="row">

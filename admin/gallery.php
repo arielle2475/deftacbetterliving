@@ -74,30 +74,34 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
  <div id="imageModal" class="modal fade" role="dialog">
  <div class="modal-dialog">
   <div class="modal-content">
+  <div class="modal-container">
+
    <form method="POST" id="edit_image_form">
-    <div class="modal-header">
-     <button type="button" class="close" data-dismiss="modal">&times;</button>
-     <h4 class="modal-title">Edit Image Details</h4>
+   <div class="modal-header bg-dark" style="background-color: black;height: 66px;padding: 13px;">
+   <h4 class="modal-title" style="padding-top:10px;color: rgb(255,255,255); font-weight:bold;">Update Desciption</h4>
+   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
     </div>
-    <div class="modal-body">
+    <div style="padding-top: 8px;" class="modal-body" style="height: 98px;">
      <div class="form-group">
       <label>Image Name</label>
-      <input type="text" name="image_name" id="image_name" class="form-control" />
+      <input type="text" name="image_name" id="image_name" class="form-control" readonly />
      </div>
      <div class="form-group">
       <label>Image Description</label>
       <input type="text" name="image_description" id="image_description" class="form-control" />
      </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" style="height: 57px;">
      <input type="hidden" name="image_id" id="image_id" value="" />
-     <input type="submit" name="submit" class="btn btn-info" value="Edit" />
-     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     <input type="submit" name="submit" class="btn" style="font-weight:bold; color:white;background-color: #ffd221;" value="Edit" />
+     <button class="btn " type="button" data-dismiss="modal" style="font-weight:bold; background-color: #d1101a; color:white;">Cancel</button>
     </div>
    </form>
   </div>
  </div>
 </div>
+
+
  <body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
 
 <div class="wrapper">

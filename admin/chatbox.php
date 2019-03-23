@@ -182,7 +182,59 @@
 
 
     </div>
-            
+    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+                        <table id="myTable" class="table">
+                            <thead>
+                                <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
+                                    <th class="border rounded-0">Username</th>
+                                    <th class="border rounded-0">Status</th>
+                                    </tr>
+                                    </thead>
+                                 
+                                    <tbody>
+
+                                    <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "thesis";
+
+                                    // Create connection
+                                    $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                    // Check connection
+                                    if (!$conn) {
+                                        die("Connection failed: " . mysqli_connect_error());
+                                    }
+
+                                    $sql = "SELECT * FROM users where isActive = '1'";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    echo "<tr>";
+                                    if (mysqli_num_rows($result) > 0) {
+                                        // output data of each row
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                            echo "<tr>
+                                            <td class='border rounded-0'>" . $row["username"]. "</td> ";
+                                    $active=$row['isOnline'];
+                                    $id = $row['id'];
+                                    
+                                    $row = json_encode($row);
+
+                                            if($active==1){
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'><a href='includes/deactivatechat.php?update=$id'>Active</a></button>
+                                            </td></tr>";    
+                                        }
+                                            if($active==0){
+                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'><a href='includes/activatechat.php?update=$id'>Blocked</a></button>
+                                            </td></tr>";    
+                                        }
+                                    
+                                    }}
+
+                                        echo "</tbody>
+                                        </table>";
+                                        mysqli_close($conn);
+                                        ?>
     <?php include "includes/footer.php"; ?>
 </body>
 
@@ -195,4 +247,4 @@
 			}, 1000);
 		});
 
-	</script>
+</script>

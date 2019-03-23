@@ -67,7 +67,28 @@ function delete_categories(){
                                     
                                 
 }
+function delete_videos(){  ///Delete videos
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tbl_video WHERE id = $del_id";
+    $del_vids = mysqli_query($connection, $query);
 
+}
+
+}
+function delete_images(){  ///Delete images
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tbl_image WHERE image_id = $del_id";
+    $del_imgs = mysqli_query($connection, $query);
+
+}
+
+}
 function delete_posts(){  ///Delete posts
     
       global $connection;

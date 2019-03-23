@@ -270,10 +270,10 @@ while ($row =  $result->fetch_assoc()){
 		</section>
 
 		
-        <section data-aos="fade-up" data-aos-delay="50" style="padding-right: 20px;padding-left: 20px;"><script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div  class="elfsight-app-19fea350-108b-48e4-84d4-f94867c3be82"></div>
-<div class="elfsight-app-f1744ab3-5e08-402b-a7dd-0bbe23829f00"></div>
-</section>
+        <section data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="padding:50px;">
+        <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
+<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
+<ul class="juicer-feed" data-feed-id="mtoledodo" data-per="9"><h3 style="text-align:center;">Social Media</h3></ul></section>
 
 
 <?php

@@ -262,10 +262,12 @@ $yearly_title = "$current_month " . ($current_year - 1) .  "-$current_year";
 $monthly_sales = Reports::get_monthly_sales();
 $monthly_title = $monthly_sales[0]['SalesMonth'] . " " . $monthly_sales[0]['SalesDay'] . " - " . end($monthly_sales)['SalesMonth'] . " " . end($monthly_sales)['SalesDay'];
 
+if(isset($_GET['SalesDate'])){
+
 $weekly_sales = Reports::get_weekly_sales();
 $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['SalesDate'];
 
-
+}
  
       ?>
 
