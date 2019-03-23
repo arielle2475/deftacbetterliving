@@ -1,5 +1,7 @@
 <?php include "includes/admin_header.php"; ?>
 <?php include "includes/confirm_admin_modal.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
+
 <?php 
 	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 		session_destroy();
@@ -75,7 +77,7 @@
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -94,12 +96,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -194,9 +204,14 @@
                                     <th class="border rounded-0">Username</th>
                                     <th class="border rounded-0">Email Address</th>
                                     <th class="border rounded-0">Status</th>
+                                    <th class="border rounded-0">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            
+                            <?php  //delete admins
+                                 delete_admins();
+                                ?>
                             <?php
                             // DISPLAY THE images:
                             //Select the images from the table limited as per our $offet and $per_page total:
@@ -206,25 +221,29 @@
 
                             //Define the image variable:
                             $admins=$row['adminname'];
+                            $id = $row['id'];
+
 
                                     echo "<tr>
                                     <td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='".$row['adminavatar']."' width='100px' height='100px' style='width: 100px;'></td>
                                     <td class='border rounded-0'>" . $row["adminname"]. "</td> 
-                                    <td class='border rounded-0'>" . $row["adminemail"]. "</td>"	;
+                                    <td class='border rounded-0'>" . $row["adminemail"]. "</td>
+	";
                             $active=$row['isactive'];
 
                             $row = json_encode($row);
 
                                     if($active==1){
                                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
-                                    </td></tr>";    
+                                    </td>";    
                                 }
                                     if($active==0){
                                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
-                                    </td></tr>";    
+                                    </td>";    
                                 }
 
-
+                                echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='adminlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
+                                </td></tr>";
 
                             }//Close the while array loop
 

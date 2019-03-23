@@ -105,7 +105,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li class="active">
@@ -132,26 +132,34 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
-                <li >
-                    <a href="calendar.php">Calendar</a>
-                </li>
-                <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
+                <li class="active">
+                <a class="h ha"  href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                <ul class="collapse list-unstyled" id="gallerySubmenu">
+                    <li>
+                        <a class="h ha "  href="gallery.php">View Images</a>
+                    </li>
+                    <li>
+                        <a class="h ha active"  href="video.php">View Videos</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="h ha"  href="calendar.php">Calendar</a>
             </li>
             <li >
-                    <a href="chatbox.php">Chatbox</a>
+                    <a  class="h ha" href="chatbox.php">Chatbox</a>
                 </li>
-            </ul>
+        </ul>
 
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
-                </li>
-                <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
-                </li>
-            </ul>
-        </nav>
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
+            </li>
+            <li>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
+            </li>
+        </ul>
+    </nav>
 
         <!-- Page Content Holder -->
         <div id="content">

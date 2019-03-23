@@ -58,7 +58,6 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
     </tr>
 </thead>
 <tbody>
-<?php delete_images(); ?>
 
 <?php
 // DISPLAY THE images:
@@ -78,8 +77,7 @@ $image=$row['image_id'];
         <td class='border rounded-0'>" . $row["image_name"]. "</td> 
         <td class='border rounded-0'>" . $row["image_description"]. "</td>   
         <td class='text-center border rounded-0'><button type='button' style='color:white; background:#ffd221;font-weight:bold;font-size:18px;' class='btn  btn-l edit' id=".$row['image_id'].">Edit</button></td>
-        <td class='text-center border rounded-0'><button type='button' style='color:white; background:#d1101a;font-weight:bold;font-size:18px;'class='btn btn-l delete' id=".$row['image_id']." data-image_name=".$row['image_name'].">Delete</button></td>
-        <td class='border rounded-0'><a href='javascript:void(0)' data-href='gallery.php?delete=$image' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
+        <td class='text-center border rounded-0'><a href='javascript:void(0)' data-href='gallery.php?delete=$image' data-toggle='modal' data-target='#myModal' style='color:white; background:#d1101a;font-weight:bold;font-size:18px;' class='btn btn-l'>Delete</a></td>
 
         </tr>
        ";
@@ -137,12 +135,4 @@ echo '<div class="clearfix"></div>';// Gallery end
             </div>
         </div>
     </div>
-    <script>
 
-$('#myModal').on('show.bs.modal', function (e) {
-  
-      $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
-
-  });
-
-</script>

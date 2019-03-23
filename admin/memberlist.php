@@ -74,10 +74,8 @@
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
-
-
                     </ul>
                 </li>
                 <li>
@@ -95,11 +93,19 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.php">Calendar</a>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
+                    <a href="calendar.php">Calendar</a>
+                </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -110,12 +116,10 @@
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a href="logout.php" class="article">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
-
-
         <!-- Page Content Holder -->
         <div id="content">
 

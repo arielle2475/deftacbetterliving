@@ -79,26 +79,34 @@
 
                     </ul>
                 </li>
-                <li  class="active">
+                <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="posts.php">View Posts</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="categories.php">View Categories</a>
                         </li>
-                        <li  class="active">
+                        <li>
                             <a href="comment.php">View Comments</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.php">Calendar</a>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
+                    <a href="calendar.php">Calendar</a>
+                </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -113,7 +121,6 @@
                 </li>
             </ul>
         </nav>
-
 
         <!-- Page Content Holder -->
         <div id="content">

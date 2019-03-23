@@ -124,12 +124,20 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li>
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>

@@ -78,6 +78,19 @@ function delete_videos(){  ///Delete videos
 }
 
 }
+
+function delete_admins(){  ///Delete admins
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM admins WHERE id = $del_id";
+    $del_admins = mysqli_query($connection, $query);
+
+}
+
+}
+
 function delete_images(){  ///Delete images
     
     global $connection;

@@ -155,11 +155,19 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                     </li>
                 </ul>
             </li>
+            <li class="active">
+                <a class="h ha"  href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                <ul class="collapse list-unstyled" id="gallerySubmenu">
+                    <li>
+                        <a class="h ha active"  href="gallery.php">View Images</a>
+                    </li>
+                    <li>
+                        <a class="h ha"  href="video.php">View Videos</a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
-            </li>
-            <li  class="active">
-                <a class="h ha"  href="gallery.php">Gallery</a>
             </li>
             <li >
                     <a  class="h ha" href="chatbox.php">Chatbox</a>
@@ -224,6 +232,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
     </div> 
 
 
+    <?php delete_images(); ?>
 
 
 
@@ -379,5 +388,14 @@ $(document).ready(function(){
             }
             }
      </script>    
+         <script>
+
+$('#myModal').on('show.bs.modal', function (e) {
+  
+      $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
+
+  });
+
+</script>
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
