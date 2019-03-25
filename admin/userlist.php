@@ -27,9 +27,51 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
     //  echo $sum;
      switch(true)
      {
-         case ($sum <= 3):
+         case ($sum == 7):
          echo '<script language="javascript">';
-         echo 'alert("' . $name .' will get his membership expired soon!" )';
+         echo 'alert("' . $name .'s will get his membership expired in 7 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 6):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 6 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 5):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 5 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 4):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 4 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 3):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 3 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 2):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 2 days!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 1):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .' will get his membership expired in 1 day!" )';
+         echo '</script>';
+         break;
+
+         case ($sum == 0):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s membership has been expired!" )';
          echo '</script>';
          break;
          default;

@@ -7,6 +7,23 @@ session_start();
 		header('location: ../Signin/login.php?error=Login to access.');
 		}
  ?>
+ <?php
+ $query = "SELECT * FROM users";
+ $run = mysqli_query($conn, $query) or die("MySQL error: " . mysqli_error($conn) . "<hr>\nQuery: $query");
+ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
+    $_SESSION['isOnline'] = $row['isOnline'];
+
+ }
+    if((isset($_SESSION['isOnline']) && $_SESSION['isOnline'] == 1)){
+
+}else{
+    echo '<script type="text/javascript">'; 
+    echo 'alert("You have been kicked from the Chatbox!");'; 
+    echo 'window.location.href = "welcome.php";';
+    echo '</script>';        
+}
+
+?>
 <!DOCTYPE html> 
 <html>
 	<head>
@@ -29,7 +46,7 @@ session_start();
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
-							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="chat.php">CHAt</a></li>                             
+							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="index.php">CHAt</a></li>                             
 							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        

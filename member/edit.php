@@ -30,13 +30,13 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     echo $empty_email.'<br>';
 }
 
-if(!$error) {
+// if(!$error) {
     $sql="SELECT * FROM users where (username='$name' or email='$email');";
     $res=mysqli_query($conn,$sql);
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($_SESSION['username']!==$name)
+    if ($name!=$row['username'] && $name==$row['username'])
     {
     echo '<script type="text/javascript">'; 
     echo 'alert("Username already exist!");'; 
@@ -44,7 +44,7 @@ if(!$error) {
     echo '</script>';        
          
     }
-    elseif($email!==$row['email'])
+    elseif($email!=$row['email'] && $email==$row['email']) 
     {  
     echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
@@ -60,9 +60,9 @@ else {
          mysqli_query($conn, $sql);  
          mysqli_query($conn, $sql2);
          $_SESSION['username'] = $name;
-         header("Location: welcome.php");
+         header("Location: userprofile.php");
             }   
         }
     } 
-}
+// }
 ?> 
