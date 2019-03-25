@@ -1,0 +1,308 @@
+
+#navigation {
+	background:rgba(128,128,128,0.5);
+    width: 100%;
+    height: auto;
+	position:fixed;
+    text-align: right;
+    margin-top: -150px;
+	z-index:3;
+	font-size: 20px;
+	text-transform:uppercase;
+	font-family: 'Georgia';
+	-webkit-box-shadow: 0 2px 18px 0 #777777;
+	box-shadow: 0 2px 18px 0 #777777;
+
+
+}
+
+
+
+#navigation li {
+    list-style-type: none;
+    display: inline;
+    font-size: 1em;
+}
+
+#navigation li a{
+	margin-right:30px;
+	color: #000000	;
+	text-decoration: none;
+	padding:  20px;
+	text-align: right;
+	
+}
+
+#navigation li a:hover{
+	color:azure;
+
+
+}
+
+#logo {
+	width: 100px;
+	max-width: 100px;
+	margin-left:80px;
+	margin-top:-127px;
+	float: left;
+	position:fixed;
+	z-index:4;
+
+}
+
+#logo img {
+	margin: 0 auto;
+	width: 120px;
+}
+
+#contentcontainer {
+
+	width: 100%;
+	background: #FFF;
+	}
+
+
+.wave{		
+	background-color:#fff;
+	background-repeat: no-repeat;
+	background-size: 1400px;
+	background-position: right bottom; 
+	height: 490px;
+	position: relative;
+	padding:50px;
+		background-image:url("img/aboutus.png");
+		  background-attachment: fixed;
+
+}
+
+.wave::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 10px;
+  background-size: 20px 20px;
+}
+
+.wave h1{
+	font-family: 'Georgia';
+    color:#119798;
+	text-align:center;
+	padding-top:20px;
+    padding-bottom:5px;
+    padding-left: 15px;
+	max-height:600px;
+	width:600px;
+	overflow:hidden;
+
+}
+
+.wave p{
+	color:#2f1d0e;
+	font-family: 'Georgia';
+    padding: 30px;
+    margin-top: 5px;
+	margin-right:700px;
+	font-size: 25px;
+	font-weight:bold;
+	max-height:600px;
+	width:600px;
+	overflow:hidden;
+}
+
+#content1 {
+	margin: 0 auto;
+	min-height: 550px;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+		background-image:url("img/aboutus.png");
+  background-attachment: fixed;
+	line-height: 150%;
+}
+
+#content2 {
+	margin-top:-30px;
+	min-height: 550px;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+			background-image:url("img/belt.jpg");
+background-size: cover;
+	line-height: 150%;
+	  background-attachment: fixed;
+}
+
+#content2 table{
+	border-collapse: collapse;
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	}
+
+#content2 td, th{
+	border: 0px;
+	color:#fff;
+	font-family: 'Georgia';
+    padding: 10px;
+	font-size: 25px;
+	font-weight:bold;
+		text-align:center;
+	}
+
+#content2 img{
+	height: 200px;
+	  background-attachment: fixed;
+	}
+	
+#content2 a {
+	background-color:#800000;
+	font-size:10px;
+	font-family: 'Georgia';
+    color: #fff;
+	padding: 2px 20px 2px 20px;
+	text-align:center;
+    text-decoration: none;
+	  background-attachment: fixed;
+}
+
+#content2 a:hover {
+    color: #119798;
+}
+
+
+#content3{		
+	background-image:url("img/header.jpg");
+	background-color:#fff;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 50% 50%; 
+	height: 300px;
+	  background-attachment: fixed;
+}
+
+
+.navii {
+	padding-top:110px;
+    width: 100%;
+    text-align: center;
+	font-size: 25px;
+	text-transform:uppercase;
+	font-family: 'Georgia';
+
+}
+
+
+
+.navii li {
+    display:inline-block;
+    font-size: 1em;
+}
+
+.navii li a{
+	background:#f3941c;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px 200px 20px 200px;
+
+}
+
+.navii li a:hover{
+	background:#119798;
+
+
+}
+
+
+a {
+    color: #5DBCD2;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+h1 {
+	font-family: 'Georgia';
+    color:#fff;
+	text-align:center;
+	padding-top:50px;
+    padding-bottom:5px;
+    padding-left: 15px;
+
+}
+
+p {
+	color: #FFFFFF;
+	font-family: 'Georgia';
+    padding: 10px;
+	font-size: 25px;
+}
+
+
+
+
+body {
+    
+  background-color:#f0f0f0;
+  font-family:helvetica;
+   background-image:url('bg.gif');
+  background-size:cover;
+	
+   
+}
+
+.header {
+  width: 30%;
+  margin: 90px auto 0px;
+  color: azure;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid azure;
+  background: #black;
+  border-radius: 0px 0px 10px 10px;
+
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  color:black;
+}
+.btn {
+  padding: 10px;
+  font-size: 15px;
+     align-content: center; 
+  color: black;
+  background: #red;
+  border: none;
+  border-radius: 5px;
+
+}
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #red; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}

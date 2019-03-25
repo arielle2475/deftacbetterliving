@@ -135,10 +135,9 @@ while ($row =  $result->fetch_assoc()){
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
 							  <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="index.php">CHAt</a></li>                             
-							 <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
+                              <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link" href="userprofile.php">My Profile</a></>        
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="editprofile.php">Edit Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></>        
                                     </div>
                                 </li>
@@ -147,7 +146,7 @@ while ($row =  $result->fetch_assoc()){
                     </div>
                 </nav>   
 
-    <section style="padding-bottom: -10px;padding-top: 30px;height: 422px;font-family: Montserrat, sans-serif;"><!-- Paradise Slider -->
+    <section style="padding-bottom: -10px;padding-top: 60px;height: 622px;font-family: Montserrat;"><!-- Paradise Slider -->
 	<div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
 		<!-- Indicators -->
@@ -172,8 +171,8 @@ while ($row =  $result->fetch_assoc()){
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">
 					<h3 data-animation="animated flipInX">Deftac Betterliving</h3>
-					<h1 data-animation="animated flipInX">Welcome, <span class="user"><?= $_SESSION['username'] ?></span>!</h1>
-					<p data-animation="animated flipInX">Check out our calendar for upcoming events!</p>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Welcome, <span class="user"><?= $_SESSION['username'] ?></span>!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Check out our calendar for upcoming events!</h5>
 					<a class="js-scroll-trigger" href="#cal" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
@@ -188,8 +187,8 @@ while ($row =  $result->fetch_assoc()){
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">
 					<h3 data-animation="animated flipInX">BLOG</h3>
-					<h1 data-animation="animated flipInX">Check out our blogs!</h1>
-					<p data-animation="animated flipInX">Read the latest blog posts that are originally created by us!</p>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Check out our blogs!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Read the latest blog posts that are originally created by us!</h5>
 					<a class="js-scroll-trigger" href="bloghome.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
@@ -204,8 +203,8 @@ while ($row =  $result->fetch_assoc()){
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">
 					<h3 data-animation="animated flipInX">Gallery</h3>
-					<h1 data-animation="animated flipInX">See exclusives photos and videos!</h1>
-					<p data-animation="animated flipInX">Browse the gallery to reminisce about our history!</p>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">See exclusives photos and videos!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Browse the gallery to reminisce about our history!</h5>
 					<a href="gallery.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
@@ -220,8 +219,8 @@ while ($row =  $result->fetch_assoc()){
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">
 					<h3 data-animation="animated flipInX">Coaches</h3>
-					<h1 data-animation="animated flipInX">Get to know our coaches!</h1>
-					<p data-animation="animated flipInX">Watch exclusive tutorials from our very own coaches and learn the ways of jiu-jitsu!</p>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Get to know our coaches!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Watch exclusive tutorials from our very own coaches and learn the ways of jiu-jitsu!</h5>
 					<a href="coaches.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
@@ -236,8 +235,8 @@ while ($row =  $result->fetch_assoc()){
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">
 					<h3 data-animation="animated flipInX">Chat</h3>
-					<h1 data-animation="animated flipInX">Socialize with your fellow members!</h1>
-					<p data-animation="animated flipInX">Exchange ideas or opinions in our very own chat box!</p>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Socialize with your fellow members!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Exchange ideas or opinions in our very own chat box!</h5>
 					<a href="coaches.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
@@ -271,10 +270,10 @@ while ($row =  $result->fetch_assoc()){
 		</section>
 
 		
-        <section data-aos="fade-up" data-aos-delay="50" style="padding-right: 20px;padding-left: 20px;"><script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div  class="elfsight-app-19fea350-108b-48e4-84d4-f94867c3be82"></div>
-<div class="elfsight-app-f1744ab3-5e08-402b-a7dd-0bbe23829f00"></div>
-</section>
+        <section data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="padding:50px;">
+        <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
+<link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
+<ul class="juicer-feed" data-feed-id="mtoledodo" data-per="9"><h3 style="text-align:center;">Social Media</h3></ul></section>
 
 
 <?php

@@ -8,28 +8,12 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 
 <!DOCTYPE html>
 <html>
-<?php include "includes/delete_modal.php"; ?>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Untitled</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
-
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <?php include "includes/header.php" ?>
 </head>
 
 <body style="background-image: url(&quot;assets/img/bg2.jpg&quot;);background-size: cover;background-position: center;">
@@ -47,13 +31,14 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                               <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);">
                               <div class="nav-item" role="presentation"><a class="nav-link " href="userprofile.php">My Profile</a></>        
                               <div class="nav-item" role="presentation"><a class="nav-link active" href="editprofile.php">Edit Profile</a></>        
-                              <div class="nav-item" role="presentation"><a class="nav-link" href="logout.php">Logout</a></>        
+                              <div class="nav-item" role="presentation"><a class="nav-link" href="../index.php">Logout</a></>        
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </nav>       <section style="padding-bottom: 45px;background-position: center;background-size: cover;background-image: url(../assets/img/bg2.png);">
+                </nav>   
+    <section style="padding-bottom: 45px;background-position: center;background-size: cover;background-image: url(assets/img/bg2.png);">
         <div class="container border rounded shadow-lg profile profile-view" id="profile" style="padding-right: 50px;padding-left: 50px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;width: 617px;margin-top: 28px;background-color: #ffffff;">
         <?php
         include "config.php";
@@ -64,7 +49,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 
         $run = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
-            $username = $row['username'];
+            $name = $row['username'];
         $gender = $row['u_gender'];
         $lname = $row['u_lname'];
         $fname = $row['u_fname'];
@@ -112,30 +97,13 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
             <input type="text" name="u_contact" value="<?php echo $contact ?>"  required="required" pattern="^[\d\(\)\-+]+$" placeholder="Enter Contact" class="form-control">
             <div class="form-group"><label>Why did you join?</label></div>
             <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._ ]+$" placeholder="" class="form-control">
-            <button class="btn btn-primary form-btn" data-toggle='modal' data-target='#myModal' style="margin-top:20px;"  >Change</button></div>
-
+            <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+</div>
 </form>
     </section>
  
    
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="../assets/js/agency.js"></script>
-    <script src="../assets/js/bs-animation.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-
-</body>
-<script>
-
-$('#myModal').on('show.bs.modal', function (e) {
-  
-      $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
-
-  });
-
-</script>
+    <?php include "includes/footer.php" ?>
 
 
 </html>

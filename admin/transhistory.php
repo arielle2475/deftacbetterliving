@@ -72,11 +72,9 @@
                         <li>
                             <a href="adminlist.php">Admin List</a>
                         </li>
-                        <li >
-                            <a href="editadmin.php">Edit Admin</a>
-                        </li>
+
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -95,12 +93,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -151,7 +157,7 @@
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <h1 style="font-size: 35px;">Transaction History</h1> 
-                    <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php">Print PDF</a></button>
+                    <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php" target="_blank">Print PDF</a></button>
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
@@ -212,7 +218,7 @@
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Monthly Transactions</h1>
-                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="monthlypdf.php">Print PDF</a></button>
+                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="monthlypdf.php" target="_blank">Print PDF</a></button>
 
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
@@ -273,7 +279,7 @@
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Annual Transactions</h1>
-                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="yearlypdf.php">Print PDF</a></button>
+                        <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="yearlypdf.php" target="_blank">Print PDF</a></button>
 
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: px;">
                         <table id="myTable" class="table">

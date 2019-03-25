@@ -70,7 +70,7 @@
                             <a href="editadmin.php">Edit Admin</a>
                         </li>
                         <li>
-                            <a href="createadmin.php">Admin Create</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -89,12 +89,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
-                    <a href="calendar.php">Calendar</a>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
+                    <a href="calendar.php">Calendar</a>
+                </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -197,7 +205,7 @@
 
 
                               ?>
-                 <form class="form" action="editadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                 <form class="form" action="createadmin.php" method="post" enctype="multipart/form-data" autocomplete="off">
                  <div class="alert alert-error"><?= $_SESSION['message'] ?></div>    
 
                     <div class="form-row profile-row" style="padding: 13px;">

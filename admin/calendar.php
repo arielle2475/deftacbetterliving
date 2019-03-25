@@ -194,16 +194,25 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
-                <li data-aos="fade-up" data-aos-once="true"  class="active">
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li>
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
             </ul>
+
             <ul class="list-unstyled CTAs">
                 <li>
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>

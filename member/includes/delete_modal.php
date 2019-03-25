@@ -51,13 +51,14 @@
      <form action=""  method="post" enctype="multipart/form-data">
         <br>
        <center> <span class="user"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['avatar']?>' width="100" height="100"></span><br/></center>
-       <input class="btn" type="file" name="avatar" value="<?php echo $_SESSION['avatar']; ?>"  /> 
-        <td colspan="2"><input class="btn btn-warning" style="color:white;" type="submit" name="update" value="Update Avatar"/></td></form>
+       <input class="btn" type="file" name="avatar" value="../Signin/<?= $_SESSION['avatar']?>"  /> 
+        <td colspan="2">
+        <input class="btn btn-warning" style="color:white;" type="submit" name="update" onsubmit="setTimeout(function () { window.location.reload(); }, 10)"value="Update Avatar"/></td></form>
 
         <form method="POST" action="edit.php">
         
         <div class="form-group" ><label style="margin-bottom:-13px; font-weight:bold;">Username</label></div>   
-        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter User Name" class="form-control">
+        <input type="text" name="username" value="<?php echo $_SESSION['username'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
           
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Firstname</label></div>
             <input  type="text" name="u_fname" value="<?php echo $fname; ?>" required="required" pattern="^[a-zA-Z_ ]+$" placeholder="Enter First Name" class="form-control">
@@ -78,7 +79,7 @@
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Contact</label></div>
             <input type="text" name="u_contact" value="<?php echo $contact ?>"  required="required" pattern="^[\d\(\)\-+]+$" placeholder="Enter Contact" class="form-control">
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Why did you join?</label></div>
-            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._! ]+$" placeholder="" class="form-control">
+            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._ ]+$" placeholder="" class="form-control">
   
        <div class="modal-footer" style="height: 57px;">
        <button class="btn btn-warning form-btn" type="submit" name="submit" style="margin-top:20px; color:white;"  >Update</button>
