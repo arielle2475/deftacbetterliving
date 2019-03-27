@@ -114,12 +114,12 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <li>
                 <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
-                        <li class="active">
+                        <li >
                             <a href="adminlist.php">Admin Status</a>
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -139,7 +139,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </ul>
                 </li>
                 <li class="active">
-                <a class="h ha"  href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
                 <ul class="collapse list-unstyled" id="gallerySubmenu">
                     <li>
                         <a class="h ha "  href="gallery.php">View Images</a>
@@ -162,7 +162,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
             </li>
             <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
             </li>
         </ul>
     </nav>
@@ -193,7 +193,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Admin Status</h1>
+                    <h1>Video Uploads</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
 
 
@@ -219,13 +219,19 @@ if (!empty($name)){
 if (($fileextension !== "mp4") && ($fileextension !== "ogg") && ($fileextension !== "webm"))
 {
 $success=0;
-echo "The file extension must be .mp4, .ogg, or .webm in order to be uploaded";
+echo '<div style="margin:20px;"class="alert alert-danger alert-dismissible ">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<strong>Upload Failed!</strong> The file extension must be .mp4, .ogg, or .webm in order to be uploaded
+</div>';
 }
 else if (($fileextension == "mp4") || ($fileextension == "ogg") || ($fileextension == "webm"))
 {
 $success=1;
 if (move_uploaded_file($tmp_name, $path.$name)) {
-echo 'Uploaded!';
+echo '<div style="margin:20px;"class="alert alert-success alert-dismissible ">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+<strong>Upload Successful!</strong> The video has been uploaded!
+</div>';
 }
 }
 }
@@ -233,14 +239,13 @@ echo 'Uploaded!';
 }
 ?>
 
-<div class="table-responsive" >
+<div class="table-responsive" style="padding: 10px;" >
 
 
-<form action="" method='POST' enctype="multipart/form-data">
-Description of Video: <input type="text" name="description_entered"/><br><br>
-<input type="file" name="file"/><br><br>
-	
-<input type="submit" name="submit" value="Upload"/>
+<form action="" style="text-align: right; padding-bottom:0px;" method='POST' enctype="multipart/form-data">
+<input class="btn" style="background:#333332; color:white;" type="file" name="file"/><br>
+<input style="margin-top:10px;" type="text" placeholder="Video Title" name="description_entered"/>
+<input class="btn btn-success" type="submit" name="submit" value="Upload"/>
 
 </form>
 
@@ -351,7 +356,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             }//Close the while array loop
 
                             echo '</div> </tbody>
-                            </table>';// Gallery end
+                            </table></div>';// Gallery end
                           
                             echo '<div class="clearfix"></div>';// Gallery end
 

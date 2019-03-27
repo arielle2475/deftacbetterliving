@@ -70,42 +70,34 @@ session_start();
                 </div>
             </div>
         </div>
-    <section style="padding-right: 50px;padding-left: 50px; margin-bottom: -100px; background-color: #f2f2f2;padding-top: 100px;">
-        <div class="container-fluid text-center border rounded shadow-lg" style="padding-top: 24px;padding-right: 20px;padding-left: 20px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 44px;background-color: #ffffff;">
+    <section style="padding-right: 20px;padding-left: 20px; margin-bottom: -100px; background-color: #f2f2f2;padding-top: 100px;">
+    <div class="container-fluid text-center border rounded shadow-lg" style="padding-top: 24px;padding-right: 20px;padding-left: 20px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 44px;background-color: #ffffff;">
             <div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" style="margin-right: 0px;background-color: #ffffff;padding: 0px;margin-left: 0px;padding-top: 0px;">
                 <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
-                    <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Users</h1>
-                    <form style="padding-right: -1px;">
-                        <div class="border rounded border-light shadow d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-xl-center" style="padding-top: 12px;padding-bottom: 16px;padding-left: 19px;padding-right: 12px;">
-                            <div class="form-row">
-                                <div class="col-2 text-center" style="padding-right: 0px;padding-left: 0px;width: 92px;"><span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></div>
-                                <div
-                                    class="col-4" style="padding-right: 200px;padding-left: 0px;width: 220px;">
-									<h1 style="font-size: 16px;width: 150px;margin-top: 8px;margin-left: 11px;">					
-									<div id="Userlog"> <a href="index.php" style="float: right;"></a>
-								</div>
-							</h1>
-                            </div>
-                        </div>
-                </div>
-                </form>
+                    <div id="Userlog"></div>
+
             </div>
-			<div class="col-md-8" style="padding-right: 0px;padding-left: 10px;">
+            <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 0px;padding-left: 20px;padding-top: 0px;padding-bottom: 20px;">
+                <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Chat Guidelines</h1>
+                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br>4.</p>
+            </div>
+            <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
+                <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>
+                <div id="Userlog"></div>
+			<div class="col-md-12" style="padding-right: 0px;padding-left: 10px;">
                 <form>
                     <div class="form-row">
                         <div class="col float-right flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-content-center flex-wrap m-auto">
-                            <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>
-                             <div class="border rounded shadow-sm scrollbar" style="height: 500px;background-color: #ededed;overflow-y: scroll;margin-bottom: 15px; padding:20px;" id="show"></div>
+                             <div class="border rounded shadow-sm scrollbar" style="height: 700px;background-color: #ededed;overflow-y: scroll;margin-bottom: 15px; padding:20px;" id="show"></div>
                         </div>
                     </div>
                     <div class="form-row">
-						<input type="hidden" name="name" id="name" value="<?php echo $_SESSION['username'] ?>"  class="form-control" >
+						<input type="hidden" name="name" id="name" value="<?php echo $_SESSION['adminname'] ?>"  class="form-control" >
                         <div class="col"><input class="form-control"  name="msg" id="msg" type="text"></div>
-                        <div class="col-auto"><input type="reset" name="send" id="send" value="Send" class="btn btn-primary"></div>
+                        <div class="col-auto"><input type="reset" name="send" id="send" value="Send" class="btn btn-warning" style="color:white; font-weight:bold;"></div>
                     </div>
                 </form>
             </div>
-        </div>
         </div>
     </section>
 	

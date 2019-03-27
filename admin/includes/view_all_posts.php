@@ -146,7 +146,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                
                             
                             echo '</div> </tbody>
-                            </table>';// Gallery end
+                            </table></div></div>';// Gallery end
                           
                             echo '<div class="clearfix"></div></div>  ';// Gallery end
 

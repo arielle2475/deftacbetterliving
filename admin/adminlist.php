@@ -127,7 +127,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -234,8 +234,8 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     echo "<tr>
                                     <td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='".$row['adminavatar']."' width='100px' height='100px' style='width: 100px;'></td>
                                     <td class='border rounded-0'>" . $row["adminname"]. "</td> 
-                                    <td class='border rounded-0'>" . $row["adminemail"]. "</td>
-	";
+                                    <td class='border rounded-0'>" . $row["adminemail"]. "</td>";
+
                             $active=$row['isactive'];
 
                             $row = json_encode($row);
@@ -258,12 +258,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             </table>';// Gallery end
                           
                             echo '<div class="clearfix"></div>';// Gallery end
-
-
-                          
-?>
+                            ?>
          </div></div>                   <div id="pagination"><!-- #pagination start -->
-<?php 
+                            <?php 
                             $i = 1;//Set the $i counting variable to 1
 
                             echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
@@ -292,30 +289,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             }
                             echo "</div></div>";// #pageNav end
                             ?>
-                            <form method="post" action="" id="form">
-            <div id="div_pagination">
-                <input type="hidden" name="row" value="<?php echo $row; ?>">
-                <input type="hidden" name="allcount" value="<?php echo $allcount; ?>">
 
-
-                <!-- Number of rows -->
-                <div class="divnum_rows">
-                <span class="paginationtextfield">Number of rows:</span>&nbsp;
-                <select id="num_rows" name="num_rows" >
-                    <?php
-                    $numrows_arr = array("5","10","25","50","100","250");
-                    foreach($numrows_arr as $nrow){
-                        if(isset($_POST['num_rows']) && $_POST['num_rows'] == $nrow){
-                            echo '<option value="'.$nrow.'" selected="selected">'.$nrow.'</option>';
-                        }else{
-                            echo '<option value="'.$nrow.'">'.$nrow.'</option>';
-                        }
-                    }
-                    ?>
-                </select>
-                </div>
-            </div>
-        </form>
 
                           </div>
                     </div>

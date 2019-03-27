@@ -1,5 +1,17 @@
 <?php include "includes/admin_header.php"; ?>
+<?php 
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
 
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
+ ?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,9 +78,7 @@
                         <li>
                             <a href="adminlist.php">Admin Status</a>
                         </li>
-                        <li  class="active">
-                            <a href="editadmin.php">Edit Admin</a>
-                        </li>
+                    
                         <li>
                             <a href="createadmin.php">Add Admin</a>
                         </li>
@@ -113,7 +123,7 @@
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>

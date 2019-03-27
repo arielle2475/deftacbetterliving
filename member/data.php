@@ -4,10 +4,10 @@
 <style type="text/css">
 	#text{
 		width:300px;
+		height:auto;
 		background-color: #B7CCFA;
 	    border-radius: 10px;
-	    padding-top: 3px;
-	    padding-bottom: 3px;
+
 	}
 </style>
 
@@ -26,15 +26,22 @@ $run = mysqli_query($con, $query);
 		
 
 		?>
-		
+		<div >
 				<!-- <span style="color:green;"><?php echo $row['name']; ?></span> <br> -->
-				<div id="text"> <span style="color:green; margin-left: 8px; font-weight: bold;">
-				<?php echo ($row['name'])." :</span><br><span style='color:#3B3803'>". str_repeat('&nbsp', 12); echo $row['msg']; ?></span>
-				<span style="float:right;"><?php echo formatDate($row['date']); echo "&nbsp&nbsp&nbsp&nbsp&nbsp"; ?></span></div><br>
-				
-			
+				<span style=" padding-left:10px; color:gray; font-weight: bold;">
+				<br>
+				<?php echo formatDate($row['date']);?></span>
+				<br>
+	
+				<div id="text" style="padding:10px;"> 
+				<span style='float:left; color:black;'>
+				<b><?php echo ucfirst($row['name'])?>: &nbsp&nbsp&nbsp</b><?php echo $row['msg']; ?></span><br>
+				</div>
 
-		
+				
+
+
+		</div>
 		<?php
 	}
 

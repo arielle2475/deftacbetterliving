@@ -1,9 +1,18 @@
 <?php include "includes/admin_header.php"; ?>
 <?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
+
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
+        
+
  ?>
 
     <meta charset="utf-8">
@@ -116,7 +125,7 @@
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -148,6 +157,49 @@
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Name" class="search form-control"></div>
                     <h1>Membership List</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+
+<?php
+
+//////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
+// Number of images per page, change for a different number of images per page
+
+// number of rows per page
+$per_page = 5;
+if(isset($_POST['num_rows'])){
+    $per_page = $_POST['num_rows'];
+}
+// Get the page and offset value:
+if (isset($_GET['page'])) {
+$page = $_GET['page'] - 1;
+$offset = $page * $per_page;
+}
+else {
+$page = 0;
+$offset = 0;
+} 
+
+// Count the total number of images in the table ordering by their id's ascending:
+$admins = "SELECT count(username) FROM mfillup ORDER by username ASC";
+$result = mysqli_query($connection, $admins);
+
+$row = mysqli_fetch_array($result);
+$total_admins = $row[0];
+
+// Calculate the number of pages:
+if ($total_admins > $per_page) {//If there is more than one page
+$pages_total = ceil($total_admins / $per_page);
+$page_up = $page + 2;
+$page_down = $page;
+$display ='';//leave the display variable empty so it doesn't hide anything
+} 
+else {//Else if there is only one page
+$pages = 1;
+$pages_total = 1;
+$display = ' class="display-none"';//class to hide page count and buttons if only one page
+} 
+
+////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
+?>
                         <table id="myTable" class="table">
                             <thead>
                                 <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
@@ -175,7 +227,7 @@
                                           die("Connection failed: " . mysqli_connect_error());
                                       }
 
-                                      $sql = "SELECT * FROM mfillup";
+                                      $sql = "SELECT * FROM mfillup ORDER by username ASC LIMIT $offset, $per_page";
 
                                       $result = mysqli_query($conn, $sql);
                                       echo "<tr>";
@@ -194,13 +246,45 @@
                                       echo "
                                       </table>";
                                       mysqli_close($conn);
-                                      ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                      ?></div>
+<div id="pagination"><!-- #pagination start -->
+<?php 
+$i = 1;//Set the $i counting variable to 1
 
+echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
+echo '<h6'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h6>';//Page out of total pages
+
+// Show the page buttons:
+if ($page) {
+echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
+<a href="memberlist.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
+echo '<a href="memberlist.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
+} 
+
+for ($i=1;$i<=$pages_total;$i++) {
+if(($i==$page+1)) {
+echo '<a href="memberlist.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
+}
+
+//In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
+if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
+echo '<a href="memberlist.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
+} 
+
+if (($page + 1) != $pages_total) {
+echo '<a href="memberlist.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
+echo '<a href="memberlist.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
+}
+echo "</div></div>";// #pageNav end
+?>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
      <script>
             function myFunction() {
             var input, filter, table, tr, td, i, txtValue;

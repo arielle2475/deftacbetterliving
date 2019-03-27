@@ -76,6 +76,18 @@ function delete_videos(){  ///Delete videos
     $del_vids = mysqli_query($connection, $query);
 
 }
+}
+
+function delete_tutorials(){  ///Delete tutorials
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tutorials WHERE id = $del_id";
+    $del_tuts = mysqli_query($connection, $query);
+
+}
+
 
 }
 
@@ -102,6 +114,19 @@ function delete_images(){  ///Delete images
 }
 
 }
+
+function delete_members(){  ///Delete memebrs
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM users WHERE id = $del_id";
+    $del_imgs = mysqli_query($connection, $query);
+
+}
+
+}
+
 function delete_posts(){  ///Delete posts
     
       global $connection;
@@ -226,5 +251,7 @@ function comment_delete(){
     confirm_query($delete_comment);
     header("Location: comment.php");
 }
+
+
 
 ?>

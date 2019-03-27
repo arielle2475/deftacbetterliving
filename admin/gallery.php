@@ -190,7 +190,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                 <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
             </li>
             <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
             </li>
         </ul>
     </nav>
