@@ -1,8 +1,8 @@
 <?php include "includes/admin_header.php"; ?>
-
 <?php 
+
 include('../SignIn/serverAdmin.php');
-if (isAdmin()) {
+if (!isAdmin()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../signIn/loginAdmin.php');
 }   
@@ -12,6 +12,8 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 	session_destroy();
 	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
+        
+
  ?>
 
 
@@ -60,7 +62,6 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <ul class="list-unstyled components">
             <li class="active">
                     <a href="index.php">Dashboard</a>
-<<<<<<< HEAD
                 </li>                <li>
                     <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
                     <ul class="collapse list-unstyled" id="memberSubmenu">
@@ -82,17 +83,15 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             <a href="adminlist.php">Admin List</a>
                         </li>
                         <li>
-                            <a href="createadmin.php">Add Admin</a>
+                            <a href="editadmin.php">Edit Admin</a>
+                        </li>
+                        <li>
+                            <a href="createadmin.php">Create Admin</a>
                         </li>
 
 
                     </ul>
                 </li>
-=======
-           
-                   
-    
->>>>>>> 7ac5ad6692fbdb548ca077882f12045ea906096d
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -107,38 +106,27 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
-                <li>
-<<<<<<< HEAD
-                <a  href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
-                <ul class="collapse list-unstyled" id="gallerySubmenu">
-                    <li>
-                        <a class="h ha "  href="gallery.php">View Images</a>
-                    </li>
-                    <li>
-                        <a class="h ha"  href="video.php">View Videos</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="h ha"  href="calendar.php">Calendar</a>
-            </li>
-            <li >
-                    <a  class="h ha" href="chatbox.php">Chatbox</a>
-=======
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../admin/logout.php" style="color:white; font-weight:bold;">Logout</a>
->>>>>>> 7ac5ad6692fbdb548ca077882f12045ea906096d
+                <li >
+                    <a href="calendar.php">Calendar</a>
                 </li>
-        </ul>
+                <li >
+                    <a href="gallery.php">Gallery</a>
+                </li>
+                <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
 
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
-            </li>
-            <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
-            </li>
-        </ul>
-    </nav>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
+                </li>
+                <li>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../superadmin/logout.php" style="color:white; font-weight:bold;">Logout</a>
+                </li>
+            </ul>
+        </nav>
 
         <!-- Page Content Holder -->
         <div id="content">
@@ -181,7 +169,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-file-o" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 73px;"></i></div>
                                 </div>
-                            </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="posts.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
+                            </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
                     </div>
                     <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
                         <div class="card shadow" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
@@ -197,7 +185,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa  fa-user-secret" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 57px;"></i></div>
                                 </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="adminlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
+                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
                     </div>
                     <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
                         <div class="card shadow-lg" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
@@ -213,7 +201,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-users" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 64px;"></i></div>
                                 </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="userlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
+                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
                                 </div>
                     </div>
                 </div>
@@ -232,7 +220,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-comments" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 73px;"></i></div>
                                 </div>
-                            </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="comment.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
+                            </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
                     </div>
                     <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
                         <div class="card shadow" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
@@ -264,7 +252,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-user-times" style="width: 50px;height: 44px;color: rgb(255,255,255);font-size: 55px;"></i></div>
                                 </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="userlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
+                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
                                 </div>
                     </div>
                 </div>
@@ -283,10 +271,8 @@ $yearly_title = "$current_month " . ($current_year - 1) .  "-$current_year";
 $monthly_sales = Reports::get_monthly_sales();
 $monthly_title = $monthly_sales[0]['SalesMonth'] . " " . $monthly_sales[0]['SalesDay'] . " - " . end($monthly_sales)['SalesMonth'] . " " . end($monthly_sales)['SalesDay'];
 
-
 $weekly_sales = Reports::get_weekly_sales();
 $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['SalesDate'];
-
 
  
       ?>
@@ -306,7 +292,7 @@ $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['Sales
                         <h1 style=" text-align: center;" >Weekly Sales Report</h1>
                         <h5 style=" text-align: center;" ><?php echo $week_title ?></h5>
 
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 600px;margin: 5px;">
+                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 400px;margin: 5px;">
                         <div class="container" style="width:1500px;">
                         <div id="week">
                 <div class="row">
@@ -324,7 +310,7 @@ $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['Sales
                     <br>
                         <h1 style=" text-align: center;" >Monthly Sales Report</h1>
                         <h5 style=" text-align: center;" ><?php echo $monthly_title ?></h5>
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 600px;margin: 5px;">
+                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 400px;margin: 5px;">
                         <div class="container" style="width:1500px;">
 
                         <div id="month">
@@ -344,8 +330,7 @@ $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['Sales
                         </div><span class="counter pull-right"></span>
                         <br>
                         <h1 style=" text-align: center;" >Yearly Sales Report</h1>
-                        <h5 style=" text-align: center;" ><?php echo $yearly_title ?></h5>                        
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 600px;margin: 5px;">
+                        <h5 style=" text-align: center;" ><?php echo $yearly_title ?></h5>                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 400px;margin: 5px;">
                         <div class="container" style="width:1500px;">
 
 <div id="year" >
@@ -479,7 +464,7 @@ $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['Sales
         <script src="js/login.js"></script>
     </div>
 
-
+    </div>
                   <?php
                   $query = "SELECT * FROM posts WHERE post_status ='Draft'";  //Draft Posts
                   $get_draft_posts = mysqli_query($connection, $query);

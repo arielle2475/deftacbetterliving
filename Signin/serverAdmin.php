@@ -80,9 +80,16 @@ if (isset($_POST['login_Admin'])) {
   	$results = mysqli_query($db, $query);
 	
   	if (mysqli_num_rows($results) == 1) {
-			$dbResults = $results->fetch_assoc();
+			$dbResults = mysqli_fetch_assoc($results);
 			
-		if ($dbResults['isactive'] == 1){
+		if ($dbResults['isactive'] == 1 && $dbResults['admintype'] == 1){
+      $_SESSION['adminname'] = $username;
+      $_SESSION['admintype'] = $dbResults['admintype'];
+  	  $_SESSION['success'] = "You are now logged in";
+  	  header('location: ../superadmin/index.php');
+    
+    }
+    elseif ($dbResults['isactive'] == 1 && $dbResults['admintype'] == 0){
   	  $_SESSION['adminname'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: ../Admin/index.php');
@@ -95,5 +102,18 @@ if (isset($_POST['login_Admin'])) {
   	}
   }
 }
+}
+
+
+
+
+//checks if superAdmin
+function isAdmin()
+{
+	if (isset($_SESSION['adminname']) && $_SESSION['admintype'] == 1) {
+		return true;
+	}else{
+		return false;
+	}
 }
 ?>
