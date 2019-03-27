@@ -64,38 +64,9 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 </div>
             </div>
         </div>
-    <div class="container-fluid text-center" id="dqv" style="padding-top: 85px;background-color: #dfdfdf;padding-bottom: 70px;">
-        <h1 data-aos="fade-up"  data-aos-delay="50" data-aos-once="true">DEFTAC VIDEOS</h1>
-        <hr data-aos="fade-up"  data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">
-        <div class="row d-xl-flex justify-content-xl-center" style="margin-right: -50px;margin-left: -50px;padding-top: 0px;padding-right: 0px;">
-            <div class="col-sm-8 col-md-7 col-lg-6">
-                <div id="video-placeholder"><img class="img-fluid" src="../assets/img/video_place_holder.jpg"></div>
-                <div class="row">
-                    <div class="col-sm-7 col-md-6 col-lg-6 controls"><i class="material-icons" id="prev">skip_previous</i><i class="material-icons" id="pause">pause</i><i class="material-icons" id="play">play_arrow</i><i class="material-icons" id="next">skip_next</i><i class="material-icons" id="mute-toggle">volume_up</i>
-                        <input
-                            type="range" min="0" max="100" step="1" id="volume-input" class="dqv-range vol">
-                            <div>
-                                <div class="dqv-range dur"><span id="current-time">0:00</span><span> / </span><span id="duration">0:00</span></div>
-                            </div>
-                    </div>
-                    <div class="col-sm-5 col-md-6 col-lg-6 controls"><input type="range" value="0" id="progress-bar" class="dqv-range prog"></div>
-                    <div class="col-md-12"><select class="form-control-sm d-none" id="speed"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-3 col-lg-2">
-                <div class="row">
-                    <div class="col-sm-10 col-md-10 col-lg-12 vids"><img class="img-fluid thumbnail" src="../assets/img/video_place_holder.jpg" data-video-id="Xa0Q0J5tOP0"><img class="img-fluid thumbnail" src="../assets/img/cat_video_1.jpg" data-video-id="h14wr4pXZFk"><img class="img-fluid thumbnail" src="../assets/img/cat_video_2.jpg" data-video-id="KkFnm-7jzOA">
-                        <img
-                            class="img-fluid thumbnail" src="../assets/img/cat_video_3.jpg" data-video-id="Ph77yOQFihc"></div>
-                </div>
-            </div>
-            <hr class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">
-        </div>
-    </div>
-
     <section class="py-5" style="margin-top: 89px;background-color: #ffffff;">
         <div class="container">
-        <h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="text-center">DEFTAC GALLERY</h1>
+        <h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="text-center">IMAGES</h1>
         <hr data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">
 <br>                    
 <center> 
@@ -197,13 +168,153 @@ echo "</div></div";// #pageNav end
 
 
 </div>
-
-
-
-
-
-
 </center>
+        </div>
+    </section>
+    
+    <section class="py-5" style="margin-top: 89px;background-color: #ffffff;">
+        <div class="container">
+        <h1 data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="text-center">VIDEOS</h1>
+        <hr data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">
+<br>                    
+<center> 
+<div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="gallery">
+
+        <?php
+//Block 1
+$user = "root"; 
+$password = ""; 
+$host = "localhost"; 
+$dbase = "thesis"; 
+$table = "tbl_video"; 
+
+//Block 3
+$connection= mysqli_connect ($host, $user, $password,$dbase);
+if (!$connection)
+{
+die ('Could not connect:' . mysqli_connect_error());
+}
+mysqli_select_db($connection, $dbase);
+
+//Block 4
+if((!empty($description)) && ($success == 1)){
+    $sql = "INSERT INTO $table (description, filename, fileextension)
+VALUES ('$description', '$name', '$fileextension')";
+mysqli_query($connection, $sql);
+}
+//Block 5
+
+//////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
+// Number of images per page, change for a different number of images per page
+
+// number of rows per page
+$per_page = 3;
+if(isset($_POST['num_rows'])){
+    $per_page = $_POST['num_rows'];
+}
+// Get the page and offset value:
+if (isset($_GET['videopage'])) {
+$page = $_GET['videopage'] - 1;
+$offset = $page * $per_page;
+}
+else {
+$page = 0;
+$offset = 0;
+} 
+
+// Count the total number of images in the table ordering by their id's ascending:
+$admins = "SELECT count(id) FROM tbl_video ORDER by id ASC";
+$result = mysqli_query($connection, $admins);
+
+$row = mysqli_fetch_array($result);
+$total_admins = $row[0];
+
+// Calculate the number of pages:
+if ($total_admins > $per_page) {//If there is more than one page
+$pages_total = ceil($total_admins / $per_page);
+$page_up = $page + 2;
+$page_down = $page;
+$display ='';//leave the display variable empty so it doesn't hide anything
+} 
+else {//Else if there is only one page
+$pages = 1;
+$pages_total = 1;
+$display = ' class="display-none"';//class to hide page count and buttons if only one page
+} 
+echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
+<div class="row" style="padding-left:100px; ">
+';//Page out of total pages
+
+////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
+?>                       
+
+                            <?php
+                            // DISPLAY THE images:
+                            //Select the images from the table limited as per our $offet and $per_page total:
+                            $query = "SELECT * FROM tbl_video ORDER by id ASC LIMIT $offset, $per_page";
+                            $result = mysqli_query($connection, $query);
+
+                            while($row = mysqli_fetch_array($result)) {//Open the while array loop
+
+                            //Define the image variable:
+                            $id_field= $row['id'];
+                            $videos_field= $row['filename'];
+                            $video_show= "../admin/videos/$videos_field";
+                            $descriptionvalue= $row['description'];
+                            $fileextensionvalue= $row['fileextension'];
+                            $admins=$row['id'];
+                            echo "
+                              <div style='margin:20px;' class='col-md-3'>
+                              <video width='280'height='200' controls>
+                            <source src='$video_show' type='video/$fileextensionvalue'>
+                            Your browser does not support the video tag.</video><br>".$row["description"]."
+                            </div>
+                            ";  
+
+
+
+                            }//Close the while array loop
+
+                            echo '</div></div>';// Gallery end
+
+                            echo '<div class="clearfix"></div>';// Gallery end
+                            
+                            
+                            echo'<hr data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">';
+                            
+                            $i = 1;//Set the $i counting variable to 1
+                            
+                            echo '<br><div data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
+                            
+                            // Show the page buttons:
+                            if ($page) {
+                            echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <a href="gallery.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
+                            echo '<a href="gallery.php?videopage='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
+                            } 
+                            
+                            for ($i=1;$i<=$pages_total;$i++) {
+                            if(($i==$page+1)) {
+                            echo '<a href="gallery.php?videopage='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
+                            }
+                            
+                            //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
+                            if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
+                            echo '<a href="gallery.php?videopage='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
+                            } 
+                            
+                            if (($page + 1) != $pages_total) {
+                            echo '<a href="gallery.php?videopage='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
+                            echo '<a href="gallery.php?videopage='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
+                            }
+                            echo "</div></div";// #pageNav end
+                            ?>
+                            
+                            <div id="pagination"><!-- #pagination start -->
+                            
+                            
+                            </div>
+                            </center>
         </div>
     </section>
     <?php include "includes/footer.php"; ?>

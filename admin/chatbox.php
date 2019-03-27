@@ -143,7 +143,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                         <a class="h ha"  href="gallery.php">View Images</a>
                     </li>
                     <li>
-                        <a class="h ha"  href="videos.php">View Videos</a>
+                        <a class="h ha"  href="video.php">View Videos</a>
                     </li>
 
                 </ul>

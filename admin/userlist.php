@@ -229,9 +229,14 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <th class="border rounded-0">Approved Date</th>
                     <th class="border rounded-0">End Date</th>
                     <th class="border rounded-0">Status</th>
+                    <th class="border rounded-0">Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
+                    <?php  //delete admins
+                                 delete_members();
+                                ?>
                     <?php
                     // DISPLAY THE images:
                     //Select the images from the table limited as per our $offet and $per_page total:
@@ -241,6 +246,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                     //Define the image variable:
                     $members=$row['username'];
+                    $id = $row['id'];
 
                     echo "<tr><td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='../signin/".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
                     <td class='border rounded-0'>" . $row["username"]. "</td> <td class='border rounded-0'>" . $row["email"]. "</td><td class='border rounded-0'>" . $row["reg_date"]. "</td><td class='border rounded-0'>" . $row["approvedDate"]. "</td><td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
@@ -250,19 +256,20 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                     if($active==1){
                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
-                    </td></tr>";    
+                    </td>";    
                     }
                     if($active==0){
                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
-                    </td></tr>";    
+                    </td>";    
                         }
-
+                        echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='adminlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
+                        </td></tr>";
 
 
                     }//Close the while array loop
 
                     echo '</div> </tbody>
-                    </table>';// Gallery end
+                    </table></div>';// Gallery end
 
                     echo '<div class="clearfix"></div>';// Gallery end
 

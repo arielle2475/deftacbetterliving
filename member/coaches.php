@@ -142,44 +142,153 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
     </section>
     <div style="padding: 56px;">
         <h1 class="text-center" data-aos="fade" data-aos-delay="50" data-aos-once="true">Tutorials</h1>
+        <hr data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">
         <p class="text-center" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">Watch exclusive tutorials from our very own coaches and learn new submission or grappling holds</p>
-        <div class="container" data-aos="fade-up" data-aos-delay="150" data-aos-once="true">
-            <h3 class="text-left">Choke Holds</h3>
-            <div class="row" style="padding-bottom: 30px;">
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/nCCVE3zQfqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/4mDKZOaTzBM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/YLYBOuXKzVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-            </div>
-            <h3 class="text-left">Armbars</h3>
-            <div class="row" style="padding-bottom: 30px;">
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/Dq8nahFOnI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZOlNtDJ60DY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/WnhJERWQvcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-            </div>
-            <h3 class="text-left">Take Downs</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/0wYR63ZsbI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/tPYrtF9xc8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/dt-t6a5IxBI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                </div>
-            </div>
+        <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+<br>                    
+<center> 
+<div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="gallery">
+
+        <?php
+//Block 1
+$user = "root"; 
+$password = ""; 
+$host = "localhost"; 
+$dbase = "thesis"; 
+$table = "tutorials"; 
+
+//Block 3
+$connection= mysqli_connect ($host, $user, $password,$dbase);
+if (!$connection)
+{
+die ('Could not connect:' . mysqli_connect_error());
+}
+mysqli_select_db($connection, $dbase);
+
+//Block 4
+if((!empty($title)) && ($success == 1)){
+    $sql = "INSERT INTO $table (title, description, filename, fileextension)
+VALUES ('$title','$description', '$name', '$fileextension')";
+mysqli_query($connection, $sql);
+}
+//Block 5
+
+//////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
+// Number of images per page, change for a different number of images per page
+
+// number of rows per page
+$per_page = 6;
+if(isset($_POST['num_rows'])){
+    $per_page = $_POST['num_rows'];
+}
+// Get the page and offset value:
+if (isset($_GET['videopage'])) {
+$page = $_GET['videopage'] - 1;
+$offset = $page * $per_page;
+}
+else {
+$page = 0;
+$offset = 0;
+} 
+
+// Count the total number of images in the table ordering by their id's ascending:
+$admins = "SELECT count(id) FROM tutorials ORDER by id ASC";
+$result = mysqli_query($connection, $admins);
+
+$row = mysqli_fetch_array($result);
+$total_admins = $row[0];
+
+// Calculate the number of pages:
+if ($total_admins > $per_page) {//If there is more than one page
+$pages_total = ceil($total_admins / $per_page);
+$page_up = $page + 2;
+$page_down = $page;
+$display ='';//leave the display variable empty so it doesn't hide anything
+} 
+else {//Else if there is only one page
+$pages = 1;
+$pages_total = 1;
+$display = ' class="display-none"';//class to hide page count and buttons if only one page
+} 
+echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
+<div class="row" style="padding-left:100px; ">
+';//Page out of total pages
+
+////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
+?>                       
+
+                            <?php
+                            // DISPLAY THE images:
+                            //Select the images from the table limited as per our $offet and $per_page total:
+                            $query = "SELECT * FROM tutorials ORDER by id ASC LIMIT $offset, $per_page";
+                            $result = mysqli_query($connection, $query);
+
+                            while($row = mysqli_fetch_array($result)) {//Open the while array loop
+
+                            //Define the image variable:
+                            $id_field= $row['id'];
+                            $videos_field= $row['filename'];
+                            $video_show= "../admin/videos/$videos_field";
+                            $titlevalue= $row['title'];
+                            $descriptionvalue= $row['description'];
+                            $fileextensionvalue= $row['fileextension'];
+                            $admins=$row['id'];
+                            echo "
+                              <div style='margin:20px;' class='col-md-3'>
+                              <video width='280'height='200' controls>
+                            <source src='$video_show' type='video/$fileextensionvalue'>
+                            Your browser does not support the video tag.</video><br>
+                            <h5>".$row["title"]."</h5>
+                            ".$row["description"]."
+                            </div>
+                            ";  
+
+
+
+                            }//Close the while array loop
+
+                            echo '</div></div>';// Gallery end
+
+                            echo '<div class="clearfix"></div>';// Gallery end
+                            
+                            
+                            echo'<hr data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" class="d-xl-flex" style="height: 2px;color: rgb(124,165,205);background-color: #000000;width: auto;margin-left: 250px;margin-right: 250px;">';
+                            
+                            $i = 1;//Set the $i counting variable to 1
+                            
+                            echo '<br><div data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true" id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
+                            
+                            // Show the page buttons:
+                            if ($page) {
+                            echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <a href="coaches.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
+                            echo '<a href="coaches.php?videopage='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
+                            } 
+                            
+                            for ($i=1;$i<=$pages_total;$i++) {
+                            if(($i==$page+1)) {
+                            echo '<a href="coaches.php?videopage='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
+                            }
+                            
+                            //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
+                            if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
+                            echo '<a href="coaches.php?videopage='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
+                            } 
+                            
+                            if (($page + 1) != $pages_total) {
+                            echo '<a href="coaches.php?videopage='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
+                            echo '<a href="coaches.php?videopage='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
+                            }
+                            echo "</div></div";// #pageNav end
+                            ?>
+                            
+                            <div id="pagination"><!-- #pagination start -->
+                            
+                            
+                            </div>
+                            </center>
         </div>
+    </section>
     </div>
     <?php include "includes/footer.php"; ?>
