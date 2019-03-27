@@ -121,8 +121,6 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                         <h1 class="text-truncate text-center flex-grow-1 flex-shrink-1 flex-wrap" style="padding-top: 10px;padding-bottom: 10px;margin-bottom: 25px;color: rgb(255,255,255);font-size: 32px;background-color: #343a40;">User Information</h1>
                         <div class="form-row">
                             <div class="col">
-							<h1 style="font-size: 17px;color: rgb(0,0,0);padding-left: 40px;">Name: <?php echo $fname ?> <?php echo $lname?></h1>
-							<h1 style="font-size: 17px;color: rgb(0,0,0);padding-left: 40px;">Email: <?php echo $email ?></h1>
                                 <h1 class="text-truncate" style="font-size: 17px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-envelope" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $email ?></h1>
                                 <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-user" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $gender ?></h1>
                                 <h1 style="font-size: 20px;color: rgb(0,0,0);padding-left: 40px;"><i class="fa fa-calendar" style="color: rgb(255,193,7);font-size: 30px;"></i>&nbsp;<?php echo $age ?></h1>

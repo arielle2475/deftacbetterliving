@@ -36,7 +36,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($name!=$row['username'] && $name==$row['username'])
+    if ($name!=$row['username'])
     {
     echo '<script type="text/javascript">'; 
     echo 'alert("Username already exist!");'; 
@@ -44,7 +44,7 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
     echo '</script>';        
          
     }
-    elseif($email!=$row['email'] && $email==$row['email']) 
+    elseif($email!=$row['email']) 
     {  
     echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 

@@ -1,7 +1,18 @@
 <?php include "includes/admin_header.php"; ?>
 <?php include "includes/delete_modal.php"; ?>
+<?php 
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
 
 
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
+ ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -1,5 +1,17 @@
 <?php include "includes/admin_header.php"; ?>
+<?php 
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
 
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
+ ?>
 <?php 
 	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 		session_destroy();
@@ -143,7 +155,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                         <a class="h ha"  href="gallery.php">View Images</a>
                     </li>
                     <li>
-                        <a class="h ha"  href="videos.php">View Videos</a>
+                        <a class="h ha"  href="video.php">View Videos</a>
                     </li>
 
                 </ul>

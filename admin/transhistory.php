@@ -1,9 +1,16 @@
 <?php include "includes/admin_header.php"; ?>
 <?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
+
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
  ?>
 
     <meta charset="utf-8">

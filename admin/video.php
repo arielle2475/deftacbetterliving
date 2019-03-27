@@ -1,13 +1,19 @@
 <?php ob_start(); ?>
+<?php session_start();?>
+<?php include "../includes/database.php" ?>
 <?php 
-session_start();
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
+
+
 if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-    session_destroy();
-    header('location: ../Signin/loginadmin.php?error=Login to access admin.');
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
-?><?php include "../includes/database.php" ?>
-
-
+ ?>
 <?php include "includes/delete_modal.php"; ?>
 <?php include "functions.php"; ?>
 

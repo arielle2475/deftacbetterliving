@@ -26,7 +26,7 @@ session_start();
         </div>
     </nav>
     <body>
-<?php $_SESSION['message'] = '';
+<?php $_SESSION['errors'] = '';
 $mysqli = new mysqli("localhost", "root", "", "thesis");
  if($_SERVER['REQUEST_METHOD'] == 'POST') {
 //two passwords are equal to each other
@@ -49,24 +49,26 @@ if ($_POST['password'] == $_POST['confirmpassword']){
   . "VALUES ('$username', '$email', '$password', '$avatar_path')";
   
   //if the query is successful, redirect to welcome.php page, done!
-  if ($mysqli->query($sql) === true) {
+  if ($mysqli->query($sql)) {
     $_SESSION['message'] = "Registration succesful! Added $username to the database!";header("location: ../nonmember/newmember.php");
   }
   
   else {
-  $_SESSION['message'] = "Username already exists!";
+  $_SESSION['errors'] = "Username already exists!";
   }
   } 
   else {
-  $_SESSION['message'] = "file upload failed!";
+  $_SESSION['errors'] = "file upload failed!";
   }
   }
   else {
-    $_SESSION['message'] = "Please only upload GIF, JPG, or PNG images!";
+    $_SESSION['errors'] = "Please only upload GIF, JPG, or PNG images!";
   }
 }
   else  {
-    $_SESSION['message'] = "Two password do not match!!";
+    echo '<div class="text-center bg-danger border rounded border-danger shake animated "style="padding:10px;color:white;">';
+    $_SESSION['errors'] = "Two password do not match!!";
+    echo '</div>';
 }
  }
 ?>
@@ -75,8 +77,10 @@ if ($_POST['password'] == $_POST['confirmpassword']){
 
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="../assets/img/deftac.png" width="180px" data-bs-hover-animate="pulse"></div>
-			<div class="text-center bg-danger border rounded border-danger shake animated "style="padding:10px;color:white;"><?= $_SESSION['message'] ?></div>    
+         <?php if ($_SESSION['errors'] == true) { ?>
 
+			<div class="text-center bg-danger border rounded border-danger shake animated "style="padding:10px;color:white;"><?= $_SESSION['errors'] ?></div>    
+         <?php } ?>
             <div class="form-group"><input class="form-control" type="text" name="username" required="" placeholder="Username" style="height: 45px;">
                 <input
                     class="form-control" type="email" name="email" required="" placeholder="Email"  style="height: 46px;padding-bottom: 4px;"></div>

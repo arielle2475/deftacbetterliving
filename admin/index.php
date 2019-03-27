@@ -1,10 +1,17 @@
 <?php include "includes/admin_header.php"; ?>
 
 <?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
+include('../SignIn/serverAdmin.php');
+if (isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
+
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
  ?>
 
 
@@ -53,36 +60,9 @@
             <ul class="list-unstyled components">
             <li class="active">
                     <a href="index.php">Dashboard</a>
-                </li>                <li>
-                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                    <ul class="collapse list-unstyled" id="memberSubmenu">
-                        <li>
-                            <a href="memberlist.php">Membership List</a>
-                        </li>
-                        <li>
-                            <a href="userlist.php">Membership Status</a>
-                        </li>
-                        <li>
-                            <a href="transhistory.php">Membership Transactions</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
-                    <ul class="collapse list-unstyled" id="adminSubmenu">
-                        <li>
-                            <a href="adminlist.php">Admin List</a>
-                        </li>
-                        <li>
-                            <a href="editadmin.php">Edit Admin</a>
-                        </li>
-                        <li>
-                            <a href="createadmin.php">Add Admin</a>
-                        </li>
-
-
-                    </ul>
-                </li>
+           
+                   
+    
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -457,7 +437,7 @@ $week_title =  $weekly_sales[0]['SalesDate'] . " - " . end($weekly_sales)['Sales
         <script src="js/login.js"></script>
     </div>
 
-    </div>
+
                   <?php
                   $query = "SELECT * FROM posts WHERE post_status ='Draft'";  //Draft Posts
                   $get_draft_posts = mysqli_query($connection, $query);
