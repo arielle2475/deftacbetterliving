@@ -30,19 +30,19 @@ if(!$error) {
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($_SESSION['adminname']==$name)
+    if ($name!==$row['adminname'])
     {
     echo '<script type="text/javascript">'; 
     echo 'alert("Username already exist!");'; 
-    echo 'window.location.href = "../editadmin.php";';
+    echo 'window.location.href = "../profile.php";';
     echo '</script>';        
          
     }
-    elseif($email==$row['adminemail'])
+    elseif($email!==$row['adminemail'])
     {  
     echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
-    echo 'window.location.href = "../editadmin.php";';
+    echo 'window.location.href = "../profile.php";';
     echo '</script>';
         }
 

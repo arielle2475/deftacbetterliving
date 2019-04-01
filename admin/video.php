@@ -1,5 +1,4 @@
 <?php ob_start(); ?>
-<?php session_start();?>
 <?php include "../includes/database.php" ?>
 <?php 
 include('../SignIn/serverAdmin.php');

@@ -96,7 +96,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
             <div class="form-group"><label>Contact</label></div>
             <input type="text" name="u_contact" value="<?php echo $contact ?>"  required="required" pattern="^[\d\(\)\-+]+$" placeholder="Enter Contact" class="form-control">
             <div class="form-group"><label>Why did you join?</label></div>
-            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._ ]+$" placeholder="" class="form-control">
+            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\.!_ ]+$" placeholder="" class="form-control">
             <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
 </div>
 </form>
