@@ -123,8 +123,8 @@ while($row = mysqli_fetch_array($result)) {//Open the while array loop
 $image=$row['image_name'];
 
 
-echo '<a href="../admin/files/'.$image.'" data-fancybox="gallery" data-caption='.$image.'>';
-echo '<img style="width:300px; height:210px; margin:10px;"  src="../admin/files/'.$image.'">';
+echo '<a href="../superadmin/gallery/files/'.$image.'" data-fancybox="gallery" data-caption='.$image.'>';
+echo '<img style="width:300px; height:210px; margin:10px;"  src="../superadmin/gallery/files/'.$image.'">';
 echo '</a>';
 
 
@@ -259,7 +259,7 @@ echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
                             //Define the image variable:
                             $id_field= $row['id'];
                             $videos_field= $row['filename'];
-                            $video_show= "../admin/videos/$videos_field";
+                            $video_show= "../superadmin/videos/$videos_field";
                             $descriptionvalue= $row['description'];
                             $fileextensionvalue= $row['fileextension'];
                             $admins=$row['id'];

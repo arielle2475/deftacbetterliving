@@ -1,5 +1,7 @@
 <?php include "includes/admin_header.php"; ?>
 <?php include "includes/confirm_admin_modal.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
+
 <?php 
 include('../SignIn/serverAdmin.php');
 if (!isAdmin()) {
@@ -82,7 +84,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -101,12 +103,20 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -150,65 +160,146 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
                     <h1>Admin Status</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
-                        <table id="myTable" class="table">
+
+
+                    <?php
+
+                            //////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
+                           // Number of images per page, change for a different number of images per page
+
+                            // number of rows per page
+                            $per_page = 5;
+                            if(isset($_POST['num_rows'])){
+                                $per_page = $_POST['num_rows'];
+                            }
+                            // Get the page and offset value:
+                            if (isset($_GET['page'])) {
+                            $page = $_GET['page'] - 1;
+                            $offset = $page * $per_page;
+                            }
+                            else {
+                            $page = 0;
+                            $offset = 0;
+                            } 
+
+                            // Count the total number of images in the table ordering by their id's ascending:
+                            $admins = "SELECT count(id) FROM admins ORDER by id ASC";
+                            $result = mysqli_query($connection, $admins);
+
+                            $row = mysqli_fetch_array($result);
+                            $total_admins = $row[0];
+
+                            // Calculate the number of pages:
+                            if ($total_admins > $per_page) {//If there is more than one page
+                            $pages_total = ceil($total_admins / $per_page);
+                            $page_up = $page + 2;
+                            $page_down = $page;
+                            $display ='';//leave the display variable empty so it doesn't hide anything
+                            } 
+                            else {//Else if there is only one page
+                            $pages = 1;
+                            $pages_total = 1;
+                            $display = ' class="display-none"';//class to hide page count and buttons if only one page
+                            } 
+
+                            ////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
+                            ?>
+                            <table id="myTable" class="table">
                             <thead>
                                 <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                     <th class="border rounded-0">Avatar</th>
                                     <th class="border rounded-0">Username</th>
                                     <th class="border rounded-0">Email Address</th>
                                     <th class="border rounded-0">Status</th>
+                                    <th class="border rounded-0">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                        
-                                <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $dbname = "thesis";
+                            
+                            <?php  //delete admins
+                                 delete_admins();
+                                ?>
+                            <?php
+                            // DISPLAY THE images:
+                            //Select the images from the table limited as per our $offet and $per_page total:
+                            $result = mysqli_query($connection, "SELECT * FROM admins ORDER by id ASC LIMIT $offset, $per_page");
 
-                                    // Create connection
-                                    $conn = mysqli_connect($servername, $username, $password, $dbname);
-                                    // Check connection
-                                    if (!$conn) {
-                                        die("Connection failed: " . mysqli_connect_error());
-                                    }
+                            while($row = mysqli_fetch_array($result)) {//Open the while array loop
 
-                                    $sql = "SELECT * FROM admins";
-                                    $result = mysqli_query($conn, $sql);
+                            //Define the image variable:
+                            $admins=$row['adminname'];
+                            $id = $row['id'];
 
-                                    echo "<tr>";
-                                    if (mysqli_num_rows($result) > 0) {
-                                        // output data of each row
-                                    while($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr>
-                                            <td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='".$row['adminavatar']."' width='100px' height='100px' style='width: 100px;'></td>
-                                            <td class='border rounded-0'>" . $row["adminname"]. "</td> 
-                                            <td class='border rounded-0'>" . $row["adminemail"]. "</td>"	;
-                                    $active=$row['isactive'];
-                                    
-                                    $row = json_encode($row);
 
-                                            if($active==1){
-                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
-                                            </td></tr>";    
-                                        }
-                                            if($active==0){
-                                            echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
-                                            </td></tr>";    
-                                        }
-                                    
-                                    }}
+                                    echo "<tr>
+                                    <td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='".$row['adminavatar']."' width='100px' height='100px' style='width: 100px;'></td>
+                                    <td class='border rounded-0'>" . $row["adminname"]. "</td> 
+                                    <td class='border rounded-0'>" . $row["adminemail"]. "</td>";
 
-                                        echo "</tbody>
-                                        </table>";
-                                        mysqli_close($conn);
-                                        ?>
+                            $active=$row['isactive'];
+
+                            $row = json_encode($row);
+
+                                    if($active==1){
+                                    echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
+                                    </td>";    
+                                }
+                                    if($active==0){
+                                    echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
+                                    </td>";    
+                                }
+
+                                echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='adminlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
+                                </td></tr>";
+
+                            }//Close the while array loop
+
+                            echo '</div> </tbody>
+                            </table>';// Gallery end
+                          
+                            echo '<div class="clearfix"></div>';// Gallery end
+                            ?>
+         </div></div>                   <div id="pagination"><!-- #pagination start -->
+                            <?php 
+                            $i = 1;//Set the $i counting variable to 1
+
+                            echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
+                            echo '<h6'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h6>';//Page out of total pages
+
+                            // Show the page buttons:
+                            if ($page) {
+                            echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <a href="adminlist.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
+                            echo '<a href="adminlist.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
+                            } 
+
+                            for ($i=1;$i<=$pages_total;$i++) {
+                            if(($i==$page+1)) {
+                            echo '<a href="adminlist.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
+                            }
+                            
+                            //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
+                            if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
+                            echo '<a href="adminlist.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
+                            } 
+
+                            if (($page + 1) != $pages_total) {
+                            echo '<a href="adminlist.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
+                            echo '<a href="adminlist.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
+                            }
+                            echo "</div></div>";// #pageNav end
+                            ?>
+
+
+                          </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 <!-- Admin Modal -->
 <?php include "includes/confirm_admin_modal.php"; ?>
      <script>
@@ -262,8 +353,19 @@ $('#confirmModal').on('show.bs.modal', function (e) {
 
     document.querySelector('#confirmForm').action = formAction;
 });
+
+$(document).ready(function(){
+
+// Number of rows selection
+$("#num_rows").change(function(){
+
+    // Submitting form
+    $("#form").submit();
+
+});
+});
 </script>
         <?php include "includes/footer.php"; ?>
-
+      
 </body>
 </html>

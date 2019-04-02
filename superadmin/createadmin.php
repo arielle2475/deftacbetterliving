@@ -1,5 +1,17 @@
 <?php include "includes/admin_header.php"; ?>
+<?php 
+include('../SignIn/serverAdmin.php');
+if (!isAdmin()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/loginAdmin.php');
+}   
 
+
+if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
+	session_destroy();
+	header('location: ../Signin/loginadmin.php?error=Login to access.');
+    }
+ ?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,8 +78,9 @@
                         <li>
                             <a href="adminlist.php">Admin Status</a>
                         </li>
+                    
                         <li>
-                            <a href="createadmin.php">Admin Create</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -87,11 +100,19 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.php">Calendar</a>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
+                    <a href="calendar.php">Calendar</a>
+                </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>

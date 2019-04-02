@@ -126,31 +126,6 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
         <li><font size="3px">
             
                 <a class="h ha"  href="index.php">Dashboard</a>
-            </li>                <li>
-                <a class="h ha"   href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                <ul class="collapse list-unstyled" id="memberSubmenu">
-                    <li>
-                        <a class="h ha"  href="memberlist.php">Membership List</a>
-                    </li>
-                    <li>
-                        <a class="h ha"  href="userlist.php">Membership Status</a>
-                    </li>
-                    <li>
-                        <a  class="h ha" href="transhistory.php">Membership Transactions</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-            <a class="h ha"  href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a class="h ha"  href="adminlist.php">Admin Status</a>
-                    </li>
-                    <li>
-                        <a class="h ha" href="editadmin.php">Add Admin</a>
-                    </li>
-
-                </ul>
             </li>
             <li>
                 <a class="h ha"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
@@ -176,6 +151,9 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                         <a class="h ha"  href="video.php">View Videos</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a class="h ha"  href="tutorial.php">Tutorials</a>
             </li>
             <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
@@ -257,7 +235,7 @@ $(document).ready(function(){
  function load_image_data()
  {
   $.ajax({
-   url:"gallery/fetch.php",
+   url:"fetch.php",
    method:"POST",
    success:function(data)
    {
@@ -300,7 +278,7 @@ $(document).ready(function(){
   if(error_images == '')
   {
    $.ajax({
-    url:"gallery/upload.php",
+    url:"../superadmin/gallery/upload.php",
     method:"POST",
     data: form_data,
     contentType: false,
@@ -326,7 +304,7 @@ $(document).ready(function(){
  $(document).on('click', '.edit', function(){
   var image_id = $(this).attr("id");
   $.ajax({
-   url:"gallery/edit.php",
+   url:"../superadmin/gallery/edit.php",
    method:"post",
    data:{image_id:image_id},
    dataType:"json",
@@ -345,7 +323,7 @@ $(document).ready(function(){
   if(confirm("Are you sure you want to remove it?"))
   {
    $.ajax({
-    url:"gallery/delete.php",
+    url:"../superadmin/gallery/delete.php",
     method:"POST",
     data:{image_id:image_id, image_name:image_name},
     success:function(data)
@@ -365,7 +343,7 @@ $(document).ready(function(){
   else
   {
    $.ajax({
-    url:"gallery/update.php",
+    url:"../superadmin/gallery/update.php",
     method:"POST",
     data:$('#edit_image_form').serialize(),
     success:function(data)

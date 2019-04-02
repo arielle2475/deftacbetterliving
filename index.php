@@ -363,7 +363,7 @@
         </div>
     </section><br>
     <section style="padding:10px;">
-    <h1 style="background-color:rgb(255, 255, 255);text-align:center; margin-bottom:-50px;">Instagram</h1>
+    <h1 style="background-color:rgb(255, 255, 255);text-align:center; ">Instagram</h1>
     <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
 <link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
 <ul class="juicer-feed" data-feed-id="mtoledodo-cc38d9fb-12ab-47aa-a17b-89ff83ec3523"></ul></div>
@@ -432,7 +432,7 @@
             </div>
         </div>
     </section>
-    <section data-aos="fade" data-aos-duration="500" data-aos-delay="250" data-aos-once="true" class="py-5" style="padding-bottom: 20px;margin-bottom: 0px;filter: brightness(86%) contrast(108%) grayscale(100%) saturate(34%);opacity: 0.56;">
+    <section data-aos="fade" data-aos-duration="500" data-aos-delay="250" data-aos-once="true" class="py-5" style="filter: brightness(86%) contrast(108%) grayscale(100%) saturate(34%);opacity: 0.56;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/gatoradelogo.png" style="width: 120px;"></a></div>

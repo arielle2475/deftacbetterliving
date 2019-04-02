@@ -123,7 +123,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post_date; ?></p>
                 <hr>
-                <img class="img-responsive" width="700px"  src="../images/<?php echo $post_image; ?>" alt="">
+                <img class="img-responsive img-fluid"width="700px"  src="../images/<?php echo $post_image; ?>" alt="">
                 <hr>
                 <p><?php echo $post_content; ?></p>
 

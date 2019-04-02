@@ -229,7 +229,7 @@ echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
                             //Define the image variable:
                             $id_field= $row['id'];
                             $videos_field= $row['filename'];
-                            $video_show= "../admin/videos/$videos_field";
+                            $video_show= "../superadmin/tutorials/$videos_field";
                             $titlevalue= $row['title'];
                             $descriptionvalue= $row['description'];
                             $fileextensionvalue= $row['fileextension'];
@@ -239,8 +239,8 @@ echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
                               <video width='280'height='200' controls>
                             <source src='$video_show' type='video/$fileextensionvalue'>
                             Your browser does not support the video tag.</video><br>
-                            <h5>".$row["title"]."</h5>
-                            ".$row["description"]."
+                            <p class='text-center' style='font-size:15px; font-weight:bold;'>".$row["title"]."</p>
+                            <p class='text-center' style='font-size:12px;'>".$row["description"]."
                             </div>
                             ";  
 

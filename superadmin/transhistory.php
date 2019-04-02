@@ -81,7 +81,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -100,12 +100,20 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li>
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
+                </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
-                <li >
-                <a class="h ha"  href="gallery.php">Gallery</a>
-            </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
@@ -156,7 +164,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <h1 style="font-size: 35px;">Transaction History</h1> 
-                    <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php"  target="_blank">Print PDF</a></button>
+                    <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php" target="_blank">Print PDF</a></button>
                     <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
@@ -171,7 +179,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                 </thead>
                                 <tbody>
                                 <?php
-                                    //OVERALL
+
                                       $servername = "localhost";
                                       $username = "root";
                                       $password = "";
@@ -244,10 +252,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                                 die("Connection failed: " . mysqli_connect_error());
                                             }
 
-                                            
                                             $sql = "SELECT * FROM users, transhistory, mfillup WHERE users.id = transhistory.usersid AND mfillup.username=users.username AND YEAR(transhistory.appDate)=YEAR(curdate()) AND MONTH(transhistory.appDate)=MONTH(curdate())";
-                                            $sql2 = "SELECT SUM(payment) as sum_payments FROM transhistory WHERE YEAR(transhistory.appDate)=YEAR(curdate()) AND MONTH(transhistory.appDate)=MONTH(curdate())";
-                                            
+                                            $sql2 = "SELECT SUM(payment) as sum_payments FROM transhistory WHERE YEAR(transhistory.appDate)=YEAR(curdate())";
+
                                             $result2 = mysqli_query($conn, $sql2);
                                             $sum = mysqli_fetch_assoc($result2);
                                             $payment = $sum['sum_payments'];
@@ -293,14 +300,12 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                
                                     <?php
-                                    //YEARLY
                                       $servername = "localhost";
                                       $username = "root";
                                       $password = "";
                                       $dbname = "thesis";
-                                    
+
                                       // Create connection
                                       $conn = mysqli_connect($servername, $username, $password, $dbname);
                                       // Check connection
@@ -309,7 +314,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                       }
 
                                       $sql = "SELECT * FROM users, transhistory, mfillup WHERE users.id = transhistory.usersid AND mfillup.username=users.username AND YEAR(transhistory.appDate)=YEAR(curdate()) AND MONTH(transhistory.appDate)=MONTH(curdate())";
-                                      $sql2 = "SELECT SUM(payment) as sum_payments FROM transhistory WHERE YEAR(transhistory.appDate)=YEAR(curdate())";
+                                      $sql2 = "SELECT SUM(payment) as sum_payments FROM transhistory WHERE YEAR(transhistory.appDate)=YEAR(curdate()) AND MONTH(transhistory.appDate)=MONTH(curdate())";
 
                                       $result2 = mysqli_query($conn, $sql2);
                                       $sum = mysqli_fetch_assoc($result2);

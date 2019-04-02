@@ -30,7 +30,7 @@ if($number_of_rows > 0)
   $count ++; 
   $output .= '
   <tr >
-   <td class="border rounded-0">'.$count.'</td>
+   <td class="border rounded-0">'.$row["image_id"].'</td>
    <td class="text-center border rounded-0"><img src="files/'.$row["image_name"].'" class="img-thumbnail" width="100" height="100" /></td>
    <td class="border rounded-0">'.$row["image_name"].'</td>
    <td class="border rounded-0">'.$row["image_description"].'</td>

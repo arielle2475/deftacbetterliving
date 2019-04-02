@@ -65,7 +65,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
      center:'title',
      right:'month,agendaWeek,agendaDay'
     },
-    events: 'includes/load.php',
+    events: '../superadmin/includes/load.php',
     selectable:true,
     selectHelper:true,
     select: function(start, end, allDay)
@@ -77,7 +77,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
       var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
       var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
       $.ajax({
-       url:"includes/insert.php",
+       url:"../superadmin/includes/insert.php",
        type:"POST",
        data:{title:title, start:start, end:end},
        success:function()
@@ -96,7 +96,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
      var title = event.title;
      var id = event.id;
      $.ajax({
-      url:"includes/update.php",
+      url:"../superadmin/includes/update.php",
       type:"POST",
       data:{title:title, start:start, end:end, id:id},
       success:function(){
@@ -113,7 +113,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
      var title = event.title;
      var id = event.id;
      $.ajax({
-      url:"includes/update.php",
+      url:"../superadmin/includes/update.php",
       type:"POST",
       data:{title:title, start:start, end:end, id:id},
       success:function()
@@ -130,7 +130,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
      {
       var id = event.id;
       $.ajax({
-       url:"includes/delete.php",
+       url:"../superadmin/includes/delete.php",
        type:"POST",
        data:{id:id},
        success:function()
@@ -161,32 +161,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <ul class="list-unstyled components">
             <li>
                     <a href="index.php">Dashboard</a>
-                </li>                <li>
-                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                    <ul class="collapse list-unstyled" id="memberSubmenu">
-                        <li>
-                            <a href="memberlist.php">Membership List</a>
-                        </li>
-                        <li>
-                            <a href="userlist.php">Membership Status</a>
-                        </li>
-                        <li>
-                            <a href="transhistory.php">Membership Transactions</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
-                    <ul class="collapse list-unstyled" id="adminSubmenu">
-                        <li>
-                            <a href="adminlist.php">Admin Status</a>
-                        </li>
-                        <li>
-                            <a href="editadmin.php">Add Admin</a>
-                        </li>
-
-                    </ul>
-                </li>
+                </li>      
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -211,6 +186,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             <a href="video.php">View Videos</a>
                         </li>
                     </ul>
+                </li>
+                <li >
+                    <a href="tutorial.php">Tutorials</a>
                 </li>
                 <li class="active">
                     <a href="calendar.php">Calendar</a>

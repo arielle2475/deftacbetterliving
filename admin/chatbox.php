@@ -108,31 +108,6 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
         <li><font size="3px">
             
                 <a class="h ha"  href="index.php">Dashboard</a>
-            </li>                <li>
-                <a class="h ha"   href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                <ul class="collapse list-unstyled" id="memberSubmenu">
-                    <li>
-                        <a class="h ha"  href="memberlist.php">Membership List</a>
-                    </li>
-                    <li>
-                        <a class="h ha"  href="userlist.php">Membership Status</a>
-                    </li>
-                    <li>
-                        <a  class="h ha" href="transhistory.php">Membership Transactions</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-            <a class="h ha"  href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a class="h ha"  href="adminlist.php">Admin Status</a>
-                    </li>
-                    <li>
-                        <a class="h ha" href="editadmin.php">Add Admin</a>
-                    </li>
-
-                </ul>
             </li>
             <li>
                 <a class="h ha"  href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
@@ -157,13 +132,15 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                     <li>
                         <a class="h ha"  href="video.php">View Videos</a>
                     </li>
-
                 </ul>
+            </li>
+            <li>
+                <a class="h ha"  href="tutorial.php">Tutorials</a>
             </li>
             <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
             </li>
-            <li class="active">
+            <li  class="active">
                     <a  class="h ha" href="chatbox.php">Chatbox</a>
                 </li>
         </ul>
@@ -173,7 +150,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                 <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
             </li>
             <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
             </li>
         </ul>
     </nav>

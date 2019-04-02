@@ -15,7 +15,7 @@ if(count($_FILES["file"]["name"]) > 0)
   {
    $file_name = $file_array[0] . '-'. rand() . '.' . $file_extension;
   }
-  $location = '../files/' . $file_name;
+  $location = 'files/' . $file_name;
   if(move_uploaded_file($tmp_name, $location))
   {
    $query = "

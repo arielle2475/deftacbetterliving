@@ -96,33 +96,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <ul class="list-unstyled components">
             <li>
                     <a href="index.php">Dashboard</a>
-                </li>                <li>
-                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
-                    <ul class="collapse list-unstyled" id="memberSubmenu">
-                        <li>
-                            <a href="memberlist.php">Membership List</a>
-                        </li>
-                        <li>
-                            <a href="userlist.php">Membership Status</a>
-                        </li>
-                        <li>
-                            <a href="transhistory.php">Membership Transactions</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
-                    <ul class="collapse list-unstyled" id="adminSubmenu">
-                        <li >
-                            <a href="adminlist.php">Admin Status</a>
-                        </li>
-
-                        <li>
-                            <a href="createadmin.php">Add Admin</a>
-                        </li>
-
-                    </ul>
-                </li>
+                </li>      
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -137,35 +111,37 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         </li>
                     </ul>
                 </li>
-                <li class="active">
-                <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
-                <ul class="collapse list-unstyled" id="gallerySubmenu">
-                    <li>
-                        <a class="h ha "  href="gallery.php">View Images</a>
-                    </li>
-                    <li>
-                        <a class="h ha active"  href="video.php">View Videos</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="h ha"  href="calendar.php">Calendar</a>
-            </li>
-            <li >
-                    <a  class="h ha" href="chatbox.php">Chatbox</a>
+                <li  class="active">
+                    <a href="#gallerySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gallery</a>
+                    <ul class="collapse list-unstyled" id="gallerySubmenu">
+                        <li>
+                            <a href="gallery.php">View Images</a>
+                        </li>
+                        <li  class="active">
+                            <a href="video.php">View Videos</a>
+                        </li>
+                    </ul>
                 </li>
-        </ul>
+                <li>
+                    <a href="tutorial.php">Tutorials</a>
+                </li>
+                <li>
+                    <a href="calendar.php">Calendar</a>
+                </li>
+            <li >
+                    <a href="chatbox.php">Chatbox</a>
+                </li>
+            </ul>
 
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
-            </li>
-            <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
-            </li>
-        </ul>
-    </nav>
-
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
+                </li>
+                <li>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
+                </li>
+            </ul>
+        </nav>
         <!-- Page Content Holder -->
         <div id="content">
 
@@ -213,7 +189,7 @@ if (empty($description))
 $descript= 1;
 }
 if (isset($name)) {
-$path= 'videos/';
+$path= '../superadmin/videos/';
 if (!empty($name)){
 if (($fileextension !== "mp4") && ($fileextension !== "ogg") && ($fileextension !== "webm"))
 {
@@ -336,7 +312,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             //Define the image variable:
                             $id_field= $row['id'];
                             $videos_field= $row['filename'];
-                            $video_show= "videos/$videos_field";
+                            $video_show= "../superadmin/videos/$videos_field";
                             $descriptionvalue= $row['description'];
                             $fileextensionvalue= $row['fileextension'];
                             $admins=$row['id'];

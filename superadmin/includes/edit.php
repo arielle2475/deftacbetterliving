@@ -5,12 +5,12 @@ include_once '../../member/config.php';
 if(isset($_POST['submit'])) {
 
 
-$username = $_POST['adminname'];
+$name = $_POST['adminname'];
 $email = $_POST['adminemail'];
 
 $error = 0;
 if (isset($_POST['adminname']) && !empty($_POST['adminname'])) {
-    $username=mysqli_real_escape_string($conn,trim($_POST['adminname']));
+    $name=mysqli_real_escape_string($conn,trim($_POST['adminname']));
 }else{
     $error = 1;
     $empty_username="Username Cannot be empty.";
@@ -25,28 +25,27 @@ if (isset($_POST['adminemail']) && !empty($_POST['adminemail'])) {
 }
 
 if(!$error) {
-    $sql="SELECT * FROM admins where (adminname='$username' or adminemail='$email');";
+    $sql="SELECT * FROM admins where (adminname='$name' or adminemail='$email');";
     $res=mysqli_query($conn,$sql);
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($username!=$row['adminname'])
+    if ($name!==$row['adminname'])
     {
     echo '<script type="text/javascript">'; 
     echo 'alert("Username already exist!");'; 
-    echo 'window.location.href = "../createadmin.php";';
-    echo '</script>';
+    echo 'window.location.href = "../profile.php";';
+    echo '</script>';        
+         
     }
-
-    elseif($email!=$row['adminemail'])
+    elseif($email!==$row['adminemail'])
     {  
-       echo '<script type="text/javascript">'; 
+    echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
-    echo 'window.location.href = "../createadmin.php";';
+    echo 'window.location.href = "../profile.php";';
     echo '</script>';
+        }
 
-    
- }
 else { //here you need to add else condition
     
  $sql = "UPDATE admins SET adminname='$name',adminemail='$email' WHERE adminname = '" . $_SESSION['adminname'] . "'";

@@ -12,12 +12,6 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
  ?>
-<?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
- ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

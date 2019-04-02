@@ -67,6 +67,65 @@ function delete_categories(){
                                     
                                 
 }
+function delete_videos(){  ///Delete videos
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tbl_video WHERE id = $del_id";
+    $del_vids = mysqli_query($connection, $query);
+
+}
+}
+
+function delete_tutorials(){  ///Delete tutorials
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tutorials WHERE id = $del_id";
+    $del_tuts = mysqli_query($connection, $query);
+
+}
+
+
+}
+
+function delete_admins(){  ///Delete admins
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM admins WHERE id = $del_id";
+    $del_admins = mysqli_query($connection, $query);
+
+}
+
+}
+
+function delete_images(){  ///Delete images
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM tbl_image WHERE image_id = $del_id";
+    $del_imgs = mysqli_query($connection, $query);
+
+}
+
+}
+
+function delete_members(){  ///Delete memebrs
+    
+    global $connection;
+    if(isset($_GET['delete'])){
+    $del_id = $_GET['delete'];
+    $query = "DELETE FROM users WHERE id = $del_id";
+    $del_imgs = mysqli_query($connection, $query);
+
+}
+
+}
 
 function delete_posts(){  ///Delete posts
     
@@ -192,5 +251,7 @@ function comment_delete(){
     confirm_query($delete_comment);
     header("Location: comment.php");
 }
+
+
 
 ?>
