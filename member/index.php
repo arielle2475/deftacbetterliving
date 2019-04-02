@@ -91,7 +91,7 @@ session_start();
                         </div>
                     </div>
                     <div class="form-row">
-						<input type="hidden" name="name" id="name" value="<?php echo $_SESSION['adminname'] ?>"  class="form-control" >
+						<input type="hidden" name="name" id="name" value="<?php echo $_SESSION['username'] ?>"  class="form-control" >
                         <div class="col"><input class="form-control"  name="msg" id="msg" type="text"></div>
                         <div class="col-auto"><input type="reset" name="send" id="send" value="Send" class="btn btn-warning" style="color:white; font-weight:bold;"></div>
                     </div>
