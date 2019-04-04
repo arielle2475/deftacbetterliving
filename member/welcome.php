@@ -1,12 +1,18 @@
+<?php include('../SignIn/server.php'); ?>
 <?php 
 include 'config.php';
 include 'action.php';
-session_start();
+if (isActive()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/login.php');
+}   
 	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 		session_destroy();
 		header('location: ../Signin/login.php?error=Login to access.');
-		}
+        }
+        
  ?>
+
  <?php
 $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
 if(isset($_SESSION['username'])){
@@ -14,7 +20,6 @@ if(isset($_SESSION['username'])){
 }else{
     $sql = "SELECT username, avatar FROM users";
 }	
-
 $result = $mysqli->query($sql); //$result = mysqli_result object
 while ($row =  $result->fetch_assoc()){
     $_SESSION['avatar'] = $row['avatar'];
@@ -81,7 +86,6 @@ while ($row =  $result->fetch_assoc()){
       }
      })
     },
-
     eventDrop:function(event)
     {
      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -99,7 +103,6 @@ while ($row =  $result->fetch_assoc()){
       }
      });
     },
-
     eventClick:function(event)
     {
   //   if(confirm("Are you sure you want to remove it?"))
@@ -117,7 +120,6 @@ while ($row =  $result->fetch_assoc()){
       })
      }
     },
-
    });
   });
    
@@ -146,7 +148,7 @@ while ($row =  $result->fetch_assoc()){
                     </div>
                 </nav>   
 
-    <section style="padding-top: 60px;height: auto;font-family: Montserrat; background-color: #dfdfdf;"><!-- Paradise Slider -->
+    <section style="padding-bottom: -10px;padding-top: 60px;height: 622px;font-family: Montserrat;"><!-- Paradise Slider -->
 	<div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
 		<!-- Indicators -->
@@ -166,14 +168,14 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item active">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/fw_al_007_01.jpg" alt="fw_al_007_01">
+				<img src="../assets/img/bgggg.jpg" alt="fw_al_007_01">
 
 				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide" style="padding-top:50px;">
-					<h3 style="color:white; font-size:3vw;" data-animation="animated flipInX">Deftac Betterliving</h3>
-					<h2 style="color:white; font-size:5vw;" data-animation="animated flipInX">Welcome, <span class="user"><?= $_SESSION['username'] ?></span>!</h2>
-					<h5 style="color:white; font-size:1.5vw;" data-animation="animated flipInX">Check out our calendar for upcoming events!</h5>
-					<a class="js-scroll-trigger" style=" font-size:1.5vw;" href="#cal" data-animation="animated flipInX">read more</a>
+				<div class="fw_al_007_slide">
+					<h3 data-animation="animated flipInX">Deftac Betterliving</h3>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Welcome, <span class="user"><?= $_SESSION['username'] ?></span>!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Check out our calendar for upcoming events!</h5>
+					<a class="js-scroll-trigger" href="#cal" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -182,14 +184,14 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/fw_al_007_02.jpg" alt="fw_al_007_02">
+				<img src="../assets/img/full5.jpg" alt="fw_al_007_02">
 
 				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide" style="padding-top:50px;">
-					<h3 data-animation="animated flipInX" style="font-size:3vw;">BLOG</h3>
-					<h2 style="color:white; font-size:5vw;" data-animation="animated flipInX">Check out our blogs!</h2>
-					<h5 style="color:white; font-size:1.5vw;" data-animation="animated flipInX">Read the latest blog posts that are originally created by us!</h5>
-					<a class="js-scroll-trigger" style=" font-size:1.5vw;" href="bloghome.php" data-animation="animated flipInX">read more</a>
+				<div class="fw_al_007_slide">
+					<h3 data-animation="animated flipInX">BLOG</h3>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Check out our blogs!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Read the latest blog posts that are originally created by us!</h5>
+					<a class="js-scroll-trigger" href="bloghome.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -198,14 +200,14 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/fw_al_007_03.jpg" alt="fw_al_007_03">
+				<img src="../assets/img/bg3.jpg" alt="fw_al_007_03">
 
 				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide" style="padding-top:50px;">
-					<h3 data-animation="animated flipInX" style="font-size:3vw;">Gallery</h3>
-					<h2 style="color:white; font-size:5vw;" data-animation="animated flipInX">See exclusives photos and videos!</h2>
-					<h5 style="color:white; font-size:1.5vw;" data-animation="animated flipInX">Browse the gallery to reminisce about our history!</h5>
-					<a href="gallery.php" style=" font-size:1.5vw;" data-animation="animated flipInX">read more</a>
+				<div class="fw_al_007_slide">
+					<h3 data-animation="animated flipInX">Gallery</h3>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">See exclusives photos and videos!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Browse the gallery to reminisce about our history!</h5>
+					<a href="gallery.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -214,14 +216,14 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/fw_al_007_03.jpg" alt="fw_al_007_03">
+				<img src="../assets/img/bg2.jpg" alt="fw_al_007_03">
 
 				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide" style="padding-top:50px;">
-					<h3 data-animation="animated flipInX" style="font-size:3vw;">Coaches</h3>
-					<h2 style="color:white; font-size:5vw;" data-animation="animated flipInX">Get to know our coaches!</h2>
-					<h5 style="color:white; font-size:1.5vw;" data-animation="animated flipInX">Watch exclusive tutorials from our very own coaches and learn the ways of jiu-jitsu!</h5>
-					<a href="coaches.php" style=" font-size:1.5vw;" data-animation="animated flipInX">read more</a>
+				<div class="fw_al_007_slide">
+					<h3 data-animation="animated flipInX">Coaches</h3>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Get to know our coaches!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Watch exclusive tutorials from our very own coaches and learn the ways of jiu-jitsu!</h5>
+					<a href="coaches.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -230,14 +232,14 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/fw_al_007_03.jpg" alt="fw_al_007_03">
+				<img src="../assets/img/full1.jpg" alt="fw_al_007_03">
 
 				<!-- Slide Text Layer -->
-				<div class="fw_al_007_slide" style="padding-top:50px;">
-					<h3 data-animation="animated flipInX"  style="font-size:3vw;">Chat</h3>
-					<h2 style="color:white; font-size:5vw;" data-animation="animated flipInX">Socialize with your fellow members!</h2>
-					<h5 style="color:white; font-size:1.5vw;" data-animation="animated flipInX">Exchange ideas or opinions in our very own chat box!</h5>
-					<a href="coaches.php" style=" font-size:1.5vw;" data-animation="animated flipInX">read more</a>
+				<div class="fw_al_007_slide">
+					<h3 data-animation="animated flipInX">Chat</h3>
+					<h2 style="color:white; font-size:50px;" data-animation="animated flipInX">Socialize with your fellow members!</h2>
+					<h5 style="color:white;" data-animation="animated flipInX">Exchange ideas or opinions in our very own chat box!</h5>
+					<a href="coaches.php" data-animation="animated flipInX">read more</a>
 				</div>
 			</div>
 			<!-- End of Slide -->
@@ -259,8 +261,26 @@ while ($row =  $result->fetch_assoc()){
 
  <!-- End --></section>
  <div >
+ <section class="container-fluid text-center" id="dqv" style="padding-top: 200px;padding-bottom: 70px;">
+        <div  class="container border rounded shadow-lg profile profile-view" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" id="profile" style="padding-right: 30px;padding-left: 30px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;background-color: #ffffff;">
 
-		<section class="container-fluid text-center" id="dqv" style="padding-top: 10px; background-color: #dfdfdf;padding-bottom: 70px;">
+		<h1 align="center"class="text-uppercase" ><strong>Announcement</strong></h1>
+ 			 <br />
+			<?php
+				include('../superadmin/conn.php');
+				
+				$query=mysqli_query($conn,"select * from `announcement`");
+				while($row=mysqli_fetch_array($query)){
+				 echo "<h1>".$row['announcement']. "</h1><br>";
+				echo $row['details']; 
+	
+					
+				}
+			
+			?>
+		</section>
+
+		<section class="container-fluid text-center" id="dqv" style="padding-top: 100px;background-color: #dfdfdf;padding-bottom: 70px;">
         <div  id="cal"  class="container border rounded shadow-lg profile profile-view" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" id="profile" style="padding-right: 30px;padding-left: 30px;font-family: Montserrat, sans-serif;padding-bottom: 30px;padding-top: 30px;background-color: #ffffff;">
 
 		<h1 align="center"class="text-uppercase" ><strong>Calendar of Activities</strong></h1>
@@ -273,9 +293,8 @@ while ($row =  $result->fetch_assoc()){
         <section data-aos="fade-up" data-aos-delay="50" data-aos-once="true" style="padding:50px;">
         <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
 <link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
-<ul class="juicer-feed" data-feed-id="mtoledodo" data-per="9"><h3 style="text-align:center;">Social Media</h3></ul></section>
-
-
+<ul class="juicer-feed" data-feed-id="deftac-betterliving-53e20c58-1d4c-4905-85bf-1e29a806b2fc"><h1 class="referral"></h1></ul>
+</section>
 <?php
 $mysqli = new mysqli('localhost', 'root', "" , 'thesis');
 $sql = 'SELECT username, avatar FROM users';

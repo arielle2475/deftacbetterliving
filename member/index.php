@@ -1,11 +1,17 @@
 <?php 
 include 'config.php';
 include 'action.php';
-session_start();
+include '../SignIn/server.php';
+
+if (isActive()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/login.php');
+}   
 	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 		session_destroy();
 		header('location: ../Signin/login.php?error=Login to access.');
-		}
+        }
+        
  ?>
  <?php
  $query = "SELECT * FROM users";

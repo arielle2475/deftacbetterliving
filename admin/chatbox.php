@@ -18,6 +18,19 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 		header('location: ../Signin/loginadmin.php?error=Login to access.');
 		}
  ?>
+ <?php
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['adminname'])){
+    $sql = "SELECT adminname, adminavatar FROM admins WHERE adminname='".$_SESSION["adminname"]."'";
+}else{
+    $sql = "SELECT adminname, adminavatar FROM admins";
+}	
+
+$result = $mysqli->query($sql); //$result = mysqli_result object
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['adminavatar'] = $row['adminavatar'];
+    
+}?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

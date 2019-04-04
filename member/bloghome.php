@@ -1,12 +1,18 @@
 <?php include "includes/database.php"; ?>
 <?php include "../admin/functions.php"; ?>
+<?php include('../SignIn/server.php'); ?>
 <?php 
-session_start();
-if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-    session_destroy();
-    header('location: ../Signin/login.php?error=Login to access.');
-    }
-?><!DOCTYPE html>
+if (isActive()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/login.php');
+}   
+	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/login.php?error=Login to access.');
+        }
+        
+ ?>
+ <!DOCTYPE html>
 
 <head>
 
@@ -82,7 +88,6 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
-                    $post_content =substr($row['post_content'],0,220);
                     $post_views = $row['post_views'];
                 ?>
                 
@@ -99,8 +104,6 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     <hr>
                     <a href="post.php?post_id=<?php echo $post_id; ?>"><img width="500px"  class="img-fluid img-responsive" src="../images/<?php echo $post_image; ?>" alt=""></a>
                     <hr>
-                    <p><?php echo $post_content; ?></p>
-                    <a class="btn btn-primary" href="post.php?post_id=<?php echo $post_id; ?>"> <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                     <a class="btn btn-primary" href="post.php?post_id=<?php echo $post_id; ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 

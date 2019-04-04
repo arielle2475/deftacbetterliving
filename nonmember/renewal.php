@@ -1,12 +1,17 @@
 <?php include "includes/dbc.php"; ?>
 
-<?php 
-session_start();
-// if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-//     session_destroy();
-//     header('location: ../Signin/login.php?error=Login to access.');
-//     }
-?>
+<?php
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['username'])){
+    $sql = "SELECT username, avatar FROM users WHERE username='".$_SESSION["username"]."'";
+}else{
+    $sql = "SELECT username, avatar FROM users";
+}	
+$result = $mysqli->query($sql); //$result = mysqli_result object
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['avatar'] = $row['avatar'];
+    
+}?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
