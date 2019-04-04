@@ -27,7 +27,10 @@
             <?php include('errors.php'); ?>
             <div class="form-group"><input class="form-control" type="text" name="username" required placeholder="Username" ></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="login_user" style="background-color: rgb(254,209,54);">Log In</button></div><a href="form.php" class="forgot">Not Yet a Member? Register now!</a></form>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="login_user" style="background-color: rgb(254,209,54);">Log In</button></div>
+            <a href="forgotpassword/index.php" class="forgot">Forgot Password</a>
+            <a href="form.php" class="forgot">Not Yet a Member? Register now!</a>
+            </form>            
     </div>
 
     <script src="../assets/js/jquery.min.js"></script>
