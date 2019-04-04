@@ -115,6 +115,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </ul>
                 </li>
                 <li >
+                    <a href="tutorial.php">Tutorials</a>
+                </li>
+                <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
             <li >
@@ -123,7 +126,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li>
+                <li> 
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>

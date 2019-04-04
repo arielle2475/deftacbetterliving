@@ -80,7 +80,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             <a href="adminlist.php">Admin List</a>
                         </li>
                         <li>
-                            <a href="editadmin.php">Admin Status</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
                     </ul>
@@ -109,6 +109,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             <a href="video.php">View Videos</a>
                         </li>
                     </ul>
+                </li>
+                <li >
+                    <a href="tutorial.php">Tutorials</a>
                 </li>
                 <li >
                     <a href="calendar.php">Calendar</a>

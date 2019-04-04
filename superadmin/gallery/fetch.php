@@ -31,7 +31,7 @@ if($number_of_rows > 0)
   $output .= '
   <tr >
    <td class="border rounded-0">'.$row["image_id"].'</td>
-   <td class="text-center border rounded-0"><img src="files/'.$row["image_name"].'" class="img-thumbnail" width="100" height="100" /></td>
+   <td class="text-center border rounded-0"><img src="gallery/files/'.$row["image_name"].'" class="img-thumbnail" width="100" height="100" /></td>
    <td class="border rounded-0">'.$row["image_name"].'</td>
    <td class="border rounded-0">'.$row["image_description"].'</td>
    <td class="text-center border rounded-0"><button type="button" style="color:white; background:#ffd221;font-weight:bold;font-size:18px;" class="btn  btn-l edit" id="'.$row["image_id"].'">Edit</button></td>

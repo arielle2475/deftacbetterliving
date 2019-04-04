@@ -338,7 +338,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" data-aos-once="true" class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/2.jpg">
+                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="200" data-aos-once="true" class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/coachderick.png">
                         <h4>Derrick Lopez</h4>
                         <p class="text-muted" style="font-family: Montserrat, sans-serif;">Coach</p>
                         <ul class="list-inline social-buttons">
@@ -432,7 +432,7 @@
             </div>
         </div>
     </section>
-    <section data-aos="fade" data-aos-duration="500" data-aos-delay="250" data-aos-once="true" class="py-5" style="filter: brightness(86%) contrast(108%) grayscale(100%) saturate(34%);opacity: 0.56;">
+    <section data-aos="fade-up" data-aos-duration="500" data-aos-delay="250" data-aos-once="true" class="py-5" style="margin-bottom:-100px;filter: brightness(86%) contrast(108%) grayscale(100%) saturate(34%);opacity: 0.56;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/gatoradelogo.png" style="width: 120px;"></a></div>

@@ -1,5 +1,6 @@
 <?php include "includes/admin_header.php"; ?>
-
+<?php include "includes/confirm_admin_modal.php"; ?>
+<?php include "includes/delete_modal.php"; ?>
 <?php 
 include('../SignIn/serverAdmin.php');
 if (!isAdmin()) {
@@ -153,7 +154,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                         </li>
 
                         <li>
-                            <a href="createadmin.php">Create Admin</a>
+                            <a href="createadmin.php">Add Admin</a>
                         </li>
 
 
@@ -183,6 +184,9 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                             <a href="video.php">View Videos</a>
                         </li>
                     </ul>
+                </li>
+                <li >
+                    <a href="tutorial.php">Tutorials</a>
                 </li>
                 <li >
                     <a href="calendar.php">Calendar</a>
@@ -311,7 +315,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
                     </td>";    
                         }
-                        echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='adminlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
+                        echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='userlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
                         </td></tr>";
 
 

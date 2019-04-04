@@ -119,7 +119,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li class="active">
+                <li>
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
@@ -154,7 +154,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <h1>Admin Create</h1>
+                    <h1>Edit Admin Profile</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                                                   
                             <?php
@@ -181,7 +181,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
         ?>
 
      
-        <form method="POST" action="includes/edit.php">
+        <form method="POST" action="includes/edit.php" style="padding:100px;">
         
         <div class="form-group"><label>Username</label></div>   
         <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">

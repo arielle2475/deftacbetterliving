@@ -45,7 +45,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     <div class="form-check"><input  required="" class="form-check-input" type="radio" name="gender" value="Male" checked=""><label class="form-check-label" for="formCheck-11">Male</label></div>
                     <div class="form-check"><input  required="" class="form-check-input" type="radio" name="gender" value="Female"><label class="form-check-label" for="formCheck-12">Female</label></div>
                 </div>
-                <div class="form-group"><label for="text-input">Age</label><input  required="" class="form-control" type="text" name="age" ></div>
+                <div class="form-group"><label for="text-input">Birthday</label><input  placeholder="mm/dd/yy" required="" class="form-control" type="text" name="age" ></div>
                 <div class="form-group"><label for="text-input">Home Address</label><input  required="" class="form-control" type="text" name="address" ></div>
                 <div class="form-group"><label for="text-input">Contact Number</label><input  required="" class="form-control" type="text" name="contact"></div>
                 <div class="form-group"><label for="textarea-input">Why do you want to join?</label><textarea  required="" class="form-control" name="comment"></textarea></div>

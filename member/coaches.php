@@ -69,7 +69,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                             <div class="back-imagia">
                                 <div class="content-imagia content-back-imagia">
                                     <div>
-                                        <h3 class="text-center">Purple Belt</h3>
+                                        <h3 class="text-center">Brown Belt</h3>
                                         <p class="text-center">&nbsp;help people through Jiu-Jitsu everywhere he could. Currently, he spends much of his time with his family in Paranaque<br>where he actively teaches and oversees Deftac Betterliving’s academic program as well
                                             as all matters related to his worldwide network of Jiu-Jitsu academies known as the Ribeiro Jiu-Jitsu Association.&nbsp;<br></p>
                                     </div>
@@ -113,21 +113,23 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                     <div class="card-container-imagia">
                         <div class="card-imagia">
                             <div class="front-imagia">
-                                <div class="cover-imagia"><img src="https://unsplash.it/720/500?image=1067" alt=""></div>
-                                <div class="user-imagia"><img src="https://unsplash.it/120/120?image=64" class="img-circle" alt=""></div>
+                            <div class="cover-imagia cover-gradient" style="background-image: url(&quot;../assets/img/bg3.png&quot;);background-position: center;background-size: cover;background-repeat: no-repeat;"></div>
+                                <div class="user-imagia"><img src="../assets/img/team/coachderick.png" class="img-circle" alt=""></div>
                                 <div class="content-imagia">
-                                    <h3 class="name-imagia">John Doe</h3>
-                                    <p class="subtitle-imagia">Subtitle </p>
-                                    <p class="text-center"><em>Tantum autem cuique tribuendum, primum quantum ipse efficere possis, deinde etiam quantum ille quem diligas atque adiuves. </em></p>
+                                    <h3 class="name-imagia">Derrick Lopez</h3>
+                                    <p class="subtitle-imagia">Coach</p>
+                                    <p class="text-center"><em>Originally from Nyack, New York, Professor Derrick Lopez moved to Manila, Philippines as a Blue Belt in 2008. </p>   
+    
+    
+    </em></p>
                                 </div>
                                 <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
                             </div>
                             <div class="back-imagia">
                                 <div class="content-imagia content-back-imagia">
                                     <div>
-                                        <h3 class="text-center">Lorem Ipsum</h3>
-                                        <p class="text-center">Et hanc quidem praeter oppida multa duae civitates exornant Seleucia opus Seleuci regis, et Claudiopolis quam deduxit coloniam Claudius Caesar. Isaura enim antehac nimium potens, olim subversa ut rebellatrix interneciva
-                                            aegre vestigia claritudinis pristinae monstrat admodum pauca. </p>
+                                        <h3 class="text-center">Blue Belt</h3>
+                                        <p class="text-center">Shortly after, he began his tutelage under the BAMF bothers at the BAMF MMA Center. As a very dedicated student of the art, Derrick rose quickly through the ranks receiving his White Belt from both Saulo and Richard Lasprilla in 2013. Derrick firmly believes that Jiu-Jitsu can be used as a vehicle for personal growth.</p>
                                     </div>
                                 </div>
                                 <div class="footer-imagia">

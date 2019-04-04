@@ -111,6 +111,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </ul>
                 </li>
                 <li >
+                    <a href="tutorial.php">Tutorials</a>
+                </li>
+                <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
             <li >
@@ -193,7 +196,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                           if ($mysqli->query($sql) === true){
                                               $_SESSION['message'] = "Registration successful!"
                                               . "Added $username to the database!";
-                                              header("location: ../admin/adminlist.php");
+                                              header("location: adminlist.php");
                                           }
                                           else {
                                               $_SESSION['message'] = 'User could not be added to the database!';

@@ -177,6 +177,9 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                     </li>
                 </ul>
             </li>
+            <li >
+                    <a class="h ha" href="tutorial.php">Tutorials</a>
+                </li>
             <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
             </li>

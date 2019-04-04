@@ -83,7 +83,6 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 <hr>
                 <a href="post.php?post_id=<?php echo $post_id; ?>"><img class="img-responsive img-fluid" width="500px" src="../images/<?php echo $post_image; ?>" alt=""></a>
                 <hr>
-                <p><?php echo $post_content; ?></p>
                 <a class="btn btn-primary" href="post.php?post_id=<?php echo $post_id; ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>

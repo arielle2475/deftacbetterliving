@@ -149,6 +149,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </ul>
             </li>
             <li>
+                <a class="h ha"  href="tutorial.php">Tutorials</a>
+            </li>
+            <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
             </li>
             <li >
