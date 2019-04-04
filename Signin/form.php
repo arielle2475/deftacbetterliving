@@ -26,6 +26,29 @@ session_start();
         </div>
     </nav>
     <body>
+
+    <div class="modal fade portfolio-modal text-center" role="dialog" tabindex="-1" id="portfolioModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase"><em>Terms and Conditions</em><br></h2>
+                                    <p class="item-intro text-muted"><br></p>
+                                    <p><em>As a condition of use, you agree that you have all necessary licences and permissions to submit this content. You represent and warrant that you have all necessary rights, licenses, and permissions to grant the above licences and that the Content submitted by you, and the submission of such Content, do not and will not violate any intellectual property rights (including but not limited to copyrights and trademark rights) of any third party. You may need to create an account to use our services and privileges for members. You are responsible for safeguarding your account, so use a strong password and limit its use to this account. We cannot and will not be liable for any loss or damage arising from your failure to comply with the above. You can control most communications from the Services. We may need to provide you with certain communications, such as service announcements and administrative messages. These communications are considered part of the Services and your account, and you may not be able to opt-out from receiving them. If you added your phone number to your account and you later change or deactivate that phone number, you must update your account information to help prevent us from communicating with anyone who acquires your old number. Your information can be seen by anyone who is also a member. This includes the information you provided upon registering. The services are projected by copyright, trademark, and other laws of both the Philippines and foreign countries. Nothing in the Terms gives you a right to use the Deftac Betterliving name or any of the Deftac Betterliving trademarks, logos, videos, tutorials, and other distinctive brand features. All right, title, and interest in and to the Services (excluding Content provided by users) are and will remain the exclusive property of Deftac Betterliving and its licensors. We may revise these Terms from time to time. The changes will not be retroactive, and the most current versions of the Terms, will govern our relationship with you.  By continuing to access or use the Services after those revisions become effective, you agree to be bound by the revised Terms.</em><br></p>
+                                    <ul
+                                        class="list-unstyled">
+                                        <li>Date: April 5 , 2019</li>
+                                        </ul><button class="btn btn-primary" type="button" data-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close&nbsp;</span></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php $_SESSION['errors'] = '';
 $mysqli = new mysqli("localhost", "root", "", "thesis");
  if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -87,8 +110,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
             <div class="form-group"><input class="form-control" type="password" name="password" required="" placeholder="Password" autocomplete="new-password" style="padding-top: -17px;">
                 <input class="form-control" type="password" name="confirmpassword" required="" placeholder="Confirm Password" autocomplete="new-password" style="height: 45px;"></div>
                  <div class="avatar"><label>Select your avatar: </label><input type="file" name="avatar" accept="image/*" required /></div>
-                 <input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
-
+                 <input type="checkbox" required name="checkbox" value="check" id='agree'> I have read and agree to the following <a target="_blank" href="#portfolioModal" class="portfolio-link" data-toggle="modal" >Terms and Conditions</a>
                 <div
                 class="form-group"><button class="btn btn-primary btn-block" type="submit" value="Register" name="register" style="background-color: rgb(254,209,54);">Register</button></div><a href="login.php" class="forgot">Already a member? Login!</a></form>
   
