@@ -73,7 +73,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
  }
 ?>
 <div data-aos="fade" data-aos-duration="700" data-aos-delay="200" data-aos-once="true" class="login-dark" style="background-image: url(&quot;../assets/img/bg.gif&quot;);">
-        <form class="form" action="form.php"method="post"  enctype="multipart/form-data" style="opacity: 0.85;" autocomplete="off">
+        <form class="form" action="form.php"method="post" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }"  enctype="multipart/form-data" style="opacity: 0.85;" autocomplete="off">
 
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><img src="../assets/img/deftac.png" width="180px" data-bs-hover-animate="pulse"></div>
@@ -87,6 +87,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
             <div class="form-group"><input class="form-control" type="password" name="password" required="" placeholder="Password" autocomplete="new-password" style="padding-top: -17px;">
                 <input class="form-control" type="password" name="confirmpassword" required="" placeholder="Confirm Password" autocomplete="new-password" style="height: 45px;"></div>
                  <div class="avatar"><label>Select your avatar: </label><input type="file" name="avatar" accept="image/*" required /></div>
+                 <input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
 
                 <div
                 class="form-group"><button class="btn btn-primary btn-block" type="submit" value="Register" name="register" style="background-color: rgb(254,209,54);">Register</button></div><a href="login.php" class="forgot">Already a member? Login!</a></form>

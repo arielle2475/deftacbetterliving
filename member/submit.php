@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+    session_destroy();
+    header('location: ../Signin/login.php?error=Login to access.');
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +31,7 @@
                   <li class="nav-item" role="presentation"><a class="active nav-link js-scroll-trigger" href="submit.php">Membership</a></li>
 				  <li class="nav-item dropdown" style="opacity: 0.93;" ><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="margin-top: -10px;">MY Account&nbsp;<span class="user"><img width="45px" class="rounded-circle mx-auto" height="45px" src='../Signin/<?= $_SESSION['avatar']?>' </span></a>
                   <div class="dropdown-menu border-dark" role="menu" data-aos="fade-up" data-aos-once="true" style="background-color: rgb(52,58,64);margin-right: 60px;opacity: 1;padding-top: -5px;margin-top: -15px;">
-						    <a class="dropdown-item" role="presentation" href="#" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">My profile</a>
-						   	<a class="dropdown-item" role="presentation" href="#" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">EDIT PROFILE</a>
-                            <a class="dropdown-item" role="presentation" href="#" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
+                            <a class="dropdown-item"  role="presentation" href="logout.php" style="font-family: Montserrat, sans-serif;color: rgb(255,255,255);">Logout</a>
                         </div>
                     </li>
                 </ul>

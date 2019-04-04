@@ -1,6 +1,6 @@
 <?php include "includes/admin_header.php"; ?>
 <?php 
-include('../SignIn/serverAdmin.php');
+include '../SignIn/serverAdmin.php';
 if (isAdmin()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../signIn/loginAdmin.php');
@@ -11,12 +11,6 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 	session_destroy();
 	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
- ?>
-<?php 
-	if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
-		session_destroy();
-		header('location: ../Signin/loginadmin.php?error=Login to access.');
-		}
  ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -173,7 +167,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
                 <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="height:40px; padding-top:10px; color:black; font-weight:bold;">Profile</a>
             </li>
             <li>
-                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
+                <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="height:40px; padding-top:10px; color:white; font-weight:bold;">Logout</a>
             </li>
         </ul>
     </nav>

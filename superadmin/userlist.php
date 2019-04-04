@@ -36,14 +36,56 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
     //  echo $sum;
      switch(true)
      {
-         case ($sum <= 3):
-         echo '<script language="javascript">';
-         echo 'alert("' . $name .' will get his membership expired soon!" )';
-         echo '</script>';
-         break;
-         default;
-     
-  }
+        case ($sum == 7):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .'s will get his membership expired in 7 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 6):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 6 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 5):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 5 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 4):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 4 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 3):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 3 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 2):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 2 days!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 1):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .' will get his membership expired in 1 day!" )';
+        echo '</script>';
+        break;
+
+        case ($sum == 0):
+        echo '<script language="javascript">';
+        echo 'alert("' . $name .'s membership has been expired!" )';
+        echo '</script>';
+        break;
+        default;
+    
+ }
 }
 ?>
     <meta charset="utf-8">
@@ -149,7 +191,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <a href="profile.php" class="btn p-2 mr-2 mb-2  download" style="color:black; font-weight:bold;">Profile</a>
                 </li>
                 <li>
-                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="../signin/login.php" style="color:white; font-weight:bold;">Logout</a>
+                    <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
             </ul>
         </nav>

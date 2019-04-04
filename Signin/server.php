@@ -25,6 +25,12 @@ if (isset($_POST['reg_user'])) {
   if ($password_1 != $password_2) {
 	array_push($errors, "The two passwords do not match");
   }
+  /* Validation to check if Terms and Conditions are accepted */
+if(!isset($erros)) {
+	if(!isset($_POST["terms"])) {
+	$errors = "Accept Terms and Conditions to Register";
+	}
+}
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
@@ -88,5 +94,13 @@ if (isset($_POST['login_user'])) {
       array_push($errors, 'Wrong Username/Password');
     }
   }
+}
+function isActive()
+{
+	if (isset($_SESSION['username']) && (isset($_SESSION['password']) == 1)) {
+		return true;
+	}else{
+		return false; 
+	}
 }
 ?>
