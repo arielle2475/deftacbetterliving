@@ -167,7 +167,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Title" class="search form-control"></div>
                     <h1>Video Uploads</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
 
@@ -295,13 +295,17 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                 <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                     <th class="border rounded-0">ID</th>
                                     <th class="border rounded-0">Video</th>
-                                    <th class="border rounded-0">Description</th>
-                                    <th class="border rounded-0">Status</th>
+                                    <th class="border rounded-0">Title</th>
+                                    <th class="border rounded-0">Edit</th>
+                                    <th class="border rounded-0">Delete</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                             <?php delete_videos(); ?>
                             <?php
+                             include('conn.php');
+
                             // DISPLAY THE images:
                             //Select the images from the table limited as per our $offet and $per_page total:
                             $query = "SELECT * FROM tbl_video ORDER by id ASC LIMIT $offset, $per_page";
@@ -320,13 +324,17 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             <td class='border rounded-0'>" . $row["id"]. "</td> 
                             <td class='border rounded-0' align=center><video width='120' controls><source src='$video_show' type='video/$fileextensionvalue'>Your browser doesnot support the video tag.</video></td>
 
-                            <td class='border rounded-0'>" . $row["description"]. "</td>
+
+                            <td class='border rounded-0'>" . $row["description"]. "</td>"; ?> 
                             
 
-                            <td class='border rounded-0'><a href='javascript:void(0)' data-href='video.php?delete=$id_field' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
-                            </td></tr>";  
+                            <td class="border rounded-0 text-center"><a href="#edit_videos<?php echo $row['id']; ?>" style="font-weight:bold; color:white;" data-toggle="modal" class="btn btn-warning">Edit</a>
+							</td>   
+                            <td class='border rounded-0 text-center'><a href='javascript:void(0)' data-href='video.php?delete=$id_field' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
+                            <?php include('edit_videos_modal.php'); ?>
 
-
+                            </tr>  
+<?php
 
                             }//Close the while array loop
 
@@ -387,7 +395,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
             table = document.getElementById("myTable");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[2];
                 if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -317,7 +317,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                         }
                         echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='userlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
                         </td></tr>";
-
+                 
 
                     }//Close the while array loop
 
@@ -390,7 +390,11 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
             }
             }
      </script>       <script>
+     $('#myModal').on('show.bs.modal', function (e) {
+  
+  $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
 
+});
 $('#confirmModal').on('show.bs.modal', function (e) {
   
     let user = JSON.parse(e.relatedTarget.dataset.user);

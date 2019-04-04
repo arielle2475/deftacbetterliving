@@ -58,7 +58,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             </div>
 
             <ul class="list-unstyled components">
-            <li>
+            <li  class="active">
                     <a href="index.php">Dashboard</a>
                 </li>      
                 <li>
@@ -92,7 +92,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <li>
                     <a href="calendar.php">Calendar</a>
                 </li>
-            <li class="active">
+            <li>
                     <a href="chatbox.php">Chatbox</a>
                 </li>
             </ul>

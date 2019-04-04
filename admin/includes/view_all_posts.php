@@ -86,7 +86,6 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                     <th class="border rounded-0">Comment No.</th>
                                     <th class="border rounded-0">Post Views</th>
                                     <th class="border rounded-0">Date</th>
-                                    <th class="border rounded-0">Content</th>
                                     <th class="border rounded-0">Delete</th>
                                     <th class="border rounded-0">Update</th>
                                 </tr>
@@ -135,7 +134,6 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                     echo "<td class='border rounded-0'>$post_comment_count</td>";
                                     echo "<td class='border rounded-0'>$post_views</td>";
                                     echo "<td class='border rounded-0'>$post_date</td>";
-                                    echo "<td class='border rounded-0' style='font-size:10px'>$post_content</td>";
  
                                     echo "<td class='border rounded-0'><a href='javascript:void(0)' data-href='posts.php?delete=$post_id' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>";
                                   //  echo "<td class='border rounded-0'><a rel='$post_id' href='javascript:void(0)' class='btn btn-danger delete_link'>Delete</a></td>";

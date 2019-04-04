@@ -157,7 +157,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
         ?>
 
      
-        <form method="POST" action="includes/edit.php">
+        <form method="POST" style="padding:50px;" action="includes/edit.php">
         
         <div class="form-group"><label>Username</label></div>   
         <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
