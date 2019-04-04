@@ -1,12 +1,18 @@
 <?php include "includes/database.php"; ?>
 <?php include "../admin/functions.php"; ?>
+<?php include('../SignIn/server.php'); ?>
 <?php 
-session_start();
-if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
-    session_destroy();
-    header('location: ../Signin/login.php?error=Login to access.');
-    }
-?><!DOCTYPE html>
+if (isActive()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/login.php');
+}   
+	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
+		session_destroy();
+		header('location: ../Signin/login.php?error=Login to access.');
+        }
+        
+ ?>
+ <!DOCTYPE html>
 
 <head>
 

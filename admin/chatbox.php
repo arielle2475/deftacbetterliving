@@ -18,6 +18,19 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 		header('location: ../Signin/loginadmin.php?error=Login to access.');
 		}
  ?>
+ <?php
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['adminname'])){
+    $sql = "SELECT adminname, adminavatar FROM admins WHERE adminname='".$_SESSION["adminname"]."'";
+}else{
+    $sql = "SELECT adminname, adminavatar FROM admins";
+}	
+
+$result = $mysqli->query($sql); //$result = mysqli_result object
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['adminavatar'] = $row['adminavatar'];
+    
+}?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -189,7 +202,7 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 0px;padding-left: 20px;padding-top: 0px;padding-bottom: 20px;">
                 <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Chat Guidelines</h1>
-                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br>4.</p>
+                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br></p>
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
                 <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>

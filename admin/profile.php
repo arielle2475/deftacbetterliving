@@ -1,6 +1,8 @@
 <?php include "includes/admin_header.php"; ?>
 <?php 
+$_SESSION = array();
 include('../SignIn/serverAdmin.php');
+
 if (isAdmin()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../signIn/loginAdmin.php');
@@ -12,6 +14,20 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
  ?>
+ <?php
+ include 'config.php';
+
+$mysqli = new mysqli('localhost', 'root', "" , 'thesis');
+if(isset($_SESSION['adminname'])){
+    $sql = "SELECT adminname, adminavatar FROM admins WHERE adminname='".$_SESSION["adminname"]."'";
+}else{
+    $sql = "SELECT adminname, adminavatar FROM admins";
+}	
+$result = $conn->query($sql) or die($conn->error);
+while ($row =  $result->fetch_assoc()){
+    $_SESSION['adminavatar'] = $row['adminavatar'];
+    
+}?>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,7 +146,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <h1>Admin Create</h1>
+                    <h1>Profile</h1>
                     <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
                                                   
                             <?php
@@ -158,14 +174,13 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 
      
         <form method="POST" style="padding:50px;" action="includes/edit.php">
-        
-        <div class="form-group"><label>Username</label></div>   
-        <input type="text" name="adminname" value="<?php echo $_SESSION['adminname'] ?>" required="required" pattern="^[a-zA-Z0-9]+$" placeholder="Enter First Name" class="form-control">
+        <center>
+        <div class="col d-flex d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center" style="height: 200px;"><img class="rounded-circle mx-auto" src='../Signin/<?= $_SESSION['adminavatar']?>' width="200" height="200" style="margin-left: 0px;margin-bottom: 30px;"></div>
 
-        <div class="form-group"><label>Email</label></div>
-        <input type="email" name="adminemail" value="<?php echo $email ?>" required="required" placeholder="Enter Email" class="form-control">
-        
-        <button style="margin-top:30px;" class="btn btn-primary form-btn" name="submit" type="submit">Change</button></div>
+        <div class="form-group"><label><b>Username:</b> <? echo $_SESSION['adminname'] ?></label></div>   
+
+        <div class="form-group"><label><b>Email: </b><?= $email ?></label></div>
+        <center>
             </div>
         </div>
     </div>

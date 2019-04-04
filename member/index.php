@@ -1,11 +1,17 @@
 <?php 
 include 'config.php';
 include 'action.php';
-session_start();
+include '../SignIn/server.php';
+
+if (isActive()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../signIn/login.php');
+}   
 	if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 		session_destroy();
 		header('location: ../Signin/login.php?error=Login to access.');
-		}
+        }
+        
  ?>
  <?php
  $query = "SELECT * FROM users";
@@ -78,7 +84,7 @@ session_start();
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 0px;padding-left: 20px;padding-top: 0px;padding-bottom: 20px;">
                 <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Chat Guidelines</h1>
-                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br>4.</p>
+                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br></p>
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
                 <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>

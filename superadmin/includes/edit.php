@@ -30,15 +30,14 @@ if(!$error) {
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($name!==$row['adminname'])
-    {
+    if ($_SESSION['adminname']!=$name)    {
     echo '<script type="text/javascript">'; 
     echo 'alert("Username already exist!");'; 
     echo 'window.location.href = "../profile.php";';
     echo '</script>';        
          
     }
-    elseif($email!==$row['adminemail'])
+    elseif($email==$row['adminemail'])
     {  
     echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
@@ -55,6 +54,7 @@ else { //here you need to add else condition
          echo '<script type="text/javascript">'; 
          echo 'alert("Successfully edited your informations!");'; 
          echo 'window.location.href = "../index.php";';
+        $_SESSION['username'] = $name;
          echo '</script>';
             }
         }
