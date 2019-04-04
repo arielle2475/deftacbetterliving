@@ -187,25 +187,18 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <div class="container">
 	<div style="height:50px;"></div>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
-	<span style="font-size:25px; color:blue"><center><strong>PHP/MySQLi CRUD Operation using Bootstrap</strong></center></span>	
-		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
-        <form action=""  method="post" enctype="multipart/form-data">
-        <br>
-        <br>
-       
-        <span class="user"><img class="rounded-circle mx-auto">
-       <input class="btn" type="file" name="avatar" value="../Signin/<?= $_SESSION['avatar']?>"  /> 
-       <br>
-       <input class="btn btn-warning" style="color:white;" type="submit" name="update" onsubmit="setTimeout(function () { window.location.reload(); }, 10)"value="Upload"/></td></form>
-
-
-    
+	<h1>Announcement</h1>
+		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary" style="font-weight:bold; color:white;"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
-				<th>img</th>
-				<th>Announcement</th>
-				<th>Details</th>
+            <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
+				<th class="border rounded-0">Image</th>
+				<th class="border rounded-0">Announcement</th>
+				<th class="border rounded-0">Details</th>
+                <th class="border rounded-0">Edit</th>
+				<th class="border rounded-0">Delete</th>
+                </tr>
 			</thead>
 			<tbody>
 			<?php
@@ -215,12 +208,13 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-                    <td><?php echo $row['img']; ?></td>
-						<td><?php echo $row['announcement']; ?></td>
-						<td><?php echo $row['details']; ?></td>
-						<td>
-							<a href="#edit<?php echo $row['userid']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
-							<a href="#del<?php echo $row['userid']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                    <td class='border rounded-0 text-center'><?php echo $row['img']; ?></td>
+						<td class='border rounded-0 text-center'><?php echo $row['announcement']; ?></td>
+						<td class='border rounded-0 text-center'><?php echo $row['details']; ?></td>
+						<td class='border rounded-0 text-center'>
+							<a href="#edit<?php echo $row['id']; ?>" data-toggle="modal" style="font-weight:bold; color:white;" class="btn btn-warning"></span> Edit</a>
+							</td>
+                        <td class='border rounded-0 text-center'><a href="#del<?php echo $row['id']; ?>" data-toggle="modal" style="font-weight:bold; color:white;"  class="btn btn-danger"></span> Delete</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>

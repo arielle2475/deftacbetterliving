@@ -379,7 +379,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             <td class='border rounded-0 text-center'>" . $row["description"]. "</td> "; ?>       
                             <td class="border rounded-0 text-center"><a href="#edit_tutorials<?php echo $row['id']; ?>" style="font-weight:bold; color:white;" data-toggle="modal" class="btn btn-warning">Edit</a>
 							</td>   
-                            <td class='border rounded-0 text-center'><a href='javascript:void(0)' data-href='tutorial.php?delete=$id_field' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
+                            <td class='border rounded-0 text-center'><a href='javascript:void(0)' data-href='tutorial.php?delete=<?php echo $id_field ?>' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
                             <?php include('edit_tutorials_modal.php'); ?>
 
                             </tr>  

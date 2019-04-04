@@ -341,7 +341,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             <td class='border rounded-0 text-center'>" . $row["description"]. "</td> "; ?>       
                             <td class="border rounded-0 text-center"><a href="#edit_tutorials<?php echo $row['id']; ?>" style="font-weight:bold; color:white;" data-toggle="modal" class="btn btn-warning">Edit</a>
 							</td>   
-                            <td class='border rounded-0 text-center'><a href='javascript:void(0)' data-href='tutorial.php?delete=$id_field' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
+                            <td class='border rounded-0 text-center'><a href='javascript:void(0)' data-href='tutorial.php?delete=<?php echo $id_field ?>' data-toggle='modal' data-target='#myModal' style='font-weight:bold;' class='btn btn-danger'>Delete</a></td>
                             <?php include('edit_tutorials_modal.php'); ?>
 
                             </tr>  
@@ -367,23 +367,23 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             // Show the page buttons:
                             if ($page) {
                             echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <a href="video.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
-                            echo '<a href="video.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
+                            <a href="tutorial.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
+                            echo '<a href="tutorial.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
                             } 
 
                             for ($i=1;$i<=$pages_total;$i++) {
                             if(($i==$page+1)) {
-                            echo '<a href="video.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
+                            echo '<a href="tutorial.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
                             }
                             
                             //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
                             if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
-                            echo '<a href="video.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
+                            echo '<a href="tutorial.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
                             } 
 
                             if (($page + 1) != $pages_total) {
-                            echo '<a href="video.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
-                            echo '<a href="video.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
+                            echo '<a href="tutorial.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
+                            echo '<a href="tutorial.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
                             }
                             echo "</div></div>";// #pageNav end
                             ?>

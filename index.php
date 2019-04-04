@@ -362,11 +362,11 @@
             </div>
         </div>
     </section><br>
-    <section style="padding:10px;">
+    <section style="padding:25px;">
     <h1 style="background-color:rgb(255, 255, 255);text-align:center; ">Instagram</h1>
     <script src="https://assets.juicer.io/embed.js" type="text/javascript"></script>
 <link href="https://assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
-<ul class="juicer-feed" data-feed-id="mtoledodo-cc38d9fb-12ab-47aa-a17b-89ff83ec3523"></ul></div>
+<ul class="juicer-feed" data-feed-id="deftac-betterliving"><h1 class="referral"></h1></ul>
     </section>
     <section data-aos="fade-up" data-aos-duration="500" data-aos-delay="900" data-aos-once="true" id="contact" style="background-image: url('assets/img/map-image.png');height: 797px;">
         <div class="container">

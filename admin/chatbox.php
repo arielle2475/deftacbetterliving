@@ -189,7 +189,13 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 0px;padding-left: 20px;padding-top: 0px;padding-bottom: 20px;">
                 <h1 class="text-center" style="width: 0px;max-width: 383px;min-width: 0px;">Chat Guidelines</h1>
-                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>2. Refrain from spamming the group chat.<br>3. Help each other out when someone asks a question.<br>4.</p>
+                <p style="font-family: Montserrat, sans-serif;">1. No Bullying! We are all family here!<br>
+                2. Refrain from spamming the group chat.<br>
+                3. Help each other out when someone asks a question.<br>
+                4. Group chat is not a place to hook up or brag about your sexual encounters. Asking about bedroom antics, STIs or contraception is all okay.<br>
+                5. You’ll be warned off any chat about manufacturing, dealing or getting hold of drugs, but we welcome conversation about the effects and impact of taking substances.<br>
+                6. Members will be happy to listen to your feelings and offer support to help with your self-harm. However, please avoid any graphic detail or description of methods (such as where or how you've harmed yourself). Instead, we encourage you to focus on feelings (e.g. "I feel like harming myself because..."). If you feel you're about to harm, we’d ask that you don’t come into chat so we can keep the group safe.<br></p>
+           </p>
             </div>
             <div class="col-auto col-md-4 text-left flex-grow-1" style="padding-right: 10px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;">
                 <h1 class="text-left align-items-center" style="width: 0px;max-width: 730px;min-width: 455px;">Messages</h1>

@@ -7,7 +7,7 @@
 	$details=$_POST['details'];
 	
 	
-	mysqli_query($conn,"update user set announcement='$announcement', details='$details' where id='$id'");
+	mysqli_query($conn,"update announcement set announcement='$announcement', details='$details' where id='$id'");
 	header('location:index.php');
 
 ?>

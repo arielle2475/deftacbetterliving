@@ -68,7 +68,7 @@ $name = $_SESSION['adminname'];
 								<div class='text-center' style='width: 100px;'><img class='rounded-circle' src='../signin/".$row['avatar']."' width='50px' height='50px' style='margin-right: 5px;margin-bottom: 0px;margin-left: -8px;padding-right: 0px;'></div>
 								<div class= style='padding-right: 200px;padding-left: 0px;width: 220px;'>
 									<h1 style='font-size: 16px;width: 150px;margin-top: 8px;margin-left: 11px;'>".strtoupper($row['username'])."</h1>
-									<button class='btn btn-success' style='height:5px;' href='../profile.php?id=$row[id]'title='View Profile of $row[username]'>View Profile</button>
+									<button class='btn btn-success' style='height:5px;' href='memberlist'title='View Profile of $row[username]'>View Profile</button>
 
 									</div>
 						</div>
@@ -83,7 +83,7 @@ $name = $_SESSION['adminname'];
 								<div class='text-center' style='width: 100px;'><img class='rounded-circle' src='../signin/".$row['avatar']."' width='50px' height='50px' style='margin-right: 5px;margin-bottom: 0px;margin-left: -8px;padding-right: 0px;'></div>
 								<div class= style='padding-right: 200px;padding-left: 0px;width: 220px;'>
 									<h1 style='font-size: 16px;width: 150px;margin-top: 8px;'>".strtoupper($row['username'])."</h1>
-									<button class='btn btn-xs btn-danger' style='font-size:10px; color:white; font-weight:bold; padding:5px;'href='../profile.php?id=$row[id]'title='View Profile of $row[username]'>View Profile</button>
+									<button class='btn btn-xs btn-danger' style='font-size:10px; color:white; font-weight:bold; padding:5px;'href='memberlist'title='View Profile of $row[username]'>View Profile</button>
 
 									</div>
 						</div>
