@@ -265,7 +265,7 @@ echo '<h5'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h5>
                             $admins=$row['id'];
                             echo "
                               <div style='margin:20px;' class='col-md-3'>
-                              <video width='280'height='200' controls>
+                              <video width='280'height='200' controls controlsList='nodownload'>
                             <source src='$video_show' type='video/$fileextensionvalue'>
                             Your browser does not support the video tag.</video><br>".$row["description"]."
                             </div>

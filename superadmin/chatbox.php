@@ -163,6 +163,9 @@ input[type=file] {padding:5px 15px; background:#333332; border:0 none;
             <li class="active">
                     <a  class="h ha" href="chatbox.php">Chatbox</a>
                 </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
+                </li>
         </ul>
 
         <ul class="list-unstyled CTAs">

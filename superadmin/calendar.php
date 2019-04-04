@@ -221,6 +221,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
@@ -230,6 +233,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <li>
                     <a class="btn p-2 mr-2 mb-2 btn-danger article" href="logout.php" style="color:white; font-weight:bold;">Logout</a>
                 </li>
+                
             </ul>
         </nav>
 

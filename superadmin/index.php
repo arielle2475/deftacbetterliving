@@ -114,15 +114,16 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </ul>
             </li>
             <li >
-                    <a href="tutorial.php">Tutorials</a>
+                    <a href="tutorial.php" target="_blank">Tutorials</a>
                 </li>
             <li>
                 <a class="h ha"  href="calendar.php">Calendar</a>
             </li>
             <li >
                     <a  class="h ha" href="chatbox.php">Chatbox</a>
-
-
+                </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
                 </li>
         </ul>
 
@@ -236,15 +237,15 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                 <div class="row">
                                     <div class="col" style="width: 129px;font-size: 11px;">
                                         <h4 style="width: 135px;height: 32px;color: rgb(255,255,255);font-size: 30px;"> <?php
-                                                $query = "SELECT * FROM admins";
-                                                $get_admins = mysqli_query($connection, $query);
-                                                $count_admins = mysqli_num_rows($get_admins);
-                                                echo $count_admins;
-                                              ?> Admins</h4>
+                                                $query = "SELECT * FROM tutorials";
+                                                $get_tutorials = mysqli_query($connection, $query);
+                                                $count_tutorials = mysqli_num_rows($get_tutorials);
+                                                echo $count_tutorials;
+                                              ?> Tutorials</h4>
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-list" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 57px;"></i></div>
                                 </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
+                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="tutorial.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
                     </div>
                     <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
                         <div class="card shadow-lg" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
