@@ -110,6 +110,7 @@ if ($_POST['password'] == $_POST['confirmpassword']){
             <div class="form-group"><input class="form-control" type="password" name="password" required="" placeholder="Password" autocomplete="new-password" style="padding-top: -17px;">
                 <input class="form-control" type="password" name="confirmpassword" required="" placeholder="Confirm Password" autocomplete="new-password" style="height: 45px;"></div>
                  <div class="avatar"><label>Select your avatar: </label><input type="file" name="avatar" accept="image/*" required /></div>
+                 <br>
                  <input type="checkbox" required name="checkbox" value="check" id='agree'> I have read and agree to the following <a target="_blank" href="#portfolioModal" class="portfolio-link" data-toggle="modal" >Terms and Conditions</a>
                 <div
                 class="form-group"><button class="btn btn-primary btn-block" type="submit" value="Register" name="register" style="background-color: rgb(254,209,54);">Register</button></div><a href="login.php" class="forgot">Already a member? Login!</a></form>
