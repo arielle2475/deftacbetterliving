@@ -160,6 +160,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <li >
                     <a  class="h ha" href="chatbox.php">Chatbox</a>
                 </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
+                </li>
         </ul>
 
         <ul class="list-unstyled CTAs">
@@ -371,7 +374,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             $admins=$row['id'];
                             echo "<tr>
                             <td class='border rounded-0'>" . $row["id"]. "</td> 
-                            <td class='border rounded-0' align=center><video width='120' controls controlsList='nodownload'><source src='$video_show' type='video/$fileextensionvalue'>Your browser doesnot support the video tag.</video></td>
+                            <td class='border rounded-0' align=center><video width='120' controls ><source src='$video_show' type='video/$fileextensionvalue'>Your browser doesnot support the video tag.</video></td>
                             <td class='border rounded-0 text-center'>" . $row["title"]. "</td>
                             <td class='border rounded-0 text-center'>" . $row["description"]. "</td> "; ?>       
                             <td class="border rounded-0 text-center"><a href="#edit_tutorials<?php echo $row['id']; ?>" style="font-weight:bold; color:white;" data-toggle="modal" class="btn btn-warning">Edit</a>

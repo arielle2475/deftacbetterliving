@@ -194,6 +194,9 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
             <li >
                     <a href="chatbox.php">Chatbox</a>
                 </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">

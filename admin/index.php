@@ -155,14 +155,14 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                             <div class="card-body" style="height: 89px;background-color: #333333;">
                                 <div class="row">
                                     <div class="col" style="width: 129px;font-size: 11px;">
-                                        <h4 style="width: 135px;height: 32px;color: rgb(255,255,255);font-size: 30px;"> <?php
-                                                $query = "SELECT * FROM admins";
-                                                $get_admins = mysqli_query($connection, $query);
-                                                $count_admins = mysqli_num_rows($get_admins);
-                                                echo $count_admins;
-                                              ?> Admins</h4>
+                                        <h4 style="width: 135px;height: 32px;color: rgb(255,255,255);font-size: 22px;"> <?php
+                                                $query = "SELECT * FROM comments WHERE comment_status ='Unapproved'";  //Unapproved Comments
+                                                $get_unapproved_comment = mysqli_query($connection, $query);
+                                                $unapproved_comment_count  = mysqli_num_rows($get_unapproved_comment);
+                                                echo $unapproved_comment_count;
+                                              ?><br> Pending Comments</h4>
                                     </div>
-                                    <div class="col text-right" style="width: 85px;"><i class="fa  fa-user-secret" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 57px;"></i></div>
+                                    <div class="col text-right" style="width: 85px;"><i class="fa fa-list" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 57px;"></i></div>
                                 </div>
                                 </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="adminlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
                     </div>
@@ -180,60 +180,59 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                                     </div>
                                     <div class="col text-right" style="width: 85px;"><i class="fa fa-users" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 64px;"></i></div>
                                 </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="userlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
+                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="chatbox.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
                                 </div>
                     </div>
                 </div>
-                <div class="row d-xl-flex justify-content-xl-start" style="margin-top:-100px;padding-right: 1px;padding-left: 70px;">
-                    <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
-                        <div class="card shadow-lg" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
-                            <div class="card-body" style="height: 89px;background-color: #bfc247;">
-                                <div class="row">
-                                    <div class="col" style="width: 129px;font-size: 11px;">
-                                        <h4 style="width: 200px;height: 61px;color: rgb(255,255,255);font-size: 29px;"> <?php
-                                                $query = "SELECT * FROM comments WHERE comment_status ='Unapproved'";  //Unapproved Comments
-                                                $get_unapproved_comment = mysqli_query($connection, $query);
-                                                $unapproved_comment_count  = mysqli_num_rows($get_unapproved_comment);
-                                                echo $unapproved_comment_count;
-                                              ?><br> Pending Comments</h4>
-                                    </div>
-                                    <div class="col text-right" style="width: 85px;"><i class="fa fa-comments" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 73px;"></i></div>
-                                </div>
-                            </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="comment.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
-                    </div>
-                    <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
-                        <div class="card shadow" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
-                            <div class="card-body" style="height: 89px;background-color: #c24e47;">
-                                <div class="row">
-                                    <div class="col" style="width: 129px;font-size: 11px;">
-                                        <h4 style="width: 135px;height: 32px;color: rgb(255,255,255);font-size: 30px;"> <?php
-                                                $query = "SELECT * FROM admins";
-                                                $get_admins = mysqli_query($connection, $query);
-                                                $count_admins = mysqli_num_rows($get_admins);
-                                                echo $count_admins;
-                                              ?> Admins</h4>
-                                    </div>
-                                    <div class="col text-right" style="width: 85px;"><i class="fa fa-list" style="width: 60px;height: 54px;color: rgb(255,255,255);font-size: 57px;"></i></div>
-                                </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="#" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a></div>
-                    </div>
-                    <div class="col-4 py-3 mx-auto col-xl-4 col-lg-6 col-md-6 col-sm-12" style="min-width: 300px;min-height: 300px;width: 281px;height: 294px;padding: 0px;padding-top: -10px;margin: 0px;margin-right: 0px;margin-left: 0px;padding-bottom: 1px;">
-                        <div class="card shadow-lg" style="margin-right: 1px;padding-right: 0px;width: 298px;height: 182px;min-width: 0px;">
-                            <div class="card-body" style="height: 89px;background-color: #c24e47;">
-                                <div class="row">
-                                    <div class="col" style="width: 129px;font-size: 11px;">
-                                        <h4 style="width: 200px;height: 32px;color: rgb(255,255,255);font-size: 28px;"> <?php
-                                                $query = "SELECT * FROM users WHERE isActive ='0'";  //Nonmember Count
-                                                $get_nonmember = mysqli_query($connection, $query);
-                                                $count_nonmember  = mysqli_num_rows($get_nonmember);
-                                                echo $count_nonmember;
-                                              ?> <br>Nonmembers</h4>
-                                    </div>
-                                    <div class="col text-right" style="width: 85px;"><i class="fa fa-user-times" style="width: 50px;height: 44px;color: rgb(255,255,255);font-size: 55px;"></i></div>
-                                </div>
-                                </div><a class="btn text-center border-white p-2 mr-2 mb-2" role="button" href="userlist.php" style="width: 294px;margin: 0px;margin-right: 0px;margin-bottom: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;background-color: rgb(255,255,255);color: rgb(0,0,0);font-weight: bold;height: 42px;">View Details&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-circle-right" style="width: 24px;height: 25px;color: rgb(0,0,0);font-size: 20px;"></i></a>
-                                </div>
-                    </div>
+                <div class="container">
+	<div style="height:50px;"></div>
+	<div class="well" style="margin:auto; padding:auto; width:80%;">
+	<span style="font-size:25px; color:blue"><center><strong>PHP/MySQLi CRUD Operation using Bootstrap</strong></center></span>	
+		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add New</a></span>
+        <form action=""  method="post" enctype="multipart/form-data">
+        <br>
+        <br>
+       
+        <span class="user"><img class="rounded-circle mx-auto">
+       <input class="btn" type="file" name="avatar" value="../Signin/<?= $_SESSION['avatar']?>"  /> 
+       <br>
+       <input class="btn btn-warning" style="color:white;" type="submit" name="update" onsubmit="setTimeout(function () { window.location.reload(); }, 10)"value="Upload"/></td></form>
+
+
+    
+		<div style="height:50px;"></div>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<th>img</th>
+				<th>Announcement</th>
+				<th>Details</th>
+			</thead>
+			<tbody>
+			<?php
+				include('conn.php');
+				
+				$query=mysqli_query($conn,"select * from `announcement`");
+				while($row=mysqli_fetch_array($query)){
+					?>
+					<tr>
+                    <td><?php echo $row['img']; ?></td>
+						<td><?php echo $row['announcement']; ?></td>
+						<td><?php echo $row['details']; ?></td>
+						<td>
+							<a href="#edit<?php echo $row['userid']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
+							<a href="#del<?php echo $row['userid']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+							<?php include('button.php'); ?>
+						</td>
+					</tr>
+					<?php
+				}
+			
+			?>
+			</tbody>
+		</table>
+	</div>
+	<?php include('add_modal.php'); ?>
+</div>
                 </div>
                
         <script src="js/jquery-2.1.1.js"></script>
@@ -269,6 +268,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                   $count_admins  = mysqli_num_rows($get_admins);
                   ?>
                   
+
 
 
     <?php include "includes/footer.php"; ?>
