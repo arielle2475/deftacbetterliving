@@ -41,7 +41,7 @@ if(!$error) {
         
          
     }
-    if($email!=$row['email'])
+   elseif($email==$row['email'])
     {  
        echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
