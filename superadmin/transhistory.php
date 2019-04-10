@@ -229,12 +229,12 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput1" onkeyup="myFunction1()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Monthly Transactions</h1>
                         <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="monthlypdf.php" target="_blank">Print PDF</a></button>
 
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
-                        <table id="myTable" class="table">
+                        <table id="myTable1" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                         <th class="border rounded-0">Username</th>
@@ -290,12 +290,12 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-3">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
+                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput2" onkeyup="myFunction2()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Annual Transactions</h1>
                         <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="yearlypdf.php" target="_blank">Print PDF</a></button>
 
                         <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: px;">
-                        <table id="myTable" class="table">
+                        <table id="myTable2" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                                         <th class="border rounded-0">Username</th>
@@ -365,6 +365,46 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
             table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }       
+            }
+            }
+     </script>
+          <script>
+            function myFunction1() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput1");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable1");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }       
+            }
+            }
+     </script>
+               <script>
+            function myFunction2() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable2");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[3];

@@ -132,7 +132,8 @@ while ($row =  $result->fetch_assoc()){
                             data-target="#navbarResponsive" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="nav navbar-nav ml-auto text-uppercase" style="margin-top:10px;">
-							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="welcome.php">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="home.php">Home</a></li>
+							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="welcome.php">Events</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>
@@ -184,7 +185,7 @@ while ($row =  $result->fetch_assoc()){
 			<div class="carousel-item">
 
 				<!-- Slide Background -->
-				<img src="../assets/img/full5.jpg" alt="fw_al_007_02">
+				<img src="../assets/img/full5.jpg" alt="fw_al_007_0 2">
 
 				<!-- Slide Text Layer -->
 				<div class="fw_al_007_slide">

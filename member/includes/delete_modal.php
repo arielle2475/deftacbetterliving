@@ -71,7 +71,7 @@
             <input  type="text" name="u_gender" value="<?php echo $gender ?>" required="required" pattern="^[a-zA-Z]+$" placeholder="Enter Gender" class="form-control">
 
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Age</label></div>
-            <input type="text" name="u_age" value="<?php echo $age ?>" required="required" pattern="^[0-9]+$" placeholder="Enter Age" class="form-control">
+            <input type="text" name="u_age" value="<?php echo $age ?>" required="required" placeholder="Enter Birthday" class="form-control">
 
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Address</label></div>
             <input type="text" name="u_address" value="<?php echo $address ?>"  required="required" placeholder="Enter Address" class="form-control">
@@ -79,7 +79,7 @@
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Contact</label></div>
             <input type="text" name="u_contact" value="<?php echo $contact ?>"  required="required" pattern="^[\d\(\)\-+]+$" placeholder="Enter Contact" class="form-control">
             <div class="form-group" style="padding-top:10px "><label style="margin-bottom:-13px; font-weight:bold;">Why did you join?</label></div>
-            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" pattern="^[a-zA-Z\._ ]+$" placeholder="" class="form-control">
+            <input type="text" name="u_joindesc" value="<?php echo $desc ?>" required="required" placeholder="" class="form-control">
   
        <div class="modal-footer" style="height: 57px;">
        <button class="btn btn-warning form-btn" type="submit" name="submit" style="margin-top:20px; color:white;"  >Update</button>

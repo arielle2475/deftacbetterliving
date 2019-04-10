@@ -46,9 +46,9 @@ while ($row =  $result->fetch_assoc()){
                 <div class="card-header" role="tab" style="background-color: #343a40;">
                     <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1">How do I get my membership renewed?</a></h5>
                 </div>
-                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
+                <div class="collapse show item-1" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">You can get your membership renew by going to the gym itself and paying the membership fee of P2500.00.</p>
                     </div>
                 </div>
             </div>
@@ -56,9 +56,9 @@ while ($row =  $result->fetch_assoc()){
                 <div class="card-header" role="tab" style="background-color: #343a40;">
                     <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2">What will happen to my account?</a></h5>
                 </div>
-                <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-1">
+                <div class="collapse  item-2" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Your account will stay in our system but it will be inactive.</p>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ while ($row =  $result->fetch_assoc()){
                 </div>
                 <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">You can comeback after you paid the due amount.</p>
                     </div>
                 </div>
             </div>

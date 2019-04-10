@@ -44,9 +44,9 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 <div class="card-header" role="tab" style="background-color: rgb(52,58,64);">
                     <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1">What's the next step?</a></h5>
                 </div>
-                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
+                <div class="collapse  show item-1" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">The next step is to visit our branch which is in 49 Remar building Dona Soledad Avenue 1700 Better Living, Paranaque! Just approach Coach Maritn Toledo and he'll take care of you.</p>
                     </div>
                 </div>
             </div>
@@ -54,19 +54,19 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 <div class="card-header" role="tab" style="background-color: #343a40;">
                     <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2">What should I bring?</a></h5>
                 </div>
-                <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-1">
+                <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">You should bring your payment of P2500.00 and bring a rashguard with shorts if you don't have a Gi yet. A jiu-jitsu Gi is required to spar with your fellow members. We don't sell them here but we can refer you to one.</p>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header" role="tab" style="background-color: #343a40;">
-                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="div#accordion-1 .item-3">When can I come back?</a></h5>
+                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="div#accordion-1 .item-3">When are trainings available?</a></h5>
                 </div>
                 <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">The trainings are every Tuesday, Wednesday, and Thursday at 7:00pm-10:00pm while on Saturdays, it is at 10:00am-1:00pm. Sometimes the coaches announce if there are any special trainings in other day and time.</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                 </div>
                 <div class="collapse item-4" role="tabpanel" data-parent="#accordion-1">
                     <div class="card-body">
-                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                        <p class="card-text" style="font-family: Montserrat, sans-serif;">Nope! But like we said, you have to buy your own Gi in the future.</p>
                     </div>
                 </div>
             </div>

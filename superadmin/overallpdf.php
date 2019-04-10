@@ -8,11 +8,12 @@ class PDF extends FPDF
     function Header()
     {
         // Logo
-        $this->Image('../assets/img/deftac.jpg',10,5,70);
+        $this->Image('../assets/img/deftac.jpg',10,5,45);
         $this->SetFont('Arial','B',13);
         // Move to the right
         $this->Cell(80);
         // Title
+        
         $this->Cell(80,10,'Overall Transactions',1,0,'C');
         // Line break
         $this->Ln(20);

@@ -47,6 +47,48 @@ $sum = round($datediff / (60 * 60 * 24));
 
 switch(true)
 {
+    case ($sum == 14):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 14 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 13):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 13 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 12):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 12 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 11):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 11 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 10):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 10 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 9):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 9 days!")';
+    echo '</script>';
+    break;
+    
+    case ($sum == 8):
+    echo '<script language="javascript">';
+    echo 'alert("Your membership will expire in 8 days!")';
+    echo '</script>';
+    break;
+
     case ($sum == 7):
     echo '<script language="javascript">';
     echo 'alert("Your membership will expire in 7 days!")';
@@ -152,7 +194,8 @@ switch(true)
                             data-target="#navbarResponsive" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="nav navbar-nav ml-auto text-uppercase" style="margin-top:10px;">
-							<li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger " href="welcome.php">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="home.php">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="welcome.php">Events</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>

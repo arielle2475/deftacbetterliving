@@ -28,7 +28,8 @@ if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
                             data-target="#navbarResponsive" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="nav navbar-nav ml-auto text-uppercase" style="margin-top:10px;">
-                              <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="welcome.php">Home</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="home.php">Home</a></li>
+                              <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="welcome.php">Events</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger active" href="bloghome.php">Blog</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="gallery.php">Gallery</a></li>
                               <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="coaches.php">Coaches</a></li>

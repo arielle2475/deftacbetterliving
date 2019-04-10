@@ -26,9 +26,9 @@ $mail->MsgHTML($emailBody);
 $mail->IsHTML(true);
 
 if(!$mail->Send()) {
-	$error_message = 'Problem in Sending Password Recovery Email';
+	$error_message = '<p class="text-center bg-danger border rounded border-danger bounce animated "style="padding:10px; font-size:13px; margin-bottom:10px; color:white;">Problem in Sending Password Recovery Email</p>';
 } else {
-	$success_message = 'Please check your email to reset password!';
+	$success_message = '<p class="text-center bg-success border rounded border-success bounce animated "style="padding:10px; font-size:13px; margin-bottom:10px; color:white;">Please check your email to reset password!<p>';
 }
 
 ?>

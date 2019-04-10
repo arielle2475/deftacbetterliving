@@ -77,11 +77,11 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
          echo '</script>';
          break;
 
-         case ($sum == 0):
-         echo '<script language="javascript">';
-         echo 'alert("' . $name .'s membership has been expired!" )';
-         echo '</script>';
-         break;
+        //  case ($sum == 0):
+        //  echo '<script language="javascript">';
+        //  echo 'alert("' . $name .'s membership has been expired!" )';
+        //  echo '</script>';
+        //  break;
          default;
      
   }
@@ -315,7 +315,7 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     </td>";    
                     }
                     if($active==0){
-                    echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Blocked</button>
+                    echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Inactive</button>
                     </td>";    
                         }
                         echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='userlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 

@@ -32,7 +32,7 @@ if(!$error) {
     if (mysqli_num_rows($res) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($res);
-    if ($_SESSION['username']!=$name)
+    if ($_SESSION['username']==$name)
     {
      echo '<script type="text/javascript">'; 
         echo 'alert("Username already exist!");'; 
@@ -41,7 +41,7 @@ if(!$error) {
         
          
     }
-   elseif($email==$row['email'])
+   elseif($email===$row['email'])
     {  
        echo '<script type="text/javascript">'; 
     echo 'alert("Email already exist!");'; 
