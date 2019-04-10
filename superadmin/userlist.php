@@ -14,7 +14,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
 	header('location: ../Signin/loginadmin.php?error=Login to access.');
     }
  ?>
-<?php
+ <?php
 
 $servername = "localhost";
 $username = "root";
@@ -35,6 +35,55 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
     //  echo $sum;
      switch(true)
      {
+         case ($sum == 14):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 14 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 13):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 13 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 12):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 12 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 11):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 11 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 10):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 10 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 9):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 9 days!" )';
+         echo '</script>';
+         break;
+
+         
+         case ($sum == 8):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s will get his membership expired in 8 days!" )';
+         echo '</script>';
+         break;
+
+         
          case ($sum == 7):
          echo '<script language="javascript">';
          echo 'alert("' . $name .'s will get his membership expired in 7 days!" )';
@@ -77,11 +126,11 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
          echo '</script>';
          break;
 
-        //  case ($sum == 0):
-        //  echo '<script language="javascript">';
-        //  echo 'alert("' . $name .'s membership has been expired!" )';
-        //  echo '</script>';
-        //  break;
+         case ($sum == 0):
+         echo '<script language="javascript">';
+         echo 'alert("' . $name .'s membership has been expired!" )';
+         echo '</script>';
+         break;
          default;
      
   }
@@ -93,9 +142,11 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
 
     <title>Deftac Betterliving</title>
+    
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
+
     <link rel="stylesheet" href="assets/css/style5.css">
 
     <!-- Font Awesome JS -->
@@ -108,6 +159,20 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/-Filterable-Gallery-with-Lightbox-BS4-.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/Dynamically-Queue-Videos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/SlideShow.js"></script>
+    <script src="assets/js/Swipe-Slider-9.js"></script>
+    <script src="assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -117,9 +182,11 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
             });
         });
     </script>
- 
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
-
 <body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
 
     <div class="wrapper">
@@ -208,74 +275,35 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                 </li>
             </ul>
         </nav>
+                <!-- Page Content Holder -->
+                <div id="content">
 
-        <!-- Page Content Holder -->
-        <div id="content">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+        </button>
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
+                </li>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            <h1>Welcome, <span class="user"><?= $_SESSION['adminname'] ?></span></p>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
-                    <h1>Membership Status</h1>
-                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
-
-                    <?php
-
-                    //////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
-                    $per_page = 5;// Number of images per page, change for a different number of images per page
-
-                    // Get the page and offset value:
-                    if (isset($_GET['page'])) {
-                    $page = $_GET['page'] - 1;
-                    $offset = $page * $per_page;
-                    }
-                    else {
-                    $page = 0;
-                    $offset = 0;
-                    } 
-
-                    // Count the total number of images in the table ordering by their id's ascending:
-                    $members = "SELECT count(id) FROM users, mfillup WHERE users.username = mfillup.username ORDER by id ASC";
-                    $result = mysqli_query($connection, $members);
-
-                    $row = mysqli_fetch_array($result);
-                    $total_members = $row[0];
-
-                    // Calculate the number of pages:
-                    if ($total_members > $per_page) {//If there is more than one page
-                    $pages_total = ceil($total_members / $per_page);
-                    $page_up = $page + 2;
-                    $page_down = $page;
-                    $display ='';//leave the display variable empty so it doesn't hide anything
-                    } 
-                    else {//Else if there is only one page
-                    $pages = 1;
-                    $pages_total = 1;
-                    $display = ' class="display-none"';//class to hide page count and buttons if only one page
-                    } 
-
-                    ////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
-                    ?>
-                    <table id="myTable" class="table">
+            </ul>
+        </div>
+    </div>
+</nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
+        <h1>Membership Status</h1>
+        <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff; padding:30px;">
+<br>
+  <table id="employee_data" class="table table-striped table-bordered"> 
                     <thead>
                         <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
                         <th class="border rounded-0">Avatar</th>
@@ -296,15 +324,16 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
                     <?php
                     // DISPLAY THE images:
                     //Select the images from the table limited as per our $offet and $per_page total:
-                    $result = mysqli_query($connection, "SELECT * FROM users, mfillup WHERE users.username = mfillup.username  ORDER by id ASC LIMIT $offset, $per_page");
+                    $result = mysqli_query($connection, "SELECT * FROM users, mfillup WHERE users.username = mfillup.username  ORDER by id ASC");
 
                     while($row = mysqli_fetch_array($result)) {//Open the while array loop
 
                     //Define the image variable:
-                    $members=$row['username'];
+                
                     $id = $row['id'];
+                    $members=$row['username'];
 
-                    echo "<tr><td class='text-center border rounded-0'><img class='img-thumbnail border rounded-0 shadow-sm' src='../signin/".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
+                    echo "<tr><td><img class='img-thumbnail border rounded-0 shadow-sm' src='../signin/".$row['avatar']."' width='100px' height='100px' style='width: 100px;'></td>
                     <td class='border rounded-0'>" . $row["username"]. "</td> <td class='border rounded-0'>" . $row["email"]. "</td><td class='border rounded-0'>" . $row["reg_date"]. "</td><td class='border rounded-0'>" . $row["approvedDate"]. "</td><td class='border rounded-0'>" . $row["expirationDate"]. "</td>"	;
                     $active=$row['isActive'];
 
@@ -329,70 +358,12 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                     echo '<div class="clearfix"></div>';// Gallery end
 
-
-
-
-                    $i = 1;//Set the $i counting variable to 1
-
-                    echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
-                    echo '<h6'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h6>';//Page out of total pages
-
-                    // Show the page buttons:
-                    if ($page) {
-                    echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <a href="userlist.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
-                    echo '<a href="userlist.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
-                    } 
-
-                    for ($i=1;$i<=$pages_total;$i++) {
-                    if(($i==$page+1)) {
-                    echo '<a href="userlist.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
-                    }
-
-                    //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
-                    if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
-                    echo '<a href="userlist.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
-                    } 
-
-                    if (($page + 1) != $pages_total) {
-                    echo '<a href="userlist.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
-                    echo '<a href="userlist.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
-                    }
-                    echo "</div></div";// #pageNav end
-                    ?>
-                    <div id="pagination"><!-- #pagination start -->
-
-
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>                       
-    
+                    
+?> 
 
 <!-- Admin Modal -->
 <?php include "includes/confirm_admin_modal.php"; ?>
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>       <script>
+   <script>
      $('#myModal').on('show.bs.modal', function (e) {
   
   $(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
@@ -423,7 +394,13 @@ $('#confirmModal').on('show.bs.modal', function (e) {
     document.querySelector('#confirmForm').action = formAction;
 });
 </script>
-        <?php include "includes/footer.php"; ?>
+
 
 </body>
 </html>
+
+<script>
+$(document).ready( function () {
+    $('#employee_data').DataTable();
+} );
+</script>

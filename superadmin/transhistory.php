@@ -34,6 +34,21 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!-- Footer -->
+<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/-Filterable-Gallery-with-Lightbox-BS4-.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/Dynamically-Queue-Videos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/SlideShow.js"></script>
+    <script src="assets/js/Swipe-Slider-9.js"></script>
+    <script src="assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -43,7 +58,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             });
         });
     </script>
- 
+ <!-- Data Tables -->
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
 
 <body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
@@ -171,8 +188,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
                     <h1 style="font-size: 35px;">Transaction History</h1> 
                     <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="overallpdf.php" target="_blank">Print PDF</a></button>
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
+                        <div class="table-responsive shadow-lg" style="padding:30px; background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
@@ -229,11 +245,10 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput1" onkeyup="myFunction1()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Monthly Transactions</h1>
                         <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="monthlypdf.php" target="_blank">Print PDF</a></button>
 
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: 5px;">
+                        <div class="table-responsive shadow-lg" style="padding:30px; background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable1" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
@@ -290,11 +305,10 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-3">
                     <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput2" onkeyup="myFunction2()" ptitle="Type in a name"  placeholder="Search Date" class="search form-control"></div>
                         <h1 style="font-size: 35px;">Current Annual Transactions</h1>
                         <button class="btn btn-warning p-2 mr-2 mb-2" style="margin-left:10px;font-weight:bold; color:white;"><a href="yearlypdf.php" target="_blank">Print PDF</a></button>
 
-                        <div class="table-responsive shadow-lg" style="background-color: #ffffff;height: 500px;margin: px;">
+                        <div class="table-responsive shadow-lg" style="padding:30px; background-color: #ffffff;height: 500px;margin: 5px;">
                         <table id="myTable2" class="table">
                                 <thead>
                                     <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
@@ -359,69 +373,21 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
         </div>
     </div>
 
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[3];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-          <script>
-            function myFunction1() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput1");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable1");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[3];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-               <script>
-            function myFunction2() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput2");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable2");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[3];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-        <?php include "includes/footer.php"; ?>
-
 </body>
 </html>
-
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+<script>
+$(document).ready( function () {
+    $('#myTable1').DataTable();
+} );
+</script>
+<script>
+$(document).ready( function () {
+    $('#myTable2').DataTable();
+} );
+</script>
      

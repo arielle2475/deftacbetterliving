@@ -33,46 +33,6 @@
             </div>
             
 
-            <?php
-
-//////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
-// Number of images per page, change for a different number of images per page
-
-// number of rows per page
-$per_page = 5;
-
-// Get the page and offset value:
-if (isset($_GET['page'])) {
-$page = $_GET['page'] - 1;
-$offset = $page * $per_page;
-}
-else {
-$page = 0;
-$offset = 0;
-} 
-
-// Count the total number of images in the table ordering by their id's ascending:
-$post_id = "SELECT count(post_id) FROM posts ORDER by post_id ASC";
-$query = mysqli_query($connection, $post_id);
-
-$row = mysqli_fetch_array($query);
-$total_posts = $row[0];
-
-// Calculate the number of pages:
-if ($total_posts > $per_page) {//If there is more than one page
-$pages_total = ceil($total_posts / $per_page);
-$page_up = $page + 2;
-$page_down = $page;
-$display ='';//leave the display variable empty so it doesn't hide anything
-} 
-else {//Else if there is only one page
-$pages = 1;
-$pages_total = 1;
-$display = ' class="display-none"';//class to hide page count and buttons if only one page
-} 
-
-////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
-?>
             <table id="myTable" class="table">
             <thead>
                                 <tr class="text-center" style="font-size:12px;color: rgb(255,255,255);background-color: #333332;">
@@ -93,7 +53,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             <tbody>
                                <?php
 
-                                $query = "SELECT * FROM posts ORDER BY post_id ASC LIMIT $offset, $per_page";
+                                $query = "SELECT * FROM posts ORDER BY post_id ASC";
                                 $get_posts = mysqli_query($connection, $query);
 
                                 while($row = mysqli_fetch_assoc($get_posts)){
@@ -146,43 +106,12 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                             </table></div></div>';// Gallery end
                           
                             echo '<div class="clearfix"></div></div>  ';// Gallery end
-
+?>
 
                           
 
 
-                            $i = 1;//Set the $i counting variable to 1
-
-                            echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
-                            echo '<h6'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h6>';//Page out of total pages
-        
-                            // Show the page buttons:
-                            if ($page) {
-                            echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <a href="posts.php" class="btn btn-outline-dark" style="color="black; padding:5px;"><<</a>';//Button for first page [<<]
-                            echo '<a href="?page='.$page_down.'" class="btn btn-outline-dark"><</a>';//Button for previous page [<]
-                            } 
-        
-                            for ($i=1;$i<=$pages_total;$i++) {
-                            if(($i==$page+1)) {
-                            echo '<a href="?page='.$i.'" class="btn btn-outline-dark active">'.$i.'</a>';//Button for active page, underlined using 'active' class
-                            }
-        
-                            //In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
-                            if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
-                            echo '<a href="?page='.$i.'" class="btn btn-outline-dark">'.$i.'</a>'; }
-                            } 
-        
-                            if (($page + 1) != $pages_total) {
-                            echo '<a href="?page='.$page_up.'" class="btn btn-outline-dark">></a>';//Button for next page [>]
-                            echo '<a href="?page='.$pages_total.'" class="btn btn-outline-dark">>></a>';//Button for last page [>>]
-                            }
-                            echo "</div></div";// #pageNav end
-                            ?>
-  
-                  <div id="pagination"><!-- #pagination start -->
-
-                          </div>
+                           
                     </div>
                 </div>
             </div>
@@ -197,22 +126,6 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
     	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
 
 });
-/*
-$('document').ready(function(){
-	
-  $('.delete_link').on('click',function(){
-        var id = $(this).attr("rel");
-        var delete_url = "posts.php?delete="+id; 
-        
-        $('.modal_delete_link').attr('href', delete_url);
-        
-        $('#myModal').modal('show');
-    })
-
-
-});*/
-    
-
 
 </script>
 

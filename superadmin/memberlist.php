@@ -36,7 +36,21 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+ <!-- Footer -->
+ <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/-Filterable-Gallery-with-Lightbox-BS4-.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/Dynamically-Queue-Videos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/SlideShow.js"></script>
+    <script src="assets/js/Swipe-Slider-9.js"></script>
+    <script src="assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -46,6 +60,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
         });
     </script>
  
+<!-- Data Tables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
 
 <body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
@@ -160,52 +177,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Name" class="search form-control"></div>
                     <h1>Membership List</h1>
-                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff; padding:30px;">
 
-<?php
-
-//////FIRST WE SET UP THE TOTAL images PER PAGE & CALCULATIONS:
-// Number of images per page, change for a different number of images per page
-
-// number of rows per page
-$per_page = 5;
-if(isset($_POST['num_rows'])){
-    $per_page = $_POST['num_rows'];
-}
-// Get the page and offset value:
-if (isset($_GET['page'])) {
-$page = $_GET['page'] - 1;
-$offset = $page * $per_page;
-}
-else {
-$page = 0;
-$offset = 0;
-} 
-
-// Count the total number of images in the table ordering by their id's ascending:
-$admins = "SELECT count(username) FROM mfillup ORDER by username ASC";
-$result = mysqli_query($connection, $admins);
-
-$row = mysqli_fetch_array($result);
-$total_admins = $row[0];
-
-// Calculate the number of pages:
-if ($total_admins > $per_page) {//If there is more than one page
-$pages_total = ceil($total_admins / $per_page);
-$page_up = $page + 2;
-$page_down = $page;
-$display ='';//leave the display variable empty so it doesn't hide anything
-} 
-else {//Else if there is only one page
-$pages = 1;
-$pages_total = 1;
-$display = ' class="display-none"';//class to hide page count and buttons if only one page
-} 
-
-////// THEN WE DISPLAY THE PAGE COUNT AND BUTTONS:
-?>
                         <table id="myTable" class="table">
                             <thead>
                                 <tr class="text-center" style="color: rgb(255,255,255);background-color: #333332;">
@@ -233,7 +207,7 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                           die("Connection failed: " . mysqli_connect_error());
                                       }
 
-                                      $sql = "SELECT * FROM mfillup ORDER by username ASC LIMIT $offset, $per_page";
+                                      $sql = "SELECT * FROM mfillup ORDER by username ASC ";
 
                                       $result = mysqli_query($conn, $sql);
                                       echo "<tr>";
@@ -253,36 +227,6 @@ $display = ' class="display-none"';//class to hide page count and buttons if onl
                                       </table>";
                                       mysqli_close($conn);
                                       ?></div>
-<div id="pagination"><!-- #pagination start -->
-<?php 
-$i = 1;//Set the $i counting variable to 1
-
-echo '<div style="text-align: center; padding:10px;"  id="pageNav"'.$display.'>';//our $display variable will do nothing if more than one page
-echo '<h6'.$display.'>Page '; echo $page + 1 .' of '.$pages_total.'</h6>';//Page out of total pages
-
-// Show the page buttons:
-if ($page) {
-echo '  <div class="btn-group mr-2" role="group" aria-label="First group">
-<a href="memberlist.php"><button  class="btn btn-outline-dark" style="color="black; padding:5px;"><<</button></a>';//Button for first page [<<]
-echo '<a href="memberlist.php?page='.$page_down.'"><button  class="btn btn-outline-dark"><</button></a>';//Button for previous page [<]
-} 
-
-for ($i=1;$i<=$pages_total;$i++) {
-if(($i==$page+1)) {
-echo '<a href="memberlist.php?page='.$i.'"><button  class="btn btn-outline-dark active">'.$i.'</button></a>';//Button for active page, underlined using 'active' class
-}
-
-//In this next if statement, calculate how many buttons you'd like to show. You can remove to show only the active button and first, prev, next and last buttons:
-if(($i!=$page+1)&&($i<=$page+3)&&($i>=$page-1)) {//This is set for two below and two above the current page
-echo '<a href="memberlist.php?page='.$i.'"><button  class="btn btn-outline-dark">'.$i.'</button></a>'; }
-} 
-
-if (($page + 1) != $pages_total) {
-echo '<a href="memberlist.php?page='.$page_up.'"><button  class="btn btn-outline-dark">></button></a>';//Button for next page [>]
-echo '<a href="memberlist.php?page='.$pages_total.'"><button  class="btn btn-outline-dark">>></button></a>';//Button for last page [>>]
-}
-echo "</div></div>";// #pageNav end
-?>
 
 
 </div>
@@ -291,28 +235,12 @@ echo "</div></div>";// #pageNav end
 </div>
 </div>
 </div>
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-        <?php include "includes/footer.php"; ?>
-
+   
 </body>
 </html>
 
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>

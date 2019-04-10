@@ -36,7 +36,21 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+ <!-- Footer -->
+ <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/-Filterable-Gallery-with-Lightbox-BS4-.js"></script>
+    <script src="assets/js/agency.js"></script>
+    <script src="assets/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="assets/js/Dynamically-Queue-Videos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="assets/js/Profile-Edit-Form.js"></script>
+    <script src="assets/js/SlideShow.js"></script>
+    <script src="assets/js/Swipe-Slider-9.js"></script>
+    <script src="assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -45,7 +59,9 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             });
         });
     </script>
- 
+ <!-- Data Tables -->
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </head>
 
 <body style="font-family: Montserrat, sans-serif;background-color: rgb(235,235,235);">
@@ -60,8 +76,33 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
             <ul class="list-unstyled components">
             <li>
                     <a href="index.php">Dashboard</a>
-                </li>      
-                <li class="active">
+                </li>                <li>
+                    <a href="#memberSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Members</a>
+                    <ul class="collapse list-unstyled" id="memberSubmenu">
+                        <li>
+                            <a href="memberlist.php">Membership List</a>
+                        </li>
+                        <li>
+                            <a href="userlist.php">Membership Status</a>
+                        </li>
+                        <li>
+                            <a href="transhistory.php">Membership Transactions</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admins</a>
+                    <ul class="collapse list-unstyled" id="adminSubmenu">
+                        <li>
+                            <a href="adminlist.php">Admin Status</a>
+                        </li>
+                        <li>
+                            <a href="editadmin.php">Add Admin</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li  class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -70,7 +111,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                         <li>
                             <a href="categories.php">View Categories</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="comment.php">View Comments</a>
                         </li>
                     </ul>
@@ -89,11 +130,14 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 <li >
                     <a href="tutorial.php">Tutorials</a>
                 </li>
-                <li>
+                <li >
                     <a href="calendar.php">Calendar</a>
                 </li>
             <li >
                     <a href="chatbox.php">Chatbox</a>
+                </li>
+                <li >
+                    <a  class="h ha" href="usermanual.pdf">User Manual</a>
                 </li>
             </ul>
 
@@ -106,6 +150,7 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                 </li>
             </ul>
         </nav>
+
 
         <!-- Page Content Holder -->
         <div id="content">
@@ -132,9 +177,8 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
                     </div>
                 </div>
             </nav> <div class="col-md-12 search-table-col" data-aos="fade-up" data-aos-once="true" style="margin-top: 30px;padding-top: 0px;font-family: Montserrat, sans-serif;">
-                    <div class="form-group pull-right col-lg-4"><input type="text" id="myInput" onkeyup="myFunction()" ptitle="Type in a name"  placeholder="Search Username" class="search form-control"></div>
                     <h1>Comments</h1>
-                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff;">
+                    <div class="table-responsive border rounded shadow-lg" style="background-color: #ffffff; padding:30px;">
                     <div class="col-md-12">
                         
                         <?php
@@ -147,27 +191,6 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
         </div>
     </div>
 
-     <script>
-            function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-                }       
-            }
-            }
-     </script>
-
                                              
 <script>
   
@@ -176,8 +199,14 @@ if(!isset($_SESSION['adminname']) && !isset($_SESSION['password'])){
     	$(this).find('.modal_delete_link').attr('href', $(e.relatedTarget).data('href'));
 
 });
-        <?php include "includes/footer.php"; ?>
+ 
+</script>
 
 </body>
 </html>
 
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
