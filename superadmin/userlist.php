@@ -1,6 +1,7 @@
 <?php include "includes/admin_header.php"; ?>
-<?php include "includes/confirm_admin_modal.php"; ?>
 <?php include "includes/delete_modal.php"; ?>
+<?php include "includes/confirm_admin_modal.php"; ?>
+<?php include "includes/extend_admin_modal.php"; ?>
 <?php 
 include('../SignIn/serverAdmin.php');
 if (!isAdmin()) {
@@ -341,14 +342,20 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 
                     if($active==1){
                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Active</button>
+                                                                   <button class='btn p-2 mr-2 mb-2' data-toggle='modal' data-target='#extendModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(40,167,69);'>Add 1 month</button>
                     </td>";    
                     }
                     if($active==0){
                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(220,53,69);'>Inactive</button>
                     </td>";    
                         }
-                        echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='userlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
-                        </td></tr>";
+                    if($active==3){
+                     echo "<td class='text-center border rounded-0'><button class='btn p-2 mr-2 mb-2'data-toggle='modal' data-target='#confirmModal' data-user='$row' style='color: white;font-weight: bold;background-color: rgb(255, 128, 43);'>Pending</button>
+                     </td>";    
+                         }
+                     echo"<td class='text-center border rounded-0'><a class='btn p-2 mr-2 mb-2' style='color: white;font-weight: bold;background-color: rgb(220,53,69);' data-toggle='modal' data-target='#myModal' data-href='userlist.php?delete=$id' href='javascript:void(0)'>Delete</a> 
+                     </td>
+                      </tr>";
                  
 
                     }//Close the while array loop
@@ -362,7 +369,8 @@ while ($row = mysqli_fetch_array($run, MYSQLI_BOTH)) {
 ?> 
 
 <!-- Admin Modal -->
-<?php include "includes/confirm_admin_modal.php"; ?>
+
+
    <script>
      $('#myModal').on('show.bs.modal', function (e) {
   
@@ -392,6 +400,31 @@ $('#confirmModal').on('show.bs.modal', function (e) {
     document.querySelector('#confirmButton').classList.remove(buttonStyleOpposite);
 
     document.querySelector('#confirmForm').action = formAction;
+});
+
+</script>
+<script>
+$('#extendModal').on('show.bs.modal', function (e) {
+  
+  let user = JSON.parse(e.relatedTarget.dataset.user);
+  console.log(user);
+  let number = 'Member #';
+  let title = 'Are you sure you want to ';
+  let titleQuestion = 'extend?';
+  let buttonStyle =  'btn-success';
+  let buttonStyleOpposite = 'btn-success';
+  let buttonText = 'Extend';
+  let formAction = 'includes/extend.php?update='+user.id;
+  
+  document.querySelector('#userID').textContent = number + user.id;
+  document.querySelector('#extendTitle').textContent = title + titleQuestion;
+  document.querySelector('#userImage').src = '../signin/'+user.avatar;
+  document.querySelector('#userName').textContent = user.username;
+  document.querySelector('#userEmail').textContent = user.email;
+  
+  document.querySelector('#extendButton').value = buttonText;
+
+  document.querySelector('#extendForm').action = formAction;
 });
 </script>
 
